@@ -1,0 +1,729 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="UICollectionViewLayout——layout实现圆形布局UICollectionViewLayout子类基本方法
+UICollectionView 和 UITableView 最重要的区别就是 UICollectionView 并不知道如何布局，它把布局机制委托给了 UICollectionViewLayout 子类，默认的布局方式是 UICollectionFlowViewLay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UICollectionViewLayout——layout实现圆形布局">
+<meta property="og:url" content="https://rzrobert.github.io/2017/04/12/UICollectionViewLayout——layout实现圆形布局/index.html">
+<meta property="og:site_name" content="任征的个人博客">
+<meta property="og:description" content="UICollectionViewLayout——layout实现圆形布局UICollectionViewLayout子类基本方法
+UICollectionView 和 UITableView 最重要的区别就是 UICollectionView 并不知道如何布局，它把布局机制委托给了 UICollectionViewLayout 子类，默认的布局方式是 UICollectionFlowViewLay">
+<meta property="og:updated_time" content="2017-06-01T10:08:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UICollectionViewLayout——layout实现圆形布局">
+<meta name="twitter:description" content="UICollectionViewLayout——layout实现圆形布局UICollectionViewLayout子类基本方法
+UICollectionView 和 UITableView 最重要的区别就是 UICollectionView 并不知道如何布局，它把布局机制委托给了 UICollectionViewLayout 子类，默认的布局方式是 UICollectionFlowViewLay">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6422122',
+      author: 'rzrobert'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rzrobert.github.io/2017/04/12/UICollectionViewLayout——layout实现圆形布局/"/>
+
+
+
+
+
+  <title> UICollectionViewLayout——layout实现圆形布局 | 任征的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">任征的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/04/12/UICollectionViewLayout——layout实现圆形布局/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="robert">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/robert.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="任征的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="任征的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UICollectionViewLayout——layout实现圆形布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-12T10:17:04+08:00">
+                2017-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS小片段/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS小片段</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/12/UICollectionViewLayout——layout实现圆形布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/12/UICollectionViewLayout——layout实现圆形布局/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="UICollectionViewLayout——layout实现圆形布局"><a href="#UICollectionViewLayout——layout实现圆形布局" class="headerlink" title="UICollectionViewLayout——layout实现圆形布局"></a>UICollectionViewLayout——layout实现圆形布局</h1><h2 id="UICollectionViewLayout子类"><a href="#UICollectionViewLayout子类" class="headerlink" title="UICollectionViewLayout子类"></a>UICollectionViewLayout子类</h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><blockquote>
+<p>UICollectionView 和 UITableView 最重要的区别就是 UICollectionView 并不知道如何布局，它把布局机制委托给了 UICollectionViewLayout 子类，默认的布局方式是 UICollectionFlowViewLayout 类提供的流式布局。不过也可以创建自己的布局方式，通过继承 UICollectionViewLayout。</p>
+</blockquote>
+<h4 id="子类需要覆盖父类以下3个方法："><a href="#子类需要覆盖父类以下3个方法：" class="headerlink" title="子类需要覆盖父类以下3个方法："></a>子类需要覆盖父类以下3个方法：</h4><ul>
+<li>prepareLayout</li>
+<li>layoutAttributesForElementsInRect:(CGRect)rect</li>
+<li>collectionViewContentSize</li>
+</ul>
+<a id="more"></a>
+<h3 id="void-prepareLayout"><a href="#void-prepareLayout" class="headerlink" title="- (void)prepareLayout"></a>- (void)prepareLayout</h3><p>初始化参数,只会调动一次，可以设置每个块的属性，可设置的属性包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//配置item的布局位置</div><div class="line">@property (nonatomic) CGRect frame;</div><div class="line">//配置item的中心</div><div class="line">@property (nonatomic) CGPoint center;</div><div class="line">//配置item的尺寸</div><div class="line">@property (nonatomic) CGSize size;</div><div class="line">//配置item的3D效果</div><div class="line">@property (nonatomic) CATransform3D transform3D;</div><div class="line">//配置item的bounds</div><div class="line">@property (nonatomic) CGRect bounds NS_AVAILABLE_IOS(7_0);</div><div class="line">//配置item的旋转</div><div class="line">@property (nonatomic) CGAffineTransform transform NS_AVAILABLE_IOS(7_0);</div><div class="line">//配置item的alpha</div><div class="line">@property (nonatomic) CGFloat alpha;</div><div class="line">//配置item的z坐标</div><div class="line">@property (nonatomic) NSInteger zIndex; // default is 0</div><div class="line">//配置item的隐藏</div><div class="line">@property (nonatomic, getter=isHidden) BOOL hidden; </div><div class="line">//item的indexpath</div><div class="line">@property (nonatomic, strong) NSIndexPath *indexPath;</div><div class="line">//获取item的类型</div><div class="line">@property (nonatomic, readonly) UICollectionElementCategory representedElementCategory;</div><div class="line">@property (nonatomic, readonly, nullable) NSString *representedElementKind; </div><div class="line">//一些创建方法</div><div class="line">+ (instancetype)layoutAttributesForCellWithIndexPath:(NSIndexPath *)indexPath;</div><div class="line">+ (instancetype)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind withIndexPath:(NSIndexPath *)indexPath;</div><div class="line">+ (instancetype)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind withIndexPath:(NSIndexPath *)indexPath;</div></pre></td></tr></table></figure>
+<h3 id="CGSize-collectionViewContentSize"><a href="#CGSize-collectionViewContentSize" class="headerlink" title="- (CGSize)collectionViewContentSize"></a>- (CGSize)collectionViewContentSize</h3><p>布局首先要提供的信息就是滚动区域大小，这样collection view才能正确的管理滚动。布局对象必须在此时计算它内容的总大小，包括supplementary views和decoration views。</p>
+<h3 id="NSArray-layoutAttributesForElementsInRect-CGRect-rect"><a href="#NSArray-layoutAttributesForElementsInRect-CGRect-rect" class="headerlink" title="- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect"></a>- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect</h3><p>实现必须返回一个包含UICollectionViewLayoutAttributes对象的数组.其中包括：中心(center)，尺寸(size)，透明度(alpha)，层级(zIndex)，动画效果(transform3D),隐藏(hidden)等。UICollectionViewLayoutAttributes对象决定了cell的摆设位置（frame）。</p>
+<p>传入参数rect是一个包含要显示区域的块。这个块的大小一般为2倍的collectionview的长度，只有滑动即将超过rect的范围，rect才会改变数值，保证了显示范围内的所有元素都在rect内。这个参数只是框定了显示范围，自定义layout的时候并不需要用到这个参数，而是使用contentOffset等属性，设置位置信息。</p>
+<h2 id="圆形布局实例"><a href="#圆形布局实例" class="headerlink" title="圆形布局实例"></a><a href="http://git.oschina.net/null_549_8696/criclelayout" target="_blank" rel="external">圆形布局实例</a></h2><p><a href="http://git.oschina.net/null_549_8696/criclelayout" target="_blank" rel="external">http://git.oschina.net/null_549_8696/criclelayout</a></p>
+<h3 id="CircleLayout-h"><a href="#CircleLayout-h" class="headerlink" title="CircleLayout.h"></a>CircleLayout.h</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface CircleLayout : UICollectionViewLayout</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="CircleLayout-m"><a href="#CircleLayout-m" class="headerlink" title="CircleLayout.m"></a>CircleLayout.m</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">#import &quot;CircleLayout.h&quot;</div><div class="line"></div><div class="line">#define kScreenWidth [UIScreen mainScreen].bounds.size.width</div><div class="line">#define kScreenHeight [UIScreen mainScreen].bounds.size.height</div><div class="line">#define ITEM_SIZE 50</div><div class="line"></div><div class="line">@interface CircleLayout()&#123;</div><div class="line">    NSMutableArray&lt;UICollectionViewLayoutAttributes *&gt; * _attributeAttay;</div><div class="line">    int _itemCount; //item 个数</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CircleLayout</div><div class="line"></div><div class="line">- (void)prepareLayout</div><div class="line">&#123;</div><div class="line">    [super prepareLayout];</div><div class="line">    //获取item的个数</div><div class="line">    _itemCount = (int)[self.collectionView numberOfItemsInSection:0];</div><div class="line">    _attributeAttay = [[NSMutableArray alloc]init];</div><div class="line">    //先设定大圆的半径 取长和宽最短的</div><div class="line">    CGFloat radius = MIN(self.collectionView.frame.size.width, self.collectionView.frame.size.height)/2;</div><div class="line">    //计算圆心位置</div><div class="line">    CGPoint center = CGPointMake(self.collectionView.frame.size.width/2, self.collectionView.frame.size.height/2);</div><div class="line">    //设置每个item的大小为50*50 则半径为25</div><div class="line">    for (int i=0; i&lt;_itemCount; i++) &#123;</div><div class="line">        UICollectionViewLayoutAttributes * attris = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];</div><div class="line">        //设置item大小</div><div class="line">        attris.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);</div><div class="line">        //计算每个item的圆心位置</div><div class="line">        //算出的x y值还要减去item自身的半径大小</div><div class="line">        float x = center.x + cosf(2 * M_PI/_itemCount * i) * (radius - 50);</div><div class="line">        float y = center.y + sinf(2 * M_PI/_itemCount * i) * (radius - 50);</div><div class="line">        </div><div class="line">        attris.center = CGPointMake(x, y);</div><div class="line">        [_attributeAttay addObject:attris];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//设置内容区域的大小</div><div class="line">-(CGSize)collectionViewContentSize&#123;</div><div class="line">    return self.collectionView.frame.size;</div><div class="line">&#125;</div><div class="line">//返回设置数组</div><div class="line">-(NSArray&lt;UICollectionViewLayoutAttributes *&gt; *)layoutAttributesForElementsInRect:(CGRect)rect&#123;</div><div class="line">    return _attributeAttay;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="controller使用"><a href="#controller使用" class="headerlink" title="controller使用"></a>controller使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CircleLayout * layout = [[CircleLayout alloc]init];</div><div class="line">UICollectionView * collect  = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];</div><div class="line">collect.delegate=self;</div><div class="line">collect.dataSource=self;</div><div class="line"></div><div class="line">[collect registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@&quot;cellid&quot;];</div><div class="line">[self.view addSubview:collect];</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/16/iOS最普通的图片选择modal/" rel="next" title="iOS最普通的图片选择modal">
+                <i class="fa fa-chevron-left"></i> iOS最普通的图片选择modal
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/19/ios上传图片旋转问题/" rel="prev" title="ios上传图片旋转问题">
+                ios上传图片旋转问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/robert.jpg"
+               alt="robert" />
+          <p class="site-author-name" itemprop="name">robert</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UICollectionViewLayout——layout实现圆形布局"><span class="nav-number">1.</span> <span class="nav-text">UICollectionViewLayout——layout实现圆形布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UICollectionViewLayout子类"><span class="nav-number">1.1.</span> <span class="nav-text">UICollectionViewLayout子类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子类需要覆盖父类以下3个方法："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">子类需要覆盖父类以下3个方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-prepareLayout"><span class="nav-number">1.1.2.</span> <span class="nav-text">- (void)prepareLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CGSize-collectionViewContentSize"><span class="nav-number">1.1.3.</span> <span class="nav-text">- (CGSize)collectionViewContentSize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSArray-layoutAttributesForElementsInRect-CGRect-rect"><span class="nav-number">1.1.4.</span> <span class="nav-text">- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圆形布局实例"><span class="nav-number">1.2.</span> <span class="nav-text">圆形布局实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CircleLayout-h"><span class="nav-number">1.2.1.</span> <span class="nav-text">CircleLayout.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CircleLayout-m"><span class="nav-number">1.2.2.</span> <span class="nav-text">CircleLayout.m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controller使用"><span class="nav-number">1.2.3.</span> <span class="nav-text">controller使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+<!--    <i class="fa fa-heart"></i> -->
+    <i class="fa fa-motorcycle" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+</div>
+<div class="theme-info">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rzheng';
+      var disqus_identifier = '2017/04/12/UICollectionViewLayout——layout实现圆形布局/';
+
+      var disqus_title = "UICollectionViewLayout——layout实现圆形布局";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

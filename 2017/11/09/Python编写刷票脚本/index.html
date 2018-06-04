@@ -1,0 +1,802 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<script>
+    (function(){
+        if('python'){
+            if (prompt('请输入文章密码') !== 'python'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <meta name="keywords" content="tools," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言最近公司总是参加一些评比大会，动辄就开启投票模式，在微信群里号召……于是乎想起自己研究下刷票脚本，本着学习的心态开始使用Python试水。
+主要内容
+抓包分析
+提交表单
+开始狂刷
+学习requests">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python编写刷票脚本">
+<meta property="og:url" content="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/index.html">
+<meta property="og:site_name" content="任征的个人博客">
+<meta property="og:description" content="前言最近公司总是参加一些评比大会，动辄就开启投票模式，在微信群里号召……于是乎想起自己研究下刷票脚本，本着学习的心态开始使用Python试水。
+主要内容
+抓包分析
+提交表单
+开始狂刷
+学习requests">
+<meta property="og:image" content="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/refresh.jpg">
+<meta property="og:image" content="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/image01.png">
+<meta property="og:image" content="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/image02.png">
+<meta property="og:updated_time" content="2017-12-28T01:26:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python编写刷票脚本">
+<meta name="twitter:description" content="前言最近公司总是参加一些评比大会，动辄就开启投票模式，在微信群里号召……于是乎想起自己研究下刷票脚本，本着学习的心态开始使用Python试水。
+主要内容
+抓包分析
+提交表单
+开始狂刷
+学习requests">
+<meta name="twitter:image" content="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/refresh.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6422122',
+      author: 'rzrobert'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/"/>
+
+
+
+
+
+  <title> Python编写刷票脚本 | 任征的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">任征的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/11/09/Python编写刷票脚本/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="robert">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/robert.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="任征的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="任征的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python编写刷票脚本
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T13:42:40+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/09/Python编写刷票脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/09/Python编写刷票脚本/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近公司总是参加一些评比大会，动辄就开启投票模式，在微信群里号召……于是乎想起自己研究下刷票脚本，本着学习的心态开始使用Python试水。<br><img src="/2017/11/09/Python编写刷票脚本/refresh.jpg" alt="refresh"></p>
+<h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><ul>
+<li><a href="#markdown-analysis"><strong>抓包分析</strong></a></li>
+<li><a href="#markdown-submit"><strong>提交表单</strong></a></li>
+<li><a href="#markdown-votes"><strong>开始狂刷</strong></a></li>
+<li><a href="#markdown-requests"><strong>学习requests</strong></a></li>
+</ul>
+<a id="more"></a>
+<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a><a name="markdown-analysis"></a>抓包分析</h3><h4 id="防刷票策略"><a href="#防刷票策略" class="headerlink" title="防刷票策略"></a>防刷票策略</h4><ul>
+<li>限制IP : 相应的对策就是伪造IP。要想伪造IP的话首先要知道后端服务器程序是怎么获取IP的。至少有三个HTTP HEAD可以获取用户端IP，REMOTE_ADDR、HTTP_VIA、HTTP_FORWARDED_FOR 。REMOTE_ADDR是WEB服务器获取的用户IP值，也就是最终的外网IP，但它的重复值太多，所以不能作为唯一判断标志。 HTTP_VIA是倒数第二个代理服务器/网关的IP。 HTTP_FORWARDED_FOR是所有网关和你自己的IP列表。大部分服务端程序都是用HTTP_FORWARDED_FOR来获取IP。这样我们就可以通过修改HTTP_FORWARDED_FOR来达到伪造IP的目的。<ul>
+<li>下面是一个简单的模拟，一般校验IP大致格式对就行，没有校验IP类型：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 开始模拟IP池</div><div class="line">   myipaddr = (&apos;%s.%s.%s.%s&apos; % (random.randint(1, 254), random.randint(1,254), random.randint(1, 254), random.randint(1, 254)))</div><div class="line">   headers = &#123;</div><div class="line">       &apos;Accept&apos;: &apos;*/*&apos;,</div><div class="line">       &apos;Accept-Encoding&apos;:&apos;gzip, deflate&apos;,</div><div class="line">       &apos;Accept-Language&apos;:&apos;zh-CN,zh;q=0.9,en;q=0.8&apos;,</div><div class="line">       &apos;Connection&apos;:&apos;keep-alive&apos;,</div><div class="line">       &apos;Host&apos;:&apos;vote.i.iqiyi.com&apos;,</div><div class="line">       &apos;Upgrade-Insecure-Requests&apos;:&apos;1&apos;,</div><div class="line">       &apos;X-Forwarded-For&apos;: myipaddr,</div><div class="line">       &apos;User-Agent&apos;:&apos;Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1&apos;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>限制网页来源 : 修改 http header中的refer。</p>
+</li>
+<li><p>限制 user-agent : 修改 http header中的 user-agent。</p>
+</li>
+<li><p>限制cookie : 修改 http header中的 cookie</p>
+<blockquote>
+<p>cookie主要是告诉服务器上一次通信信息，有些投票只需要删除cookie就行了</p>
+</blockquote>
+</li>
+<li><p>限制登录后才可以投票 :模拟登录</p>
+</li>
+<li><p>验证码验证 : 简单的验证码可以通过OCR识别技术，增加干扰策略的验证码就比较复杂了，不予讨论。</p>
+</li>
+</ul>
+<h4 id="分析接口"><a href="#分析接口" class="headerlink" title="分析接口"></a>分析接口</h4><p>先用浏览器打开摇刷票的地址，打开控制台，点击<code>Network</code>。在点击投票之前最好先清空一次控制台。</p>
+<p><img src="/2017/11/09/Python编写刷票脚本/image01.png" alt="refresh"></p>
+<ul>
+<li>Request URL：请求网址，我们提交的信息就是传到这个url里面去</li>
+<li>Request method：请求方法，我们提交的方法</li>
+<li>Request Header：请求头，这里会有一些限制比如cookie等</li>
+<li>Query String Parameters：请求参数，注意每次点击投票时这里的参数变化，大部分限制在这里面</li>
+<li>Response：这个是接口返回信息，注意查看提交失败时返回的信息，以便分析表单提交</li>
+</ul>
+<h3 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a><a name="markdown-submit"></a>提交表单</h3><p>提交表单就需要网络请求，Python有自己的标准网络库，urllib,urllib2。但这两个库用着都不是特别的顺畅，我选择使用requests库——方便简洁，下面是<code>requests</code>的传送门：</p>
+<p><a name="markdown-requests"></a></p>
+<ul>
+<li><a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="external">requests库中文学习</a></li>
+<li><a href="http://docs.python-requests.org/en/master/" target="_blank" rel="external">requests库英文学习</a></li>
+</ul>
+<p>关于requests这个库就不多说了，教程上挺详细的。</p>
+<p>上表单代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#coding:utf-8</div><div class="line"></div><div class="line">import requests</div><div class="line">import random</div><div class="line"></div><div class="line"># 请求地址</div><div class="line">url = &apos;http://vote.i.iqiyi.com/eagle/outer/join_common_vote&apos;</div><div class="line"># 记录每次打开网页的标志，这里随机改变一下，有可能会重复</div><div class="line">openudid = (&apos;u15101956%s&apos; % random.randint(10000, 99999))</div><div class="line">param = &#123;</div><div class="line">    &apos;vid&apos;:&apos;0892123840010520&apos;,</div><div class="line">    &apos;appid&apos;:&apos;6&apos;,</div><div class="line">    &apos;options&apos;:&apos;&#123;&quot;0351502000020895&quot;:[&quot;0222991909030835&quot;]&#125;&apos;,</div><div class="line">    &apos;openudid&apos;:openudid,</div><div class="line">    &apos;_&apos;:&apos;1510197787937&apos;,</div><div class="line">    &apos;callback&apos;:&apos;Zepto1510197773887&apos;</div><div class="line">    &#125;</div><div class="line"># 伪装IP，创建IP池</div><div class="line">myipaddr = (&apos;%s.%s.%s.%s&apos; % (random.randint(1, 254), random.randint(1,254), random.randint(1, 254), random.randint(1, 254)))</div><div class="line">headers = &#123;</div><div class="line">    &apos;Accept&apos;: &apos;*/*&apos;,</div><div class="line">    &apos;Accept-Encoding&apos;:&apos;gzip, deflate&apos;,</div><div class="line">    &apos;Accept-Language&apos;:&apos;zh-CN,zh;q=0.9,en;q=0.8&apos;,</div><div class="line">    &apos;Connection&apos;:&apos;keep-alive&apos;,</div><div class="line">    &apos;Host&apos;:&apos;vote.i.iqiyi.com&apos;,</div><div class="line">    &apos;Upgrade-Insecure-Requests&apos;:&apos;1&apos;,</div><div class="line">    &apos;X-Forwarded-For&apos;: myipaddr,</div><div class="line">    &apos;User-Agent&apos;:&apos;Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1&apos;</div><div class="line">&#125;</div><div class="line"># 开始请求</div><div class="line">r = requests.get(url, params=param, headers=headers)</div><div class="line"># 打印一下请求结果</div><div class="line">print(&apos;============Successful brush votes ! ========= \n %s&apos; % r.text)</div></pre></td></tr></table></figure>
+<p>这里说明一下：        </p>
+<p> <strong><code>#!/usr/bin/python</code></strong></p>
+<p>是用来说明脚本语言是python的<br>是要用/usr/bin下面的程序（工具）python，这个解释器，来解释python脚本，来运行python脚本的。</p>
+<p> <strong><code>#coding:utf-8</code></strong></p>
+<p>是用来指定文件编码为utf-8的，没有这个的话脚本里面的中文注释和打印会报错</p>
+<h3 id="开始狂刷"><a href="#开始狂刷" class="headerlink" title="开始狂刷"></a><a name="markdown-votes"></a>开始狂刷</h3><p>查看上一步的打印结果，如果可行，开始升级狂刷：</p>
+<ul>
+<li>为了脚本不会因为请求超时一直挂起，设置请求超时时间<code>timeout</code>，不要设置太长会影响效率</li>
+<li>为了超时之后程序能继续运行，处理请求异常——使用try语句    </li>
+</ul>
+<p>开始升级狂刷（完整代码）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#coding:utf-8</div><div class="line"></div><div class="line">import requests</div><div class="line">import random</div><div class="line">import time</div><div class="line"></div><div class="line">def refresh(count):</div><div class="line">    # 请求地址</div><div class="line">    url = &apos;http://vote.i.iqiyi.com/eagle/outer/join_common_vote&apos;</div><div class="line">    # 记录每次打开网页的标志，这里随机改变一下，有可能会重复</div><div class="line">    openudid = (&apos;u15101956%s&apos; % random.randint(10000, 99999))</div><div class="line">    param = &#123;</div><div class="line">        &apos;vid&apos;:&apos;0892123840010520&apos;,</div><div class="line">        &apos;appid&apos;:&apos;6&apos;,</div><div class="line">        &apos;options&apos;:&apos;&#123;&quot;0351502000020895&quot;:[&quot;0222991909030835&quot;]&#125;&apos;,</div><div class="line">        &apos;openudid&apos;:openudid,</div><div class="line">        &apos;_&apos;:&apos;1510197787937&apos;,</div><div class="line">        &apos;callback&apos;:&apos;Zepto1510197773887&apos;</div><div class="line">        &#125;</div><div class="line">    # 伪装IP，创建IP池</div><div class="line">    myipaddr = (&apos;%s.%s.%s.%s&apos; % (random.randint(1, 254), random.randint(1,254), random.randint(1, 254), random.randint(1, 254)))</div><div class="line">    headers = &#123;</div><div class="line">        &apos;Accept&apos;: &apos;*/*&apos;,</div><div class="line">        &apos;Accept-Encoding&apos;:&apos;gzip, deflate&apos;,</div><div class="line">        &apos;Accept-Language&apos;:&apos;zh-CN,zh;q=0.9,en;q=0.8&apos;,</div><div class="line">        &apos;Connection&apos;:&apos;keep-alive&apos;,</div><div class="line">        &apos;Host&apos;:&apos;vote.i.iqiyi.com&apos;,</div><div class="line">        &apos;Upgrade-Insecure-Requests&apos;:&apos;1&apos;,</div><div class="line">        &apos;X-Forwarded-For&apos;: myipaddr,</div><div class="line">        &apos;User-Agent&apos;:&apos;Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1&apos;</div><div class="line">    &#125;</div><div class="line">    # 开始请求</div><div class="line">    try:</div><div class="line">        r = requests.get(url, params=param, headers=headers, timeout=0.5)</div><div class="line">    except:</div><div class="line">        print(&apos;-------请求异常！！！-------&apos;)</div><div class="line">    else:</div><div class="line">        # 控制刷票速度，刷票过快有些会被拦截</div><div class="line">        time.sleep( 0.01 )</div><div class="line">        # 打印一下请求结果</div><div class="line">        print(&apos;**********Number of successful brush votes: %s ! ********** \n %s&apos; % (count, r.text))</div><div class="line"></div><div class="line"># 开始循环刷票</div><div class="line">count = 0</div><div class="line"># 总票数</div><div class="line">totalCount = 1000</div><div class="line">while count &lt; totalCount:</div><div class="line">        refresh(count)</div><div class="line">        count += 1</div><div class="line"></div><div class="line">print(&apos;=======刷票%s次完成！======&apos; % totalCount)</div></pre></td></tr></table></figure>
+<p><strong>运行结果：</strong><br><img src="/2017/11/09/Python编写刷票脚本/image02.png" alt="刷票结果"></p>
+<h3 id="附加安装库（Mac电脑）"><a href="#附加安装库（Mac电脑）" class="headerlink" title="附加安装库（Mac电脑）"></a>附加安装库（Mac电脑）</h3><h4 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h4><ol>
+<li>先执行：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</div></pre></td></tr></table></figure>
+<ol>
+<li>再执行：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo python get-pip.py</div></pre></td></tr></table></figure>
+<h4 id="安装requests"><a href="#安装requests" class="headerlink" title="安装requests"></a>安装requests</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install requests</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/07/pyenv-Commands/" rel="next" title="pyenv Commands">
+                <i class="fa fa-chevron-left"></i> pyenv Commands
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/18/前端技术整理——Immutable/" rel="prev" title="前端技术整理——Immutable">
+                前端技术整理——Immutable <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/robert.jpg"
+               alt="robert" />
+          <p class="site-author-name" itemprop="name">robert</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要内容"><span class="nav-number">2.</span> <span class="nav-text">主要内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓包分析"><span class="nav-number">3.</span> <span class="nav-text">抓包分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#防刷票策略"><span class="nav-number">3.1.</span> <span class="nav-text">防刷票策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析接口"><span class="nav-number">3.2.</span> <span class="nav-text">分析接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交表单"><span class="nav-number">4.</span> <span class="nav-text">提交表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始狂刷"><span class="nav-number">5.</span> <span class="nav-text">开始狂刷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加安装库（Mac电脑）"><span class="nav-number">6.</span> <span class="nav-text">附加安装库（Mac电脑）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装pip"><span class="nav-number">6.1.</span> <span class="nav-text">安装pip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装requests"><span class="nav-number">6.2.</span> <span class="nav-text">安装requests</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+<!--    <i class="fa fa-heart"></i> -->
+    <i class="fa fa-motorcycle" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+</div>
+<div class="theme-info">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rzheng';
+      var disqus_identifier = '2017/11/09/Python编写刷票脚本/';
+
+      var disqus_title = "Python编写刷票脚本";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
