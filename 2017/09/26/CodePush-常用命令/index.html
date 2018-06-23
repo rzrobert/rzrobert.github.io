@@ -93,49 +93,18 @@
 
 
 
-<meta name="description" content="目录
-添加新的APP
-发布命令
-回滚命令
-查看发布历史
-查看APP的CodePush的key
-清空历史发布
-查看当前帐号下所有的APP
-查看APP当前版本更新状况
-列出应用的所有合作者
-解除某位合作者关系
-APP转让">
+<meta name="description" content="目录 添加新的APP 发布命令 回滚命令 查看发布历史 查看APP的CodePush的key 清空历史发布 查看当前帐号下所有的APP 查看APP当前版本更新状况 列出应用的所有合作者 解除某位合作者关系 APP转让">
+<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodePush 常用命令">
 <meta property="og:url" content="https://rzrobert.github.io/2017/09/26/CodePush-常用命令/index.html">
 <meta property="og:site_name" content="任征的个人博客">
-<meta property="og:description" content="目录
-添加新的APP
-发布命令
-回滚命令
-查看发布历史
-查看APP的CodePush的key
-清空历史发布
-查看当前帐号下所有的APP
-查看APP当前版本更新状况
-列出应用的所有合作者
-解除某位合作者关系
-APP转让">
+<meta property="og:description" content="目录 添加新的APP 发布命令 回滚命令 查看发布历史 查看APP的CodePush的key 清空历史发布 查看当前帐号下所有的APP 查看APP当前版本更新状况 列出应用的所有合作者 解除某位合作者关系 APP转让">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-16T09:51:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodePush 常用命令">
-<meta name="twitter:description" content="目录
-添加新的APP
-发布命令
-回滚命令
-查看发布历史
-查看APP的CodePush的key
-清空历史发布
-查看当前帐号下所有的APP
-查看APP当前版本更新状况
-列出应用的所有合作者
-解除某位合作者关系
-APP转让">
+<meta name="twitter:description" content="目录 添加新的APP 发布命令 回滚命令 查看发布历史 查看APP的CodePush的key 清空历史发布 查看当前帐号下所有的APP 查看APP当前版本更新状况 列出应用的所有合作者 解除某位合作者关系 APP转让">
 
 
 
@@ -413,28 +382,28 @@ APP转让">
 <li><a href="#markdown-transfer"><strong>APP转让</strong></a></li>
 </ul>
 <a id="more"></a>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="添加新的APP"><a href="#添加新的APP" class="headerlink" title="添加新的APP"></a><a name="markdown-add"></a>添加新的APP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push app add rzupdate ios react-native</div></pre></td></tr></table></figure>
-<h4 id="发布命令"><a href="#发布命令" class="headerlink" title="发布命令"></a><a name="markdown-push"></a>发布命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">code-push release-react rzupdate ios --mandatory false --description &apos;热修复&apos; --deploymentName Staging</div><div class="line"></div><div class="line">// 完整命令参数</div><div class="line">code-push release-react &lt;appName&gt; &lt;platform&gt;</div><div class="line">[--bundleName &lt;bundleName&gt;]</div><div class="line">[--deploymentName &lt;deploymentName&gt;]</div><div class="line">[--description &lt;description&gt;]</div><div class="line">[--development &lt;development&gt;]</div><div class="line">[--disabled &lt;disabled&gt;]</div><div class="line">[--entryFile &lt;entryFile&gt;]</div><div class="line">[--mandatory]</div><div class="line">[--sourcemapOutput &lt;sourcemapOutput&gt;]</div><div class="line">[--targetBinaryVersion &lt;targetBinaryVersion&gt;]</div><div class="line">[--rollout &lt;rolloutPercentage&gt;]</div></pre></td></tr></table></figure>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="添加新的APP"><a href="#添加新的APP" class="headerlink" title="添加新的APP"></a><a name="markdown-add"></a>添加新的APP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app add rzupdate ios react-native</span><br></pre></td></tr></table></figure>
+<h4 id="发布命令"><a href="#发布命令" class="headerlink" title="发布命令"></a><a name="markdown-push"></a>发布命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">code-push release-react rzupdate ios --mandatory false --description &apos;热修复&apos; --deploymentName Staging</span><br><span class="line"></span><br><span class="line">// 完整命令参数</span><br><span class="line">code-push release-react &lt;appName&gt; &lt;platform&gt;</span><br><span class="line">[--bundleName &lt;bundleName&gt;]</span><br><span class="line">[--deploymentName &lt;deploymentName&gt;]</span><br><span class="line">[--description &lt;description&gt;]</span><br><span class="line">[--development &lt;development&gt;]</span><br><span class="line">[--disabled &lt;disabled&gt;]</span><br><span class="line">[--entryFile &lt;entryFile&gt;]</span><br><span class="line">[--mandatory]</span><br><span class="line">[--sourcemapOutput &lt;sourcemapOutput&gt;]</span><br><span class="line">[--targetBinaryVersion &lt;targetBinaryVersion&gt;]</span><br><span class="line">[--rollout &lt;rolloutPercentage&gt;]</span><br></pre></td></tr></table></figure>
 <h4 id="回滚命令"><a href="#回滚命令" class="headerlink" title="回滚命令"></a><a name="markdown-rollback"></a>回滚命令</h4><p><strong>注意：</strong></p>
 <ul>
 <li>在用户提示之前回滚，该用户打开APP后，不会再获取到更新</li>
 <li>在用户更新该版本之后回滚，该用户再下次打开APP后提示上一次发布更新</li>
 <li>回滚不一定是回滚到之前版本，同样也可以回滚到之后版本，同样提示用户更新</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">code-push rollback rzupdate Staging</div><div class="line">// 或指定版本回滚</div><div class="line">code-push rollback rzupdate Staging --targetRelease v2</div></pre></td></tr></table></figure>
-<h4 id="查看发布历史"><a href="#查看发布历史" class="headerlink" title="查看发布历史"></a><a name="markdown-history"></a>查看发布历史</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push deployment history rzupdate Staging</div></pre></td></tr></table></figure>
-<h4 id="查看APP的CodePush的key"><a href="#查看APP的CodePush的key" class="headerlink" title="查看APP的CodePush的key"></a><a name="markdown-appKey"></a>查看APP的CodePush的key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push deployment ls rzupdate -k</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">code-push rollback rzupdate Staging</span><br><span class="line">// 或指定版本回滚</span><br><span class="line">code-push rollback rzupdate Staging --targetRelease v2</span><br></pre></td></tr></table></figure>
+<h4 id="查看发布历史"><a href="#查看发布历史" class="headerlink" title="查看发布历史"></a><a name="markdown-history"></a>查看发布历史</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment history rzupdate Staging</span><br></pre></td></tr></table></figure>
+<h4 id="查看APP的CodePush的key"><a href="#查看APP的CodePush的key" class="headerlink" title="查看APP的CodePush的key"></a><a name="markdown-appKey"></a>查看APP的CodePush的key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment ls rzupdate -k</span><br></pre></td></tr></table></figure>
 <h4 id="清空历史发布"><a href="#清空历史发布" class="headerlink" title="清空历史发布"></a><a name="markdown-clear"></a>清空历史发布</h4><p><strong>注意：</strong></p>
 <ul>
 <li>已经安装了清空前版本的更新，在清空之后不会产生回滚现象——保留当前更新。</li>
 <li><strong>该操作是<code>不可逆的</code>，故不要在生产环境是上使用</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push deployment clear rzupdate Staging</div></pre></td></tr></table></figure>
-<h4 id="查看当前帐号下所有的APP"><a href="#查看当前帐号下所有的APP" class="headerlink" title="查看当前帐号下所有的APP"></a><a name="markdown-appls"></a>查看当前帐号下所有的APP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push app ls</div></pre></td></tr></table></figure>
-<h4 id="查看APP当前版本更新状况"><a href="#查看APP当前版本更新状况" class="headerlink" title="查看APP当前版本更新状况"></a><a name="markdown-appstatus"></a>查看APP当前版本更新状况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push deployment ls rzupdate</div></pre></td></tr></table></figure>
-<h4 id="列出应用的所有合作者"><a href="#列出应用的所有合作者" class="headerlink" title="列出应用的所有合作者"></a><a name="markdown-collaborator"></a>列出应用的所有合作者</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push collaborator ls rzupdate</div></pre></td></tr></table></figure>
-<h4 id="解除某位合作者关系"><a href="#解除某位合作者关系" class="headerlink" title="解除某位合作者关系"></a><a name="markdown-rmcollaborator"></a>解除某位合作者关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push collaborator rm &lt;appName&gt; &lt;collaboratorEmail&gt;</div></pre></td></tr></table></figure>
-<h4 id="APP转让"><a href="#APP转让" class="headerlink" title="APP转让"></a><a name="markdown-transfer"></a>APP转让</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code-push app transfer &lt;appName&gt; &lt;newOwnerEmail&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment clear rzupdate Staging</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前帐号下所有的APP"><a href="#查看当前帐号下所有的APP" class="headerlink" title="查看当前帐号下所有的APP"></a><a name="markdown-appls"></a>查看当前帐号下所有的APP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看APP当前版本更新状况"><a href="#查看APP当前版本更新状况" class="headerlink" title="查看APP当前版本更新状况"></a><a name="markdown-appstatus"></a>查看APP当前版本更新状况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment ls rzupdate</span><br></pre></td></tr></table></figure>
+<h4 id="列出应用的所有合作者"><a href="#列出应用的所有合作者" class="headerlink" title="列出应用的所有合作者"></a><a name="markdown-collaborator"></a>列出应用的所有合作者</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push collaborator ls rzupdate</span><br></pre></td></tr></table></figure>
+<h4 id="解除某位合作者关系"><a href="#解除某位合作者关系" class="headerlink" title="解除某位合作者关系"></a><a name="markdown-rmcollaborator"></a>解除某位合作者关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push collaborator rm &lt;appName&gt; &lt;collaboratorEmail&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="APP转让"><a href="#APP转让" class="headerlink" title="APP转让"></a><a name="markdown-transfer"></a>APP转让</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app transfer &lt;appName&gt; &lt;newOwnerEmail&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -555,7 +524,7 @@ APP转让">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
