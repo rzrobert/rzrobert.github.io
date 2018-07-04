@@ -77,7 +77,7 @@
 </script>
 
 
-  <meta name="keywords" content="技术点整理," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,18 +93,19 @@
 
 
 
-<meta name="description" content="Immutable优缺点 传递数据时，Immutable Data可以提升组件渲染性能 Imutable Data是对可变对象和不可变对象的一个折中 可变对象——是指多个变量引用一个对象，这导致对象的time和value耦合，对象一旦改变无法重塑 不可变对象——是指每次用对一个对象就进行深复制，这导致内存浪费 Immutable——基于持久化数据结构，也就是使用就数据创建新数据时，旧数据依旧保存，">
-<meta name="keywords" content="技术点整理">
+<meta name="description" content="在RN项目中，有时涉及到原生组件开发。本博客记录了对iOS原生组件基础封装和使用的全过程。  核心步骤 新建一个RCTViewManager子类，管理要封装的组件 添加RCT_EXPORT_MODULE()标记宏命令 实现-(UIView *)view方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端技术整理——Immutable">
-<meta property="og:url" content="https://rzrobert.github.io/2017/12/18/前端技术整理——Immutable/index.html">
+<meta property="og:title" content="React-Native(RN)使用iOS原生组件">
+<meta property="og:url" content="https://rzrobert.github.io/2018/07/04/React-Native-RN-使用iOS原生组件/index.html">
 <meta property="og:site_name" content="任征的个人博客">
-<meta property="og:description" content="Immutable优缺点 传递数据时，Immutable Data可以提升组件渲染性能 Imutable Data是对可变对象和不可变对象的一个折中 可变对象——是指多个变量引用一个对象，这导致对象的time和value耦合，对象一旦改变无法重塑 不可变对象——是指每次用对一个对象就进行深复制，这导致内存浪费 Immutable——基于持久化数据结构，也就是使用就数据创建新数据时，旧数据依旧保存，">
+<meta property="og:description" content="在RN项目中，有时涉及到原生组件开发。本博客记录了对iOS原生组件基础封装和使用的全过程。  核心步骤 新建一个RCTViewManager子类，管理要封装的组件 添加RCT_EXPORT_MODULE()标记宏命令 实现-(UIView *)view方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T07:24:16.000Z">
+<meta property="og:image" content="https://rzrobert.github.io/2018/07/04/React-Native-RN-使用iOS原生组件/RZNativeView.png">
+<meta property="og:updated_time" content="2018-07-04T10:00:59.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端技术整理——Immutable">
-<meta name="twitter:description" content="Immutable优缺点 传递数据时，Immutable Data可以提升组件渲染性能 Imutable Data是对可变对象和不可变对象的一个折中 可变对象——是指多个变量引用一个对象，这导致对象的time和value耦合，对象一旦改变无法重塑 不可变对象——是指每次用对一个对象就进行深复制，这导致内存浪费 Immutable——基于持久化数据结构，也就是使用就数据创建新数据时，旧数据依旧保存，">
+<meta name="twitter:title" content="React-Native(RN)使用iOS原生组件">
+<meta name="twitter:description" content="在RN项目中，有时涉及到原生组件开发。本博客记录了对iOS原生组件基础封装和使用的全过程。  核心步骤 新建一个RCTViewManager子类，管理要封装的组件 添加RCT_EXPORT_MODULE()标记宏命令 实现-(UIView *)view方法">
+<meta name="twitter:image" content="https://rzrobert.github.io/2018/07/04/React-Native-RN-使用iOS原生组件/RZNativeView.png">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://rzrobert.github.io/2017/12/18/前端技术整理——Immutable/"/>
+  <link rel="canonical" href="https://rzrobert.github.io/2018/07/04/React-Native-RN-使用iOS原生组件/"/>
 
 
 
 
 
-  <title> 前端技术整理——Immutable | 任征的个人博客 </title>
+  <title> React-Native(RN)使用iOS原生组件 | 任征的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/12/18/前端技术整理——Immutable/">
+  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/04/React-Native-RN-使用iOS原生组件/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="robert">
@@ -285,7 +286,7 @@
             
             
               
-                前端技术整理——Immutable
+                React-Native(RN)使用iOS原生组件
               
             
           </h1>
@@ -300,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T13:54:09+08:00">
-                2017-12-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T14:32:53+08:00">
+                2018-07-04
               </time>
             
 
@@ -323,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
                   </a>
                 </span>
 
@@ -341,8 +342,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/18/前端技术整理——Immutable/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/18/前端技术整理——Immutable/" itemprop="commentCount"></span>
+                <a href="/2018/07/04/React-Native-RN-使用iOS原生组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/04/React-Native-RN-使用iOS原生组件/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,16 +369,27 @@
       
 
       
-        <h3 id="Immutable优缺点"><a href="#Immutable优缺点" class="headerlink" title="Immutable优缺点"></a>Immutable优缺点</h3><ul>
-<li>传递数据时，Immutable Data可以提升组件渲染性能</li>
-<li>Imutable Data是对可变对象和不可变对象的一个折中</li>
-<li><strong>可变对象</strong>——是指多个变量引用一个对象，这导致对象的time和value耦合，对象一旦改变无法重塑</li>
-<li><strong>不可变对象</strong>——是指每次用对一个对象就进行深复制，这导致内存浪费</li>
-<li><strong>Immutable</strong>——基于持久化数据结构，也就是使用就数据创建新数据时，旧数据依旧保存，而且为了避免深度复制，Immutable Data使用结果共享，也就是说如果对象树中的一个节点变化，只修改这个节点和受他影响的父节点，其他节点依旧共享。Immutable Data优点体现在降低了可变数据带来的时间和值的耦合，节省了内存，可以实现数据的时间旅行，也就是说数据可以重塑。</li>
+        <blockquote>
+<p>在RN项目中，有时涉及到原生组件开发。本博客记录了对iOS原生组件基础封装和使用的全过程。</p>
+</blockquote>
+<h3 id="核心步骤"><a href="#核心步骤" class="headerlink" title="核心步骤"></a>核心步骤</h3><ul>
+<li>新建一个<code>RCTViewManager</code>子类，管理要封装的组件</li>
+<li>添加<code>RCT_EXPORT_MODULE()</code>标记宏命令</li>
+<li>实现<code>-(UIView *)view</code>方法</li>
 </ul>
-<h3 id="Immutable"><a href="#Immutable" class="headerlink" title="Immutable"></a>Immutable</h3><ul>
-<li>普通的mutable对象深拷贝会将一整份数据都复制一遍，而Immutable对象在修改数据时并不会复制一整份数据，而是将变化的节点与未变化的节点的父子关系转移到一个新节点商，类似于链表的结构。从“复制”的角度来看，做到了最小化的复制，未变化的部分是共享的，Mutable在复制的时候是“全量”，而Immutable复制的是“增量”，对于内存空间的使用率</li>
-</ul>
+<a id="more"></a>
+<h3 id="封装一个最简单的组件"><a href="#封装一个最简单的组件" class="headerlink" title="封装一个最简单的组件"></a>封装一个最简单的组件</h3><h4 id="iOS原生部分"><a href="#iOS原生部分" class="headerlink" title="iOS原生部分"></a>iOS原生部分</h4><ol>
+<li>在需要供RN调用的模块地方实现<code>RCT_EXPORT_MODULE()</code>宏，将模块暴露给React端，不同于原生组件，原生模块类不需要继承自<code>RCTViewManager</code>以及不需要实现<code>- (UIView *)view</code>方法</li>
+<li>使用<code>RCT_EXPORT_VIEW_PROPERTY()</code>和<code>RCT_EXPORT_METHOD()</code>宏向React端暴露属性和方法(同原生组件)</li>
+<li>若需要回调，则仍需导入<code>#import &lt;React/RCTBridgeModule.h&gt;</code>，并且实现<code>RCTBridgeModule</code>协议，然后就可以使用<code>RCTResponseSenderBlock</code>来实现回调功能</li>
+</ol>
+<p><strong>注意</strong>：通过Xcode新建的子类，头部导入的是<code>#import &#39;RCTViewManager.h&#39;</code>，需要手动修改为：<code>#import &lt;React/RCTViewManager.h&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  RZCustomView.h</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &lt;React/RCTViewManager.h&gt;</span><br><span class="line"></span><br><span class="line">@interface RZCustomView : RCTViewManager</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  RZCustomView.m</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;RZCustomView.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation RZCustomView</span><br><span class="line">RCT_EXPORT_MODULE()</span><br><span class="line"></span><br><span class="line">- (UIView *)view &#123;</span><br><span class="line">  return [[UIView alloc] init];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h4><h5 id="新建一个js导入原生封装的组件"><a href="#新建一个js导入原生封装的组件" class="headerlink" title="新建一个js导入原生封装的组件"></a>新建一个js导入原生封装的组件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// NativeCustomView.js</span><br><span class="line">import &#123; requireNativeComponent &#125; from &apos;react-native&apos;;</span><br><span class="line"></span><br><span class="line">export default requireNativeComponent(&apos;RZCustomView&apos;, null);</span><br></pre></td></tr></table></figure>
+<h5 id="RN使用原生组件"><a href="#RN使用原生组件" class="headerlink" title="RN使用原生组件"></a>RN使用原生组件</h5><p>组件的<code>style</code>设置直接影响所封装组件最底层视图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// App.js</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">import &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">  View</span><br><span class="line">&#125; from &apos;react-native&apos;;</span><br><span class="line">import RZNativeView from &apos;./nativeCustomView.js&apos;</span><br><span class="line"></span><br><span class="line">type Props = &#123;&#125;;</span><br><span class="line">export default class App extends Component&lt;Props&gt; &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;RZNativeView style=&#123;&#123;height: 50, width: 150, backgroundColor: &apos;#ffa&apos;&#125;&#125; /&gt;</span><br><span class="line">        &lt;RZNativeView style=&#123;&#123;height: 50, width: 150, backgroundColor: &apos;#f0a&apos;, marginTop: 20&#125;&#125; /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: 1,</span><br><span class="line">    justifyContent: &apos;center&apos;,</span><br><span class="line">    alignItems: &apos;center&apos;,</span><br><span class="line">    backgroundColor: &apos;#F5FCFF&apos;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="/2018/07/04/React-Native-RN-使用iOS原生组件/RZNativeView.png" alt="RZNativeView"></p>
 
       
     </div>
@@ -399,19 +411,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/技术点整理/" rel="tag"># 技术点整理</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/Python编写刷票脚本/" rel="next" title="Python编写刷票脚本">
-                <i class="fa fa-chevron-left"></i> Python编写刷票脚本
+              <a href="/2018/06/25/Personal-note/" rel="next" title="Personal note">
+                <i class="fa fa-chevron-left"></i> Personal note
               </a>
             
           </div>
@@ -419,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/18/前端技术整理——Promise/" rel="prev" title="前端技术整理——Promise">
-                前端技术整理——Promise <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable优缺点"><span class="nav-number">1.</span> <span class="nav-text">Immutable优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable"><span class="nav-number">2.</span> <span class="nav-text">Immutable</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心步骤"><span class="nav-number">1.</span> <span class="nav-text">核心步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装一个最简单的组件"><span class="nav-number">2.</span> <span class="nav-text">封装一个最简单的组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS原生部分"><span class="nav-number">2.1.</span> <span class="nav-text">iOS原生部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS部分"><span class="nav-number">2.2.</span> <span class="nav-text">JS部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建一个js导入原生封装的组件"><span class="nav-number">2.2.1.</span> <span class="nav-text">新建一个js导入原生封装的组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RN使用原生组件"><span class="nav-number">2.2.2.</span> <span class="nav-text">RN使用原生组件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果图"><span class="nav-number">2.3.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -673,9 +675,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'rzheng';
-      var disqus_identifier = '2017/12/18/前端技术整理——Immutable/';
+      var disqus_identifier = '2018/07/04/React-Native-RN-使用iOS原生组件/';
 
-      var disqus_title = "前端技术整理——Immutable";
+      var disqus_title = "React-Native(RN)使用iOS原生组件";
 
 
       function run_disqus_script(disqus_script) {
