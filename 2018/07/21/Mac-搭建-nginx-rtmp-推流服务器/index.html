@@ -100,12 +100,13 @@
 <meta property="og:site_name" content="任征的个人博客">
 <meta property="og:description" content="Mac 搭建 nginx+rtmp 推流服务器 记录一次Mac本地搭建过程">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/nginx.png">
 <meta property="og:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png">
-<meta property="og:updated_time" content="2018-07-21T08:25:16.726Z">
+<meta property="og:updated_time" content="2018-07-21T08:34:41.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 搭建 nginx+rtmp 推流服务器">
 <meta name="twitter:description" content="Mac 搭建 nginx+rtmp 推流服务器 记录一次Mac本地搭建过程">
-<meta name="twitter:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png">
+<meta name="twitter:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/nginx.png">
 
 
 
@@ -375,21 +376,36 @@
 <a id="more"></a>
 <h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><h4 id="克隆nginx"><a href="#克隆nginx" class="headerlink" title="克隆nginx"></a>克隆nginx</h4><p>增加对 nginx 的扩展;也就是从github上下载,home-brew对ngixn的扩展</p>
 <p>执行克隆命令,github的项目(<a href="https://github.com/denji/homebrew-nginx" target="_blank" rel="noopener">https://github.com/denji/homebrew-nginx</a>)</p>
-<figure class="highlight plain"><figcaption><span>brew tap denji/nginx ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">注意: `brew tap homebrew/nginx` 报下面的错误, 使用`brew tap denji/nginx` 替代 homebrew/nginx was deprecated. This tap is now empty as all its formulae were migrated.</span><br><span class="line"></span><br><span class="line">#### 安装命令</span><br></pre></td></tr></table></figure>
-<p>brew install nginx-full –with-rtmp-module</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 查看安装位置</span><br></pre></td></tr></table></figure>
-<p>brew info nginx-full<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2. 测试nginx</span><br><span class="line">终端运行`nginx`</span><br><span class="line"></span><br><span class="line">然后浏览器访问：[http://localhost:8080](http://localhost:8080)</span><br><span class="line">![](./Mac-搭建-nginx-rtmp-推流服务器/nginx.png)</span><br><span class="line">出现上图，则表示成功</span><br><span class="line"></span><br><span class="line">**nginx常用方法:**</span><br><span class="line"></span><br><span class="line">重新加载配置文件:</span><br></pre></td></tr></table></figure></p>
-<p>nginx -s reload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">重新加载日志:</span><br></pre></td></tr></table></figure></p>
-<p>nginx -s reopen<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">停止 nginx:</span><br></pre></td></tr></table></figure></p>
-<p>nginx -s stop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">有序退出 nginx:</span><br></pre></td></tr></table></figure></p>
-<p>nginx -s quit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3.配置RTMP</span><br><span class="line">修改nginx.conf这个配置文件，配置rtmp</span><br><span class="line"></span><br><span class="line">nginx配置文件所在位置: `/usr/local/etc/nginx/nginx.conf`</span><br><span class="line"></span><br><span class="line">打开配置文件 /usr/local/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
-<p>http {<br>    ……<br>}</p>
-<p>#在http节点下面(也就是文件的尾部)加上rtmp配置：<br>rtmp {<br>    server {<br>        listen 1935;<br>        application abcs {<br>            live on;<br>            record off;<br>        }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* rtmp 是协议名称</span><br><span class="line">* server 说明内部中是服务器相关配置</span><br><span class="line">* listen 监听的端口号, rtmp协议的默认端口号是1935</span><br><span class="line">* application 访问的应用路径是 abcs</span><br><span class="line">* live on; 开启实时</span><br><span class="line">* record off; 不记录数据</span><br><span class="line"></span><br><span class="line">### 4.重启nginx</span><br></pre></td></tr></table></figure></p>
-<p>nginx -s reload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 5.安装ffmepg工具</span><br></pre></td></tr></table></figure></p>
-<p>brew install ffmpeg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 6.通过ffmepg命令进行推流</span><br></pre></td></tr></table></figure></p>
-<p>// 推流命令<br>ffmpeg -re -i [你的视频文件的绝对路径] -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</p>
-<p>// 如： ffmpeg -re -i /Users/robin/Downloads/暴裂无声_1080p.mp4  -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</p>
-<p><code>`</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap denji/nginx</span><br></pre></td></tr></table></figure>
+<p>注意: <code>brew tap homebrew/nginx</code> 报下面的错误, 使用<code>brew tap denji/nginx</code> 替代 homebrew/nginx was deprecated. This tap is now empty as all its formulae were migrated.</p>
+<h4 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nginx-full --with-rtmp-module</span><br></pre></td></tr></table></figure>
+<h4 id="查看安装位置"><a href="#查看安装位置" class="headerlink" title="查看安装位置"></a>查看安装位置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info nginx-full</span><br></pre></td></tr></table></figure>
+<h3 id="2-测试nginx"><a href="#2-测试nginx" class="headerlink" title="2. 测试nginx"></a>2. 测试nginx</h3><p>终端运行<code>nginx</code></p>
+<p>然后浏览器访问：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br><img src="/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/nginx.png" alt=""><br>出现上图，则表示成功</p>
+<p><strong>nginx常用方法:</strong></p>
+<p>重新加载配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<p>重新加载日志:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen</span><br></pre></td></tr></table></figure>
+<p>停止 nginx:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
+<p>有序退出 nginx:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s quit</span><br></pre></td></tr></table></figure>
+<h3 id="3-配置RTMP"><a href="#3-配置RTMP" class="headerlink" title="3.配置RTMP"></a>3.配置RTMP</h3><p>修改nginx.conf这个配置文件，配置rtmp</p>
+<p>nginx配置文件所在位置: <code>/usr/local/etc/nginx/nginx.conf</code></p>
+<p>打开配置文件 /usr/local/etc/nginx/nginx.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#在http节点下面(也就是文件的尾部)加上rtmp配置：</span><br><span class="line">rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        application abcs &#123;</span><br><span class="line">            live on;</span><br><span class="line">            record off;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rtmp 是协议名称</li>
+<li>server 说明内部中是服务器相关配置</li>
+<li>listen 监听的端口号, rtmp协议的默认端口号是1935</li>
+<li>application 访问的应用路径是 abcs</li>
+<li>live on; 开启实时</li>
+<li>record off; 不记录数据</li>
+</ul>
+<h3 id="4-重启nginx"><a href="#4-重启nginx" class="headerlink" title="4.重启nginx"></a>4.重启nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="5-安装ffmepg工具"><a href="#5-安装ffmepg工具" class="headerlink" title="5.安装ffmepg工具"></a>5.安装ffmepg工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ffmpeg</span><br></pre></td></tr></table></figure>
+<h3 id="6-通过ffmepg命令进行推流"><a href="#6-通过ffmepg命令进行推流" class="headerlink" title="6.通过ffmepg命令进行推流"></a>6.通过ffmepg命令进行推流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 推流命令</span><br><span class="line">ffmpeg -re -i [你的视频文件的绝对路径] -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</span><br><span class="line"></span><br><span class="line">// 如： ffmpeg -re -i /Users/robin/Downloads/暴裂无声_1080p.mp4  -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png" alt=""></p>
 
       
@@ -555,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-搭建-nginx-rtmp-推流服务器"><span class="nav-number">1.</span> <span class="nav-text">Mac 搭建 nginx+rtmp 推流服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆nginx"><span class="nav-number">1.1.1.</span> <span class="nav-text">克隆nginx</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-搭建-nginx-rtmp-推流服务器"><span class="nav-number">1.</span> <span class="nav-text">Mac 搭建 nginx+rtmp 推流服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆nginx"><span class="nav-number">1.1.1.</span> <span class="nav-text">克隆nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看安装位置"><span class="nav-number">1.1.3.</span> <span class="nav-text">查看安装位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-测试nginx"><span class="nav-number">1.2.</span> <span class="nav-text">2. 测试nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置RTMP"><span class="nav-number">1.3.</span> <span class="nav-text">3.配置RTMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-重启nginx"><span class="nav-number">1.4.</span> <span class="nav-text">4.重启nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-安装ffmepg工具"><span class="nav-number">1.5.</span> <span class="nav-text">5.安装ffmepg工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-通过ffmepg命令进行推流"><span class="nav-number">1.6.</span> <span class="nav-text">6.通过ffmepg命令进行推流</span></a></li></ol></li></ol></div>
             
 
           </div>
