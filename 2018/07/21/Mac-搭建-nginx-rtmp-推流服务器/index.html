@@ -67,8 +67,8 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 <script>
     (function(){
-        if('rzheng'){
-            if (prompt('请输入文章密码') !== 'rzheng'){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
                 alert('密码错误！');
                 history.back();
             }
@@ -77,7 +77,7 @@
 </script>
 
 
-  <meta name="keywords" content="note," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,18 +93,19 @@
 
 
 
-<meta name="description" content="Personal Note">
-<meta name="keywords" content="note">
+<meta name="description" content="Mac 搭建 nginx+rtmp 推流服务器 记录一次Mac本地搭建过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Personal note">
-<meta property="og:url" content="https://rzrobert.github.io/2018/06/25/Personal-note/index.html">
+<meta property="og:title" content="Mac 搭建 nginx+rtmp 推流服务器">
+<meta property="og:url" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/index.html">
 <meta property="og:site_name" content="任征的个人博客">
-<meta property="og:description" content="Personal Note">
+<meta property="og:description" content="Mac 搭建 nginx+rtmp 推流服务器 记录一次Mac本地搭建过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-03T02:30:42.156Z">
+<meta property="og:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png">
+<meta property="og:updated_time" content="2018-07-21T08:25:16.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Personal note">
-<meta name="twitter:description" content="Personal Note">
+<meta name="twitter:title" content="Mac 搭建 nginx+rtmp 推流服务器">
+<meta name="twitter:description" content="Mac 搭建 nginx+rtmp 推流服务器 记录一次Mac本地搭建过程">
+<meta name="twitter:image" content="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://rzrobert.github.io/2018/06/25/Personal-note/"/>
+  <link rel="canonical" href="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/"/>
 
 
 
 
 
-  <title> Personal note | 任征的个人博客 </title>
+  <title> Mac 搭建 nginx+rtmp 推流服务器 | 任征的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/06/25/Personal-note/">
+  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="robert">
@@ -285,7 +286,7 @@
             
             
               
-                Personal note
+                Mac 搭建 nginx+rtmp 推流服务器
               
             
           </h1>
@@ -300,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T12:09:07+08:00">
-                2018-06-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T15:04:26+08:00">
+                2018-07-21
               </time>
             
 
@@ -311,6 +312,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -319,8 +342,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/25/Personal-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/25/Personal-note/" itemprop="commentCount"></span>
+                <a href="/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,26 +369,28 @@
       
 
       
-        <h2 id="Personal-Note"><a href="#Personal-Note" class="headerlink" title="Personal Note"></a>Personal Note</h2><a id="more"></a>
-<h2 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h2><h3 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h3><ul>
-<li>ChineseLoremIpsum —— 生成中文文字占位符<ul>
-<li>输入 clorem 然后按 Alt + C 即可生成若干随机词汇</li>
-</ul>
-</li>
-<li><a href="https://packagecontrol.io/packages/Material%20Theme" target="_blank" rel="noopener">Material Theme</a><ul>
-<li>You can active this theme from: - Command palette Tools &gt; Command Palette (⌘/Ctrl + ⇧ + P) by typing Material Theme: Activate theme. - Context menu (Right click on the editor) and choose Material Theme &gt; Activate - Preferences &gt; Packages Settings and choose Material Theme &gt; Activate</li>
-</ul>
-</li>
-<li>Trailing​Spaces 自动检测删除尾部空格<ul>
-<li>{ “keys”: [“ctrl+shift+d”], “command”: “toggle_trailing_spaces” }</li>
-</ul>
-</li>
-<li><p>Color​Picker</p>
-<ul>
-<li>ctrl+shift+c</li>
-</ul>
-</li>
-</ul>
+        <h2 id="Mac-搭建-nginx-rtmp-推流服务器"><a href="#Mac-搭建-nginx-rtmp-推流服务器" class="headerlink" title="Mac 搭建 nginx+rtmp 推流服务器"></a>Mac 搭建 nginx+rtmp 推流服务器</h2><blockquote>
+<p>记录一次Mac本地搭建过程</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><h4 id="克隆nginx"><a href="#克隆nginx" class="headerlink" title="克隆nginx"></a>克隆nginx</h4><p>增加对 nginx 的扩展;也就是从github上下载,home-brew对ngixn的扩展</p>
+<p>执行克隆命令,github的项目(<a href="https://github.com/denji/homebrew-nginx" target="_blank" rel="noopener">https://github.com/denji/homebrew-nginx</a>)</p>
+<figure class="highlight plain"><figcaption><span>brew tap denji/nginx ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">注意: `brew tap homebrew/nginx` 报下面的错误, 使用`brew tap denji/nginx` 替代 homebrew/nginx was deprecated. This tap is now empty as all its formulae were migrated.</span><br><span class="line"></span><br><span class="line">#### 安装命令</span><br></pre></td></tr></table></figure>
+<p>brew install nginx-full –with-rtmp-module</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 查看安装位置</span><br></pre></td></tr></table></figure>
+<p>brew info nginx-full<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2. 测试nginx</span><br><span class="line">终端运行`nginx`</span><br><span class="line"></span><br><span class="line">然后浏览器访问：[http://localhost:8080](http://localhost:8080)</span><br><span class="line">![](./Mac-搭建-nginx-rtmp-推流服务器/nginx.png)</span><br><span class="line">出现上图，则表示成功</span><br><span class="line"></span><br><span class="line">**nginx常用方法:**</span><br><span class="line"></span><br><span class="line">重新加载配置文件:</span><br></pre></td></tr></table></figure></p>
+<p>nginx -s reload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">重新加载日志:</span><br></pre></td></tr></table></figure></p>
+<p>nginx -s reopen<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">停止 nginx:</span><br></pre></td></tr></table></figure></p>
+<p>nginx -s stop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">有序退出 nginx:</span><br></pre></td></tr></table></figure></p>
+<p>nginx -s quit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3.配置RTMP</span><br><span class="line">修改nginx.conf这个配置文件，配置rtmp</span><br><span class="line"></span><br><span class="line">nginx配置文件所在位置: `/usr/local/etc/nginx/nginx.conf`</span><br><span class="line"></span><br><span class="line">打开配置文件 /usr/local/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
+<p>http {<br>    ……<br>}</p>
+<p>#在http节点下面(也就是文件的尾部)加上rtmp配置：<br>rtmp {<br>    server {<br>        listen 1935;<br>        application abcs {<br>            live on;<br>            record off;<br>        }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* rtmp 是协议名称</span><br><span class="line">* server 说明内部中是服务器相关配置</span><br><span class="line">* listen 监听的端口号, rtmp协议的默认端口号是1935</span><br><span class="line">* application 访问的应用路径是 abcs</span><br><span class="line">* live on; 开启实时</span><br><span class="line">* record off; 不记录数据</span><br><span class="line"></span><br><span class="line">### 4.重启nginx</span><br></pre></td></tr></table></figure></p>
+<p>nginx -s reload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 5.安装ffmepg工具</span><br></pre></td></tr></table></figure></p>
+<p>brew install ffmpeg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 6.通过ffmepg命令进行推流</span><br></pre></td></tr></table></figure></p>
+<p>// 推流命令<br>ffmpeg -re -i [你的视频文件的绝对路径] -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</p>
+<p>// 如： ffmpeg -re -i /Users/robin/Downloads/暴裂无声_1080p.mp4  -vcodec copy -f flv rtmp://localhost:1935/abcs/streamID</p>
+<p><code>`</code></p>
+<p><img src="/2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/steam.png" alt=""></p>
 
       
     </div>
@@ -387,19 +412,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/note/" rel="tag"># note</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/23/Sublime-Text-3-1-破解方案/" rel="next" title="Sublime Text 3.1 破解方案">
-                <i class="fa fa-chevron-left"></i> Sublime Text 3.1 破解方案
+              <a href="/2018/07/20/React-Native热更新与拆包iOS版/" rel="next" title="React Native热更新与拆包iOS版">
+                <i class="fa fa-chevron-left"></i> React Native热更新与拆包iOS版
               </a>
             
           </div>
@@ -407,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/04/React-Native-RN-使用iOS原生组件/" rel="prev" title="React-Native(RN)使用iOS原生组件">
-                React-Native(RN)使用iOS原生组件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Personal-Note"><span class="nav-number">1.</span> <span class="nav-text">Personal Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime"><span class="nav-number">2.</span> <span class="nav-text">sublime</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插件使用"><span class="nav-number">2.1.</span> <span class="nav-text">插件使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-搭建-nginx-rtmp-推流服务器"><span class="nav-number">1.</span> <span class="nav-text">Mac 搭建 nginx+rtmp 推流服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆nginx"><span class="nav-number">1.1.1.</span> <span class="nav-text">克隆nginx</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -661,9 +676,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'rzheng';
-      var disqus_identifier = '2018/06/25/Personal-note/';
+      var disqus_identifier = '2018/07/21/Mac-搭建-nginx-rtmp-推流服务器/';
 
-      var disqus_title = "Personal note";
+      var disqus_title = "Mac 搭建 nginx+rtmp 推流服务器";
 
 
       function run_disqus_script(disqus_script) {
