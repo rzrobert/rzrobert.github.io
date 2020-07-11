@@ -1,0 +1,727 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<script>
+    (function(){
+        if('rzheng'){
+            if (prompt('请输入文章密码') !== 'rzheng'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <meta name="keywords" content="flutter," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="flutter 学习flutter杂记，内容太low就不公布了">
+<meta name="keywords" content="flutter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter学习杂记">
+<meta property="og:url" content="https://rzrobert.github.io/2020/07/11/Flutter学习杂记/index.html">
+<meta property="og:site_name" content="任征的个人博客">
+<meta property="og:description" content="flutter 学习flutter杂记，内容太low就不公布了">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-07-11T11:02:36.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flutter学习杂记">
+<meta name="twitter:description" content="flutter 学习flutter杂记，内容太low就不公布了">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6422122',
+      author: 'rzrobert'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rzrobert.github.io/2020/07/11/Flutter学习杂记/"/>
+
+
+
+
+
+  <title> Flutter学习杂记 | 任征的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">任征的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2020/07/11/Flutter学习杂记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="robert">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/robert.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="任征的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="任征的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Flutter学习杂记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-11T19:01:34+08:00">
+                2020-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/11/Flutter学习杂记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/11/Flutter学习杂记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="flutter"><a href="#flutter" class="headerlink" title="flutter"></a>flutter</h2><blockquote>
+<p>学习flutter杂记，内容太low就不公布了</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><strong>包源管理器：</strong><a href="https://pub.dev" target="_blank" rel="noopener">pub</a><ul>
+<li>flutter运行项目前，先使用<code>flutter hub get</code>获取项目中依赖库。</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="基础组件说明"><a href="#基础组件说明" class="headerlink" title="基础组件说明"></a>基础组件说明</h3><h4 id="MaterialApp"><a href="#MaterialApp" class="headerlink" title="MaterialApp"></a>MaterialApp</h4><ul>
+<li><a href="https://juejin.im/post/5b5ed06b5188251aa30c790c#heading-10" target="_blank" rel="noopener">MaterialApp</a></li>
+</ul>
+<h3 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h3><h4 id="webView——-url-launcher"><a href="#webView——-url-launcher" class="headerlink" title="webView—— url_launcher"></a>webView—— <a href="https://pub.dev/packages/url_launcher" target="_blank" rel="noopener">url_launcher</a></h4><p>flutter, 用于打开网页和实现原生电话的拨打</p>
+<h3 id="组件升级"><a href="#组件升级" class="headerlink" title="组件升级"></a>组件升级</h3><h4 id="Dart-版本切换"><a href="#Dart-版本切换" class="headerlink" title="Dart 版本切换"></a>Dart <a href="https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get" target="_blank" rel="noopener">版本切换</a></h4><p>Installing and upgrading on macOS with Homebrew</p>
+<ul>
+<li>Installing</li>
+<li>Upgrading</li>
+<li>Switching channels</li>
+</ul>
+<h3 id="三方库和开源项目"><a href="#三方库和开源项目" class="headerlink" title="三方库和开源项目"></a>三方库和开源项目</h3><p> <a href="https://juejin.im/post/5de48586e51d455c0172baac#heading-88" target="_blank" rel="noopener">开源项目</a></p>
+<ul>
+<li><a href="https://github.com/kaina404/FlutterDouBan" target="_blank" rel="noopener">FlutterDouBan</a><ul>
+<li>首页底部tabs使用<a href="#Stack-OffStage-TickerMode"><strong>Stack + OffStage + TickerMode</strong></a>方式加载</li>
+</ul>
+</li>
+</ul>
+<h3 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h3><h4 id="如何保持底部导航栏页中子页面状态"><a href="#如何保持底部导航栏页中子页面状态" class="headerlink" title="如何保持底部导航栏页中子页面状态"></a>如何保持底部导航栏页中子页面状态</h4><h5 id="Stack-OffStage-TickerMode"><a href="#Stack-OffStage-TickerMode" class="headerlink" title="Stack + OffStage + TickerMode"></a><a name="Stack-OffStage-TickerMode"></a>Stack + OffStage + TickerMode</h5><ul>
+<li><strong>Stack</strong>：类似Android里的FrameLayout，按照children的顺序依次绘制。用它可以保存所有子页面的状态，防止<code>initState</code>方法重复执行，引起不必要的开销。</li>
+<li><strong>OffStage</strong>：可以控制控件是否参与布局和绘制</li>
+<li><strong>TickerMode</strong>：可以控制控件是否动画</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">        body: Stack(children: &lt;Widget&gt;[</span><br><span class="line">          _buildPage(0),</span><br><span class="line">          _buildPage(1),</span><br><span class="line">          _buildPage(2),</span><br><span class="line">          _buildPage(3),</span><br><span class="line">        ]),</span><br><span class="line">        bottomNavigationBar: _buildBottomNavigationBar(),</span><br><span class="line">    );</span><br><span class="line">  &#125; //  @override</span><br><span class="line"></span><br><span class="line">  /// You should keep each page by Stack to keep their state.</span><br><span class="line">  /// Offstage stops painting, TickerMode stops animation.</span><br><span class="line">  Widget _buildPage(int index) &#123;</span><br><span class="line">    return Offstage(</span><br><span class="line">        offstage: this.index != index,</span><br><span class="line">        child: TickerMode(enabled: this.index == index, child: screens[index]));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="IndexedStack"><a href="#IndexedStack" class="headerlink" title="IndexedStack"></a><a name="IndexedStack"></a>IndexedStack</h5><p>IndexedStack仅展示index所对应的页面，切换页面只需要更新index即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">        body: IndexedStack(</span><br><span class="line">          index: index,</span><br><span class="line">          children: screens,</span><br><span class="line">        ),</span><br><span class="line">        bottomNavigationBar: _buildBottomNavigationBar(),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="PageView"><a href="#PageView" class="headerlink" title="PageView"></a><a name="PageView"></a>PageView</h5><p>如果UI要求子页面可以滑动，那么PageView + BottomNavigationBar是一种解决办法。 用到 PageView + BottomNavigationBar 或者 TabBarView + TabBar 的时候大家会发现当切换到另一页面的时候, 前一个页面就会被销毁。这并不是我们所期望的。好在系统提供了一个AutomaticKeepAliveClientMixin用于自定义是否保存状态。 - PageView 的children需要继承自 StatefulWidget - PageView 的children对应的 State 需要继承自 AutomaticKeepAliveClientMixin，并实现wantKeepAlive<br><a href="https://juejin.im/post/5b73c3b3f265da27d701473a#heading-4" target="_blank" rel="noopener">PageView/TabBarView等控件保存状态的问题解决方案</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class BottomNavigationState4 extends State&lt;BottomNavigationScreen4&gt; &#123;</span><br><span class="line">  PageController _pageController;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line"> @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">        body: PageView(</span><br><span class="line">          controller: _pageController,</span><br><span class="line">          children: screens,</span><br><span class="line">          // physics: NeverScrollableScrollPhysics(), //PageView 可以设置禁止滑动 如果 pagview 嵌套 pagview 会因为滑动冲突导致父pageView无法滑动</span><br><span class="line">          onPageChanged: (index)&#123;</span><br><span class="line">            setState(() &#123;</span><br><span class="line">              this.index = index;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;,</span><br><span class="line">        ),</span><br><span class="line">        bottomNavigationBar: BottomNavigationBar(</span><br><span class="line">            type: BottomNavigationBarType.fixed,</span><br><span class="line">            onTap: (int index) &#123;</span><br><span class="line">              setState(() &#123;</span><br><span class="line">                this.index = index;</span><br><span class="line">              &#125;);</span><br><span class="line">              _pageController.animateToPage(index, duration: Duration(seconds: 1), curve: ElasticInOutCurve()); // PageView 跳转到指定页面</span><br><span class="line">            &#125;,</span><br><span class="line">            items: &lt;BottomNavigationBarItem&gt;[</span><br><span class="line">              _buildItem(icon: Icons.adjust, index: 0),</span><br><span class="line">              _buildItem(icon: Icons.clear_all, index: 1),</span><br><span class="line">              _buildItem(icon: Icons.arrow_downward, index: 2),</span><br><span class="line">              _buildItem(icon: Icons.settings_input_component, index: 3),</span><br><span class="line">            ]));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class _MarketingScreenState extends State&lt;MarketingScreen&gt; with AutomaticKeepAliveClientMixin &#123;</span><br><span class="line">    @override</span><br><span class="line">    bool get wantKeepAlive =&gt; true; // 返回true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flutter/" rel="tag"># flutter</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/移动端不定期更新token方案/" rel="next" title="移动端不定期更新token方案">
+                <i class="fa fa-chevron-left"></i> 移动端不定期更新token方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/robert.jpg"
+               alt="robert" />
+          <p class="site-author-name" itemprop="name">robert</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flutter"><span class="nav-number">1.</span> <span class="nav-text">flutter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础组件说明"><span class="nav-number">1.2.</span> <span class="nav-text">基础组件说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MaterialApp"><span class="nav-number">1.2.1.</span> <span class="nav-text">MaterialApp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚手架"><span class="nav-number">1.3.</span> <span class="nav-text">脚手架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webView——-url-launcher"><span class="nav-number">1.3.1.</span> <span class="nav-text">webView—— url_launcher</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件升级"><span class="nav-number">1.4.</span> <span class="nav-text">组件升级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dart-版本切换"><span class="nav-number">1.4.1.</span> <span class="nav-text">Dart 版本切换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三方库和开源项目"><span class="nav-number">1.5.</span> <span class="nav-text">三方库和开源项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂记"><span class="nav-number">1.6.</span> <span class="nav-text">杂记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何保持底部导航栏页中子页面状态"><span class="nav-number">1.6.1.</span> <span class="nav-text">如何保持底部导航栏页中子页面状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Stack-OffStage-TickerMode"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Stack + OffStage + TickerMode</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IndexedStack"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">IndexedStack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PageView"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">PageView</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+<!--    <i class="fa fa-heart"></i> -->
+    <i class="fa fa-motorcycle" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+</div>
+<div class="theme-info">
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rzheng';
+      var disqus_identifier = '2020/07/11/Flutter学习杂记/';
+
+      var disqus_title = "Flutter学习杂记";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
