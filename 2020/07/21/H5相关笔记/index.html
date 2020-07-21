@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="任征的个人博客">
 <meta property="og:description" content="学习杂记，内容太low就不公布了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-21T08:35:06.301Z">
+<meta property="og:updated_time" content="2020-07-21T11:01:48.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5相关笔记">
 <meta name="twitter:description" content="学习杂记，内容太low就不公布了">
@@ -385,10 +385,47 @@
 <li>overflow: scroll；溢出or无溢出不显示</li>
 </ul>
 <p><em>overflow 隐藏元素后，继续占有原来的位置</em></p>
-<h4 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h4><p>结构伪类选择器的权重是：<strong>10</strong></p>
+<h3 id="CSS3新特性"><a href="#CSS3新特性" class="headerlink" title="CSS3新特性"></a>CSS3新特性</h3><h4 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h4><p>结构伪类选择器的权重是：<strong>10</strong></p>
 <h5 id="nth-child-和-nth-of-type-区别"><a href="#nth-child-和-nth-of-type-区别" class="headerlink" title="nth-child 和 nth-of-type 区别"></a><code>nth-child</code> 和 <code>nth-of-type</code> 区别</h5><ul>
 <li><strong><code>nth-child</code></strong>：执行的时候先看nth-child 之后回去查验元素类型</li>
 <li><strong><code>nth-of-type</code></strong>：执行的时候先查验元素类型，之后看nth-of-type</li>
+</ul>
+<h4 id="伪元选择器"><a href="#伪元选择器" class="headerlink" title="伪元选择器"></a>伪元选择器</h4><h5 id="伪元素特性"><a href="#伪元素特性" class="headerlink" title="伪元素特性"></a>伪元素特性</h5><ul>
+<li><code>before</code>和<code>after</code>创建一个元素，但是属于行内元素</li>
+<li>新创建的元素在文档树中是找不到的，所以我们成为<font color="red">伪元素</font></li>
+<li>语法：<font color="red">element::before{}</font></li>
+<li><code>before</code>和<code>after</code>必须有<font color="red">content属性</font></li>
+<li><code>before</code>创建的元素显示在内容前面，<code>after</code>创建的元素先是在内容的后面</li>
+<li>伪元素的权重和标签权重是一样 —— <strong>1</strong> </li>
+</ul>
+<h4 id="盒子模型border-box"><a href="#盒子模型border-box" class="headerlink" title="盒子模型border-box"></a>盒子模型<code>border-box</code></h4><p>CSS3中通过<code>box-sizing</code>来置顶盒模型，有两个值：</p>
+<ul>
+<li><code>content-box</code></li>
+<li><code>border-box</code></li>
+</ul>
+<p>默认选择的是<code>content-box</code></p>
+<h5 id="boder-sizing-content-box"><a href="#boder-sizing-content-box" class="headerlink" title="boder-sizing: content-box"></a><code>boder-sizing: content-box</code></h5><p>盒子的大小为：<code>width + padding + border</code></p>
+<h5 id="boder-sizing-border-box"><a href="#boder-sizing-border-box" class="headerlink" title="boder-sizing: border-box"></a><code>boder-sizing: border-box</code></h5><p>盒子的大小为：<code>width</code></p>
+<h4 id="滤镜filter"><a href="#滤镜filter" class="headerlink" title="滤镜filter"></a>滤镜<span id="filter"><code>filter</code></span></h4><p><code>filter()</code>将模糊或颜色偏移等图形效果应用于元素</p>
+<ul>
+<li>blur: 模糊处理，blur(5px)，数值越大越模糊</li>
+</ul>
+<h4 id="calc函数"><a href="#calc函数" class="headerlink" title="calc函数"></a><span id="calc"><code>calc</code></span>函数</h4><p><code>calc()</code>可以在声明css属性值时执行一些计算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">width: calc(100% - 80px)</span><br><span class="line">width: calc(500px - 80px)</span><br></pre></td></tr></table></figure>
+<p>扣号里面可以使用<code>+ - * /</code>来进行计算</p>
+<h4 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a><span id="transition"><code>transition</code></span>过渡</h4><p><code>transition</code>：要过渡的属性 花费时间 运动曲线 何时开始</p>
+<ul>
+<li>属性：要变化的css属性，如果都要设置为<code>all</code></li>
+<li>花费时间：单位是秒，必须要单位</li>
+<li>运动曲线：默认是ease (可以省略)</li>
+<li>何时开始：单位是秒，设置延迟时间，默认是0s (可以省略)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* 后两个值可以省略 */</span><br><span class="line">transition: width .5s ease 0s</span><br><span class="line">/* 如果需要多个值，用`,`隔开 */</span><br><span class="line">transition: width .5s, height .5s</span><br></pre></td></tr></table></figure>
+<h3 id="广义的HTML5"><a href="#广义的HTML5" class="headerlink" title="广义的HTML5"></a>广义的HTML5</h3><p><strong>广义的HTML5：HTML5本身 + CSS3 + JavaScript</strong></p>
+<h3 id="文字溢出显示省略号"><a href="#文字溢出显示省略号" class="headerlink" title="文字溢出显示省略号"></a>文字溢出显示省略号</h3><h4 id="单行文字溢出显示省略号"><a href="#单行文字溢出显示省略号" class="headerlink" title="单行文字溢出显示省略号"></a><font color="red">单行文字</font>溢出显示省略号</h4><p>必须满足以下三点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/* 先强制将文字显示为一行，默认normal自动换行 */</span><br><span class="line">white-space: nowrap;</span><br><span class="line">/* 超出部分隐藏 */</span><br><span class="line">overflow: hidden;</span><br><span class="line">/* 文字用省略号代替超出的部分 */</span><br><span class="line">text-overflow: ellipsis;</span><br></pre></td></tr></table></figure></p>
+<h4 id="多行文字溢出显示省略号"><a href="#多行文字溢出显示省略号" class="headerlink" title="多行文字溢出显示省略号"></a><font color="red">多行文字</font>溢出显示省略号</h4><p>多行文本溢出显示省略号，有较大的兼容性问题，适合于webKit浏览器或移动端（移动端大部分使用的是webKit内核），必须满足以下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 超出部分隐藏 */</span><br><span class="line">overflow: hidden;</span><br><span class="line">/* 文字用省略号代替超出的部分 */</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">/* 弹性伸缩盒子模型显示 */</span><br><span class="line">display: -webkit-box;</span><br><span class="line">/* 限制在一个块元素显示文本的行数 */</span><br><span class="line">-webkit-line-clamp: 2;</span><br><span class="line">/* 设置或检索伸缩盒对象的子元素的排列方式 */</span><br><span class="line">-webkit-box-roient: vertical;</span><br></pre></td></tr></table></figure></p>
+<h3 id="其他杂记"><a href="#其他杂记" class="headerlink" title="其他杂记"></a>其他杂记</h3><ul>
+<li>相对定位会压住标准流</li>
 </ul>
 
       
@@ -560,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局部分"><span class="nav-number">1.</span> <span class="nav-text">布局部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定位"><span class="nav-number">1.1.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定位的特殊性"><span class="nav-number">1.1.1.</span> <span class="nav-text">定位的特殊性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display"><span class="nav-number">1.2.</span> <span class="nav-text">display</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#display属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">display属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#visibility"><span class="nav-number">1.3.</span> <span class="nav-text">visibility</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#visibility-可见性"><span class="nav-number">1.3.1.</span> <span class="nav-text">visibility 可见性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#overflow"><span class="nav-number">1.4.</span> <span class="nav-text">overflow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#overflow-对溢出内容操作"><span class="nav-number">1.4.1.</span> <span class="nav-text">overflow 对溢出内容操作</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结构伪类选择器"><span class="nav-number">1.5.</span> <span class="nav-text">结构伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#nth-child-和-nth-of-type-区别"><span class="nav-number">1.5.1.</span> <span class="nav-text">nth-child 和 nth-of-type 区别</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局部分"><span class="nav-number">1.</span> <span class="nav-text">布局部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定位"><span class="nav-number">1.1.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定位的特殊性"><span class="nav-number">1.1.1.</span> <span class="nav-text">定位的特殊性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display"><span class="nav-number">1.2.</span> <span class="nav-text">display</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#display属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">display属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#visibility"><span class="nav-number">1.3.</span> <span class="nav-text">visibility</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#visibility-可见性"><span class="nav-number">1.3.1.</span> <span class="nav-text">visibility 可见性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#overflow"><span class="nav-number">1.4.</span> <span class="nav-text">overflow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#overflow-对溢出内容操作"><span class="nav-number">1.4.1.</span> <span class="nav-text">overflow 对溢出内容操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3新特性"><span class="nav-number">2.</span> <span class="nav-text">CSS3新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构伪类选择器"><span class="nav-number">2.1.</span> <span class="nav-text">结构伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#nth-child-和-nth-of-type-区别"><span class="nav-number">2.1.1.</span> <span class="nav-text">nth-child 和 nth-of-type 区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元选择器"><span class="nav-number">2.2.</span> <span class="nav-text">伪元选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#伪元素特性"><span class="nav-number">2.2.1.</span> <span class="nav-text">伪元素特性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#盒子模型border-box"><span class="nav-number">2.3.</span> <span class="nav-text">盒子模型border-box</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#boder-sizing-content-box"><span class="nav-number">2.3.1.</span> <span class="nav-text">boder-sizing: content-box</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#boder-sizing-border-box"><span class="nav-number">2.3.2.</span> <span class="nav-text">boder-sizing: border-box</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滤镜filter"><span class="nav-number">2.4.</span> <span class="nav-text">滤镜filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#calc函数"><span class="nav-number">2.5.</span> <span class="nav-text">calc函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transition过渡"><span class="nav-number">2.6.</span> <span class="nav-text">transition过渡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广义的HTML5"><span class="nav-number">3.</span> <span class="nav-text">广义的HTML5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字溢出显示省略号"><span class="nav-number">4.</span> <span class="nav-text">文字溢出显示省略号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单行文字溢出显示省略号"><span class="nav-number">4.1.</span> <span class="nav-text">单行文字溢出显示省略号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行文字溢出显示省略号"><span class="nav-number">4.2.</span> <span class="nav-text">多行文字溢出显示省略号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他杂记"><span class="nav-number">5.</span> <span class="nav-text">其他杂记</span></a></li></ol></div>
             
 
           </div>
