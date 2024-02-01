@@ -1,85 +1,26 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rzrobert.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="总结," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="1、设置UILabel行间距1234567NSMutableAttributedString* attrString &#x3D; [[NSMutableAttributedString  alloc] initWithString:label.text];    NSMutableParagraphStyle *style &#x3D; [[NSMutableParagraphStyle alloc] init];">
+  <meta name="description" content="1、设置UILabel行间距1234567NSMutableAttributedString* attrString &#x3D; [[NSMutableAttributedString  alloc] initWithString:label.text];    NSMutableParagraphStyle *style &#x3D; [[NSMutableParagraphStyle alloc] init];">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发经验总结(二)">
 <meta property="og:url" content="https://rzrobert.github.io/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%BA%8C/index.html">
@@ -94,39 +35,18 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://rzrobert.github.io/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%BA%8C/label.gif">
 
+<link rel="canonical" href="https://rzrobert.github.io/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%BA%8C/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
   };
 </script>
-
-
-
-  <link rel="canonical" href="https://rzrobert.github.io/2017/07/11/iOS开发经验总结-二/"/>
-
-
-
-
 
   <title>iOS开发经验总结(二) | 任征的个人博客</title>
   
@@ -136,192 +56,168 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+</head>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">任征的个人博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">任征的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
+  </li>
+  </ul>
 </nav>
 
 
 
- </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%BA%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="任征的个人博客">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">iOS开发经验总结(二)</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          iOS开发经验总结(二)
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T14:04:03+08:00">
-                2017-07-11
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2017-07-11 14:04:03" itemprop="dateCreated datePublished" datetime="2017-07-11T14:04:03+08:00">2017-07-11</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
 
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>47k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>43 mins.</span>
+            </span>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h3 id="1、设置UILabel行间距"><a href="#1、设置UILabel行间距" class="headerlink" title="1、设置UILabel行间距"></a>1、设置UILabel行间距</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSMutableAttributedString* attrString = [[NSMutableAttributedString  alloc] initWithString:label.text];</span><br><span class="line">    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];</span><br><span class="line">    [style setLineSpacing:20];</span><br><span class="line">    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, label.text.length)];</span><br><span class="line">    label.attributedText = attrString;</span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
@@ -496,257 +392,186 @@
 <h3 id="96、让push跳转动画像modal跳转动画那样效果-从下往上推上来"><a href="#96、让push跳转动画像modal跳转动画那样效果-从下往上推上来" class="headerlink" title="96、让push跳转动画像modal跳转动画那样效果(从下往上推上来)"></a>96、让push跳转动画像modal跳转动画那样效果(从下往上推上来)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (void)push</span><br><span class="line">&#123;</span><br><span class="line">TestViewController *vc = [[TestViewController alloc] init];</span><br><span class="line">    vc.view.backgroundColor = [UIColor redColor];</span><br><span class="line">    CATransition* transition = [CATransition animation];</span><br><span class="line">    transition.duration = 0.4f;</span><br><span class="line">    transition.type = kCATransitionMoveIn;</span><br><span class="line">    transition.subtype = kCATransitionFromTop;</span><br><span class="line">    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];</span><br><span class="line">    [self.navigationController pushViewController:vc animated:NO];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)pop</span><br><span class="line">&#123;</span><br><span class="line">CATransition* transition = [CATransition animation];</span><br><span class="line">    transition.duration = 0.4f;</span><br><span class="line">    transition.type = kCATransitionReveal;</span><br><span class="line">    transition.subtype = kCATransitionFromBottom;</span><br><span class="line">    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];</span><br><span class="line">    [self.navigationController popViewControllerAnimated:NO];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="97、上传图片太大，压缩图片"><a href="#97、上传图片太大，压缩图片" class="headerlink" title="97、上传图片太大，压缩图片"></a>97、上传图片太大，压缩图片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">-(UIImage *)resizeImage:(UIImage *)image</span><br><span class="line">&#123;</span><br><span class="line">    float actualHeight = image.size.height;</span><br><span class="line">    float actualWidth = image.size.width;</span><br><span class="line">    float maxHeight = 300.0;</span><br><span class="line">    float maxWidth = 400.0;</span><br><span class="line">    float imgRatio = actualWidth/actualHeight;</span><br><span class="line">    float maxRatio = maxWidth/maxHeight;</span><br><span class="line">    float compressionQuality = 0.5;//50 percent compression</span><br><span class="line"></span><br><span class="line">    if (actualHeight &gt; maxHeight || actualWidth &gt; maxWidth)</span><br><span class="line">    &#123;</span><br><span class="line">        if(imgRatio &lt; maxRatio)</span><br><span class="line">        &#123;</span><br><span class="line">            //adjust width according to maxHeight</span><br><span class="line">            imgRatio = maxHeight / actualHeight;</span><br><span class="line">            actualWidth = imgRatio * actualWidth;</span><br><span class="line">            actualHeight = maxHeight;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(imgRatio &gt; maxRatio)</span><br><span class="line">        &#123;</span><br><span class="line">            //adjust height according to maxWidth</span><br><span class="line">            imgRatio = maxWidth / actualWidth;</span><br><span class="line">            actualHeight = imgRatio * actualHeight;</span><br><span class="line">            actualWidth = maxWidth;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            actualHeight = maxHeight;</span><br><span class="line">            actualWidth = maxWidth;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);</span><br><span class="line">    UIGraphicsBeginImageContext(rect.size);</span><br><span class="line">    [image drawInRect:rect];</span><br><span class="line">    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    NSData *imageData = UIImageJPEGRepresentation(img, compressionQuality);</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line"></span><br><span class="line">    return [UIImage imageWithData:imageData];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      
     </div>
+
     
     
     
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/%E6%80%BB%E7%BB%93/" rel="tag"># 总结</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%B8%80/" rel="next" title="iOS开发经验总结(一)">
-                <i class="fa fa-chevron-left"></i> iOS开发经验总结(一)
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%BB%E7%BB%93/" rel="tag"># 总结</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/14/React-Native-WebView-%E6%B5%8B%E9%87%8F%E7%BD%91%E9%A1%B5%E9%AB%98%E5%BA%A6/" rel="prev" title="React-Native WebView 测量网页高度">
-                React-Native WebView 测量网页高度 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/07/11/iOS%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93-%E4%B8%80/" rel="prev" title="iOS开发经验总结(一)">
+      <i class="fa fa-chevron-left"></i> iOS开发经验总结(一)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/09/14/React-Native-WebView-%E6%B5%8B%E9%87%8F%E7%BD%91%E9%A1%B5%E9%AB%98%E5%BA%A6/" rel="next" title="React-Native WebView 测量网页高度">
+      React-Native WebView 测量网页高度 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name"></p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%AE%BE%E7%BD%AEUILabel%E8%A1%8C%E9%97%B4%E8%B7%9D"><span class="nav-number">1.</span> <span class="nav-text">1、设置UILabel行间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BD%93%E4%BD%BF%E7%94%A8-performSelector-withObject-withObject-afterDelay-%E6%96%B9%E6%B3%95%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BC%A0%E5%85%A5%E5%A4%9A%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">2、当使用-performSelector:withObject:withObject:afterDelay:方法时，需要传入多参数问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81UILabel%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93"><span class="nav-number">3.</span> <span class="nav-text">3、UILabel显示不同颜色字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AACGRect-CGSize-CGPoint%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">4.</span> <span class="nav-text">4、比较两个CGRect&#x2F;CGSize&#x2F;CGPoint是否相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AANSDate%E7%9B%B8%E5%B7%AE%E5%A4%9A%E5%B0%91%E5%B0%8F%E6%97%B6"><span class="nav-number">5.</span> <span class="nav-text">5、比较两个NSDate相差多少小时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%AF%8F%E4%B8%AAcell%E4%B9%8B%E9%97%B4%E5%A2%9E%E5%8A%A0%E9%97%B4%E8%B7%9D"><span class="nav-number">6.</span> <span class="nav-text">6、每个cell之间增加间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E6%92%AD%E6%94%BE%E4%B8%80%E5%BC%A0%E5%BC%A0%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">7.</span> <span class="nav-text">7、播放一张张连续的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%8A%A0%E8%BD%BDgif%E5%9B%BE%E7%89%87"><span class="nav-number">8.</span> <span class="nav-text">8、加载gif图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E9%98%B2%E6%AD%A2%E7%A6%BB%E5%B1%8F%E6%B8%B2%E6%9F%93%E4%B8%BAimage%E6%B7%BB%E5%8A%A0%E5%9C%86%E8%A7%92"><span class="nav-number">9.</span> <span class="nav-text">9、防止离屏渲染为image添加圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E6%89%80%E6%9C%89%E5%AD%97%E4%BD%93"><span class="nav-number">10.</span> <span class="nav-text">10、查看系统所有字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">11、获取随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%B0%8F%E6%95%B0-0-1%E4%B9%8B%E9%97%B4"><span class="nav-number">12.</span> <span class="nav-text">12、获取随机数小数(0-1之间)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E3%80%81AVPlayer%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%AE%8C%E6%88%90%E7%9A%84%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC"><span class="nav-number">13.</span> <span class="nav-text">13、AVPlayer视频播放完成的通知监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AArect%E6%98%AF%E5%90%A6%E6%9C%89%E4%BA%A4%E5%8F%89"><span class="nav-number">14.</span> <span class="nav-text">14、判断两个rect是否有交叉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E5%AD%97"><span class="nav-number">15.</span> <span class="nav-text">15、判断一个字符串是否为数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16%E3%80%81%E5%B0%86%E4%B8%80%E4%B8%AAview%E4%BF%9D%E5%AD%98%E4%B8%BApdf%E6%A0%BC%E5%BC%8F"><span class="nav-number">16.</span> <span class="nav-text">16、将一个view保存为pdf格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%E3%80%81%E8%AE%A9%E4%B8%80%E4%B8%AAview%E5%9C%A8%E7%88%B6%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83"><span class="nav-number">17.</span> <span class="nav-text">17、让一个view在父视图中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18%E3%80%81%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8B%E5%89%8D%E4%B8%80%E4%B8%AA%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">18.</span> <span class="nav-text">18、获取当前导航控制器下前一个控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19%E3%80%81%E4%BF%9D%E5%AD%98UIImage%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">19.</span> <span class="nav-text">19、保存UIImage到本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E3%80%81%E9%94%AE%E7%9B%98%E4%B8%8A%E6%96%B9%E5%A2%9E%E5%8A%A0%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">20.</span> <span class="nav-text">20、键盘上方增加工具栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21%E3%80%81copy%E4%B8%80%E4%B8%AAview"><span class="nav-number">21.</span> <span class="nav-text">21、copy一个view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22%E3%80%81%E5%9C%A8image%E4%B8%8A%E7%BB%98%E5%88%B6%E6%96%87%E5%AD%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84image"><span class="nav-number">22.</span> <span class="nav-text">22、在image上绘制文字并生成新的image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AAview%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8F%A6%E4%B8%80%E4%B8%AAview%E7%9A%84%E5%AD%90%E8%A7%86%E5%9B%BE"><span class="nav-number">23.</span> <span class="nav-text">23、判断一个view是否为另一个view的子视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">24.</span> <span class="nav-text">24、判断一个字符串是否包含另一个字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25%E3%80%81UICollectionView%E8%87%AA%E5%8A%A8%E6%BB%9A%E5%8A%A8%E5%88%B0%E6%9F%90%E8%A1%8C"><span class="nav-number">25.</span> <span class="nav-text">25、UICollectionView自动滚动到某行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26%E3%80%81%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9FUIAlertController"><span class="nav-number">26.</span> <span class="nav-text">26、修改系统UIAlertController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27%E3%80%81%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%80%E8%A1%8C%E7%9A%84cell%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%98%BE%E7%A4%BA"><span class="nav-number">27.</span> <span class="nav-text">27、判断某一行的cell是否已经显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28%E3%80%81%E8%AE%A9%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8pop%E5%9B%9E%E6%8C%87%E5%AE%9A%E7%9A%84%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">28.</span> <span class="nav-text">28、让导航控制器pop回指定的控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29%E3%80%81%E5%8A%A8%E7%94%BB%E4%BF%AE%E6%94%B9label%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97"><span class="nav-number">29.</span> <span class="nav-text">29、动画修改label上的文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#30%E3%80%81%E5%88%A4%E6%96%AD%E5%AD%97%E5%85%B8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AAkey%E5%80%BC"><span class="nav-number">30.</span> <span class="nav-text">30、判断字典中是否包含某个key值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31%E3%80%81%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E6%96%B9%E5%90%91"><span class="nav-number">31.</span> <span class="nav-text">31、获取屏幕方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32%E3%80%81%E8%AE%BE%E7%BD%AEUIImage%E7%9A%84%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="nav-number">32.</span> <span class="nav-text">32、设置UIImage的透明度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33%E3%80%81Attempt-to-mutate-immutable-object-with-insertString-atIndex"><span class="nav-number">33.</span> <span class="nav-text">33、Attempt to mutate immutable object with insertString:atIndex:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34%E3%80%81UIWebView%E6%B7%BB%E5%8A%A0%E5%8D%95%E5%87%BB%E6%89%8B%E5%8A%BF%E4%B8%8D%E5%93%8D%E5%BA%94"><span class="nav-number">34.</span> <span class="nav-text">34、UIWebView添加单击手势不响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35%E3%80%81%E8%8E%B7%E5%8F%96%E6%89%8B%E6%9C%BARAM%E5%AE%B9%E9%87%8F"><span class="nav-number">35.</span> <span class="nav-text">35、获取手机RAM容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36%E3%80%81%E5%9C%B0%E5%9B%BE%E4%B8%8A%E4%B8%A4%E4%B8%AA%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">36.</span> <span class="nav-text">36、地图上两个点之间的实际距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37%E3%80%81%E5%9C%A8%E5%BA%94%E7%94%A8%E4%B8%AD%E6%89%93%E5%BC%80%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%9F%90%E4%B8%AA%E7%95%8C%E9%9D%A2"><span class="nav-number">37.</span> <span class="nav-text">37、在应用中打开设置的某个界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#38%E3%80%81%E5%9C%A8UITextView%E4%B8%AD%E6%98%BE%E7%A4%BAhtml%E6%96%87%E6%9C%AC"><span class="nav-number">38.</span> <span class="nav-text">38、在UITextView中显示html文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39%E3%80%81%E7%9B%91%E5%90%ACscrollView%E6%98%AF%E5%90%A6%E6%BB%9A%E5%8A%A8%E5%88%B0%E4%BA%86%E9%A1%B6%E9%83%A8%EF%BC%8F%E5%BA%95%E9%83%A8"><span class="nav-number">39.</span> <span class="nav-text">39、监听scrollView是否滚动到了顶部／底部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#40%E3%80%81UISlider%E5%A2%9E%E9%87%8F%EF%BC%8F%E5%87%8F%E9%87%8F%E4%B8%BA%E5%9B%BA%E5%AE%9A%E5%80%BC-%E5%81%87%E5%A6%82%E4%B8%BA5"><span class="nav-number">40.</span> <span class="nav-text">40、UISlider增量／减量为固定值(假如为5)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41%E3%80%81%E9%80%89%E4%B8%ADtextField%E6%88%96%E8%80%85textView%E6%89%80%E6%9C%89%E6%96%87%E6%9C%AC-%E6%88%91%E8%BF%99%E9%87%8C%E4%BB%A5textView%E4%B8%BA%E4%BE%8B"><span class="nav-number">41.</span> <span class="nav-text">41、选中textField或者textView所有文本(我这里以textView为例)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42%E3%80%81%E4%BB%8E%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">42.</span> <span class="nav-text">42、从导航控制器中删除某个控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43%E3%80%81%E9%9A%90%E8%97%8FUITextView-UITextField%E5%85%89%E6%A0%87"><span class="nav-number">43.</span> <span class="nav-text">43、隐藏UITextView&#x2F;UITextField光标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44%E3%80%81%E5%BD%93UITextView-UITextField%E4%B8%AD%E6%B2%A1%E6%9C%89%E6%96%87%E5%AD%97%E6%97%B6%EF%BC%8C%E7%A6%81%E7%94%A8%E5%9B%9E%E8%BD%A6%E9%94%AE"><span class="nav-number">44.</span> <span class="nav-text">44、当UITextView&#x2F;UITextField中没有文字时，禁用回车键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#45%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2encode%E7%BC%96%E7%A0%81-%E7%BC%96%E7%A0%81url%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E6%88%90%E5%8A%9F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">45.</span> <span class="nav-text">45、字符串encode编码(编码url字符串不成功的问题)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#46%E3%80%81%E8%AE%A1%E7%AE%97UILabel%E4%B8%8A%E6%9F%90%E6%AE%B5%E6%96%87%E5%AD%97%E7%9A%84frame"><span class="nav-number">46.</span> <span class="nav-text">46、计算UILabel上某段文字的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#47%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BAUUID"><span class="nav-number">47.</span> <span class="nav-text">47、获取随机UUID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#48%E3%80%81%E4%BB%BF%E8%8B%B9%E6%9E%9C%E6%8A%96%E5%8A%A8%E5%8A%A8%E7%94%BB"><span class="nav-number">48.</span> <span class="nav-text">48、仿苹果抖动动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#49%E3%80%81%E4%BF%AE%E6%94%B9UISearBar%E5%86%85%E9%83%A8%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">49.</span> <span class="nav-text">49、修改UISearBar内部背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#50%E3%80%81UITextView%E6%BB%9A%E5%8A%A8%E5%88%B0%E9%A1%B6%E9%83%A8"><span class="nav-number">50.</span> <span class="nav-text">50、UITextView滚动到顶部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#51%E3%80%81%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%ACAPP%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">51.</span> <span class="nav-text">51、通知监听APP生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52%E3%80%81%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">52.</span> <span class="nav-text">52、触摸事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53%E3%80%81UITextField%E6%96%87%E5%AD%97%E5%91%A8%E5%9B%B4%E5%A2%9E%E5%8A%A0%E8%BE%B9%E8%B7%9D"><span class="nav-number">53.</span> <span class="nav-text">53、UITextField文字周围增加边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54%E3%80%81%E7%9B%91%E5%90%ACUISlider%E6%8B%96%E5%8A%A8%E7%8A%B6%E6%80%81"><span class="nav-number">54.</span> <span class="nav-text">54、监听UISlider拖动状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#55%E3%80%81%E8%AE%BE%E7%BD%AEUITextField%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">55.</span> <span class="nav-text">55、设置UITextField光标位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#56%E3%80%81%E5%8E%BB%E9%99%A4webView%E5%BA%95%E9%83%A8%E9%BB%91%E8%89%B2"><span class="nav-number">56.</span> <span class="nav-text">56、去除webView底部黑色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#57%E3%80%81%E8%8E%B7%E5%8F%96collectionViewCell%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E7%9A%84frame"><span class="nav-number">57.</span> <span class="nav-text">57、获取collectionViewCell在屏幕中的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#58%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AAUIImage%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">58.</span> <span class="nav-text">58、比较两个UIImage是否相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#59%E3%80%81%E8%A7%A3%E5%86%B3%E5%BD%93UIScrollView%E4%B8%8A%E6%9C%89UIButton%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E8%A7%A6%E6%91%B8%E5%88%B0button%E6%BB%91%E5%8A%A8%E4%B8%8D%E4%BA%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">59.</span> <span class="nav-text">59、解决当UIScrollView上有UIButton的时候，触摸到button滑动不了的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#60%E3%80%81UITextView%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">60.</span> <span class="nav-text">60、UITextView中的文字添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#61%E3%80%81MD5%E5%8A%A0%E5%AF%86"><span class="nav-number">61.</span> <span class="nav-text">61、MD5加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#62%E3%80%81base64%E5%8A%A0%E5%AF%86"><span class="nav-number">62.</span> <span class="nav-text">62、base64加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#63%E3%80%81AES%E5%8A%A0%E5%AF%86"><span class="nav-number">63.</span> <span class="nav-text">63、AES加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#64%E3%80%813DES%E5%8A%A0%E5%AF%86"><span class="nav-number">64.</span> <span class="nav-text">64、3DES加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#65%E3%80%81%E5%8D%95%E4%B8%AA%E9%A1%B5%E9%9D%A2%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E9%9C%80%E8%A6%81%E7%9B%91%E5%90%AC%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9D%9F%E5%90%8E%E5%88%B7%E6%96%B0UI"><span class="nav-number">65.</span> <span class="nav-text">65、单个页面多个网络请求的情况，需要监听所有网络请求结束后刷新UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#66%E3%80%81%E8%A7%A3%E5%86%B3openUrl%E5%BB%B6%E6%97%B6%E9%97%AE%E9%A2%98"><span class="nav-number">66.</span> <span class="nav-text">66、解决openUrl延时问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#67%E3%80%81%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E5%AE%9E%E7%8E%B0%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB"><span class="nav-number">67.</span> <span class="nav-text">67、页面跳转实现翻转动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#68%E3%80%81tableView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8"><span class="nav-number">68.</span> <span class="nav-text">68、tableView实现无限滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#69%E3%80%81%E4%BB%A3%E7%A0%81%E6%96%B9%E5%BC%8F%E8%B0%83%E6%95%B4%E5%B1%8F%E5%B9%95%E4%BA%AE%E5%BA%A6"><span class="nav-number">69.</span> <span class="nav-text">69、代码方式调整屏幕亮度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#70%E3%80%81%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8CUP%E7%94%A8%E9%87%8F"><span class="nav-number">70.</span> <span class="nav-text">70、获取当前应用CUP用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#71%E3%80%81float%E6%95%B0%E6%8D%AE%E5%8F%96%E6%95%B4%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="nav-number">71.</span> <span class="nav-text">71、float数据取整四舍五入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#72%E3%80%81%E5%88%A0%E9%99%A4UISearchBar%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E8%BE%B9%E6%A1%86"><span class="nav-number">72.</span> <span class="nav-text">72、删除UISearchBar系统默认边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#73%E3%80%81%E4%B8%BAUICollectionViewCell%E8%AE%BE%E7%BD%AE%E5%9C%86%E8%A7%92%E5%92%8C%E9%98%B4%E5%BD%B1"><span class="nav-number">73.</span> <span class="nav-text">73、为UICollectionViewCell设置圆角和阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#74%E3%80%81%E8%AE%A9%E6%AD%A3%E5%9C%A8%E6%BB%91%E5%8A%A8%E7%9A%84scrollView%E5%81%9C%E6%AD%A2%E6%BB%9A%E5%8A%A8-%E4%B8%8D%E6%98%AF%E7%A6%81%E6%AD%A2%EF%BC%8C%E8%80%8C%E6%98%AF%E6%9A%82%E6%97%B6%E5%81%9C%E6%AD%A2%E6%BB%9A%E5%8A%A8"><span class="nav-number">74.</span> <span class="nav-text">74、让正在滑动的scrollView停止滚动(不是禁止，而是暂时停止滚动)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#75%E3%80%81%E4%BD%BF%E7%94%A8xib%E8%AE%BE%E7%BD%AEUIView%E7%9A%84%E8%BE%B9%E6%A1%86%E3%80%81%E5%9C%86%E8%A7%92"><span class="nav-number">75.</span> <span class="nav-text">75、使用xib设置UIView的边框、圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#76%E3%80%81%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E8%8E%B7%E5%8F%96%E5%9F%8E%E5%B8%82%E7%AD%89%E4%BF%A1%E6%81%AF"><span class="nav-number">76.</span> <span class="nav-text">76、根据经纬度获取城市等信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#77%E3%80%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E6%B7%BB%E5%8A%A0%E5%A4%9A%E4%B8%AANSNotification%E8%A7%82%E5%AF%9F%E8%80%85%EF%BC%9F"><span class="nav-number">77.</span> <span class="nav-text">77、如何防止添加多个NSNotification观察者？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#78%E3%80%81%E5%B0%86%E4%B8%80%E4%B8%AAxib%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AAxib%E4%B8%8A"><span class="nav-number">78.</span> <span class="nav-text">78、将一个xib添加到另外一个xib上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#79%E3%80%81%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BD%BF%E5%85%B6%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99"><span class="nav-number">79.</span> <span class="nav-text">79、处理字符串，使其首字母大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#80%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AAUIAlertView-UIAlertController%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA"><span class="nav-number">80.</span> <span class="nav-text">80、判断一个UIAlertView&#x2F;UIAlertController是否显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#81%E3%80%81%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">81.</span> <span class="nav-text">81、获取字符串中的数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#82%E3%80%81%E4%B8%BAUIView%E7%9A%84%E6%9F%90%E4%B8%AA%E6%96%B9%E5%90%91%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86"><span class="nav-number">82.</span> <span class="nav-text">82、为UIView的某个方向添加边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#83%E3%80%81%E9%80%9A%E8%BF%87%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AEUISwitch%E3%80%81UIProgressView%E7%AD%89%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%AE%BD%E9%AB%98"><span class="nav-number">83.</span> <span class="nav-text">83、通过属性设置UISwitch、UIProgressView等控件的宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#84%E3%80%81%E8%87%AA%E5%8A%A8%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%8C%E7%94%A8%E6%88%B7%E8%BF%9E%E7%BB%AD%E8%BE%93%E5%85%A5%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E6%90%9C%E7%B4%A2%EF%BC%8C%E7%94%A8%E6%88%B7%E5%81%9C%E6%AD%A2%E8%BE%93%E5%85%A5%E7%9A%84%E6%97%B6%E5%80%99%E8%87%AA%E5%8A%A8%E6%90%9C%E7%B4%A2-%E6%88%91%E8%BF%99%E9%87%8C%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%98%AF0-5s%EF%BC%8C%E5%8F%AF%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E6%9B%B4%E6%94%B9"><span class="nav-number">84.</span> <span class="nav-text">84、自动搜索功能，用户连续输入的时候不搜索，用户停止输入的时候自动搜索(我这里设置的是0.5s，可根据需求更改)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#85%E3%80%81%E4%BF%AE%E6%94%B9UISearchBar%E7%9A%84%E5%8D%A0%E4%BD%8D%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2"><span class="nav-number">85.</span> <span class="nav-text">85、修改UISearchBar的占位文字颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#86%E3%80%81%E6%9F%90%E4%B8%AA%E7%95%8C%E9%9D%A2%E5%A4%9A%E4%B8%AA%E4%BA%8B%E4%BB%B6%E5%90%8C%E6%97%B6%E5%93%8D%E5%BA%94%E5%BC%95%E8%B5%B7%E7%9A%84%E9%97%AE%E9%A2%98-%E6%AF%94%E5%A6%82%EF%BC%8C%E4%B8%A4%E4%B8%AAbutton%E5%90%8C%E6%97%B6%E6%8C%89push%E5%88%B0%E6%96%B0%E7%95%8C%E9%9D%A2%EF%BC%8C%E4%B8%A4%E4%B8%AA%E9%83%BD%E4%BC%9A%E5%93%8D%E5%BA%94%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%AF%BC%E8%87%B4push%E9%87%8D%E5%8F%A0"><span class="nav-number">86.</span> <span class="nav-text">86、某个界面多个事件同时响应引起的问题(比如，两个button同时按push到新界面，两个都会响应，可能导致push重叠)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#87%E3%80%81%E4%BF%AE%E6%94%B9tabBar%E7%9A%84frame"><span class="nav-number">87.</span> <span class="nav-text">87、修改tabBar的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#88%E3%80%81%E4%BF%AE%E6%94%B9%E9%94%AE%E7%9B%98%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">88.</span> <span class="nav-text">88、修改键盘背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#89%E3%80%81%E4%BF%AE%E6%94%B9image%E9%A2%9C%E8%89%B2"><span class="nav-number">89.</span> <span class="nav-text">89、修改image颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#90%E3%80%81%E5%8A%A8%E7%94%BB%E6%89%A7%E8%A1%8CremoveFromSuperview"><span class="nav-number">90.</span> <span class="nav-text">90、动画执行removeFromSuperview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#91%E3%80%81%E8%AE%BE%E7%BD%AEUIButton%E9%AB%98%E4%BA%AE%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">91.</span> <span class="nav-text">91、设置UIButton高亮背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#92%E3%80%81%E8%AE%BE%E7%BD%AEUIButton%E9%AB%98%E4%BA%AE%E6%97%B6%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">92.</span> <span class="nav-text">92、设置UIButton高亮时的背景颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%81%E5%AD%90%E7%B1%BB%E5%8C%96UIButton%EF%BC%8C%E9%87%8D%E5%86%99setHighlighted-%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="nav-number">92.1.</span> <span class="nav-text">方法一、子类化UIButton，重写setHighlighted:方法，代码如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%81%E5%88%A9%E7%94%A8setBackgroundImage-forState-%E6%96%B9%E6%B3%95"><span class="nav-number">92.2.</span> <span class="nav-text">方法二、利用setBackgroundImage:forState:方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#93%E3%80%81%E5%85%B3%E4%BA%8E%E5%9B%BE%E7%89%87%E6%8B%89%E4%BC%B8"><span class="nav-number">93.</span> <span class="nav-text">93、关于图片拉伸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#94%E3%80%81%E5%88%A9%E7%94%A8runtime%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="nav-number">94.</span> <span class="nav-text">94、利用runtime获取一个类所有属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#95%E3%80%81%E8%AE%BE%E7%BD%AEtextView%E7%9A%84%E6%9F%90%E6%AE%B5%E6%96%87%E5%AD%97%E5%8F%98%E6%88%90%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2"><span class="nav-number">95.</span> <span class="nav-text">95、设置textView的某段文字变成其他颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#96%E3%80%81%E8%AE%A9push%E8%B7%B3%E8%BD%AC%E5%8A%A8%E7%94%BB%E5%83%8Fmodal%E8%B7%B3%E8%BD%AC%E5%8A%A8%E7%94%BB%E9%82%A3%E6%A0%B7%E6%95%88%E6%9E%9C-%E4%BB%8E%E4%B8%8B%E5%BE%80%E4%B8%8A%E6%8E%A8%E4%B8%8A%E6%9D%A5"><span class="nav-number">96.</span> <span class="nav-text">96、让push跳转动画像modal跳转动画那样效果(从下往上推上来)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#97%E3%80%81%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%A4%AA%E5%A4%A7%EF%BC%8C%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87"><span class="nav-number">97.</span> <span class="nav-text">97、上传图片太大，压缩图片</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">robert</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E8%AE%BE%E7%BD%AEUILabel%E8%A1%8C%E9%97%B4%E8%B7%9D"><span class="nav-number">1.</span> <span class="nav-text">1、设置UILabel行间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BD%93%E4%BD%BF%E7%94%A8-performSelector-withObject-withObject-afterDelay-%E6%96%B9%E6%B3%95%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BC%A0%E5%85%A5%E5%A4%9A%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">2、当使用-performSelector:withObject:withObject:afterDelay:方法时，需要传入多参数问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81UILabel%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2%E5%AD%97%E4%BD%93"><span class="nav-number">3.</span> <span class="nav-text">3、UILabel显示不同颜色字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AACGRect-CGSize-CGPoint%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">4.</span> <span class="nav-text">4、比较两个CGRect&#x2F;CGSize&#x2F;CGPoint是否相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AANSDate%E7%9B%B8%E5%B7%AE%E5%A4%9A%E5%B0%91%E5%B0%8F%E6%97%B6"><span class="nav-number">5.</span> <span class="nav-text">5、比较两个NSDate相差多少小时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%AF%8F%E4%B8%AAcell%E4%B9%8B%E9%97%B4%E5%A2%9E%E5%8A%A0%E9%97%B4%E8%B7%9D"><span class="nav-number">6.</span> <span class="nav-text">6、每个cell之间增加间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E6%92%AD%E6%94%BE%E4%B8%80%E5%BC%A0%E5%BC%A0%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">7.</span> <span class="nav-text">7、播放一张张连续的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%8A%A0%E8%BD%BDgif%E5%9B%BE%E7%89%87"><span class="nav-number">8.</span> <span class="nav-text">8、加载gif图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E9%98%B2%E6%AD%A2%E7%A6%BB%E5%B1%8F%E6%B8%B2%E6%9F%93%E4%B8%BAimage%E6%B7%BB%E5%8A%A0%E5%9C%86%E8%A7%92"><span class="nav-number">9.</span> <span class="nav-text">9、防止离屏渲染为image添加圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E6%89%80%E6%9C%89%E5%AD%97%E4%BD%93"><span class="nav-number">10.</span> <span class="nav-text">10、查看系统所有字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">11、获取随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%B0%8F%E6%95%B0-0-1%E4%B9%8B%E9%97%B4"><span class="nav-number">12.</span> <span class="nav-text">12、获取随机数小数(0-1之间)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E3%80%81AVPlayer%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%AE%8C%E6%88%90%E7%9A%84%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC"><span class="nav-number">13.</span> <span class="nav-text">13、AVPlayer视频播放完成的通知监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AArect%E6%98%AF%E5%90%A6%E6%9C%89%E4%BA%A4%E5%8F%89"><span class="nav-number">14.</span> <span class="nav-text">14、判断两个rect是否有交叉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E5%AD%97"><span class="nav-number">15.</span> <span class="nav-text">15、判断一个字符串是否为数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16%E3%80%81%E5%B0%86%E4%B8%80%E4%B8%AAview%E4%BF%9D%E5%AD%98%E4%B8%BApdf%E6%A0%BC%E5%BC%8F"><span class="nav-number">16.</span> <span class="nav-text">16、将一个view保存为pdf格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%E3%80%81%E8%AE%A9%E4%B8%80%E4%B8%AAview%E5%9C%A8%E7%88%B6%E8%A7%86%E5%9B%BE%E4%B8%AD%E5%BF%83"><span class="nav-number">17.</span> <span class="nav-text">17、让一个view在父视图中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18%E3%80%81%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8B%E5%89%8D%E4%B8%80%E4%B8%AA%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">18.</span> <span class="nav-text">18、获取当前导航控制器下前一个控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19%E3%80%81%E4%BF%9D%E5%AD%98UIImage%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">19.</span> <span class="nav-text">19、保存UIImage到本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E3%80%81%E9%94%AE%E7%9B%98%E4%B8%8A%E6%96%B9%E5%A2%9E%E5%8A%A0%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">20.</span> <span class="nav-text">20、键盘上方增加工具栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21%E3%80%81copy%E4%B8%80%E4%B8%AAview"><span class="nav-number">21.</span> <span class="nav-text">21、copy一个view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22%E3%80%81%E5%9C%A8image%E4%B8%8A%E7%BB%98%E5%88%B6%E6%96%87%E5%AD%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84image"><span class="nav-number">22.</span> <span class="nav-text">22、在image上绘制文字并生成新的image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AAview%E6%98%AF%E5%90%A6%E4%B8%BA%E5%8F%A6%E4%B8%80%E4%B8%AAview%E7%9A%84%E5%AD%90%E8%A7%86%E5%9B%BE"><span class="nav-number">23.</span> <span class="nav-text">23、判断一个view是否为另一个view的子视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">24.</span> <span class="nav-text">24、判断一个字符串是否包含另一个字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25%E3%80%81UICollectionView%E8%87%AA%E5%8A%A8%E6%BB%9A%E5%8A%A8%E5%88%B0%E6%9F%90%E8%A1%8C"><span class="nav-number">25.</span> <span class="nav-text">25、UICollectionView自动滚动到某行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26%E3%80%81%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9FUIAlertController"><span class="nav-number">26.</span> <span class="nav-text">26、修改系统UIAlertController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27%E3%80%81%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%80%E8%A1%8C%E7%9A%84cell%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%98%BE%E7%A4%BA"><span class="nav-number">27.</span> <span class="nav-text">27、判断某一行的cell是否已经显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28%E3%80%81%E8%AE%A9%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8pop%E5%9B%9E%E6%8C%87%E5%AE%9A%E7%9A%84%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">28.</span> <span class="nav-text">28、让导航控制器pop回指定的控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29%E3%80%81%E5%8A%A8%E7%94%BB%E4%BF%AE%E6%94%B9label%E4%B8%8A%E7%9A%84%E6%96%87%E5%AD%97"><span class="nav-number">29.</span> <span class="nav-text">29、动画修改label上的文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#30%E3%80%81%E5%88%A4%E6%96%AD%E5%AD%97%E5%85%B8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AAkey%E5%80%BC"><span class="nav-number">30.</span> <span class="nav-text">30、判断字典中是否包含某个key值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31%E3%80%81%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E6%96%B9%E5%90%91"><span class="nav-number">31.</span> <span class="nav-text">31、获取屏幕方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32%E3%80%81%E8%AE%BE%E7%BD%AEUIImage%E7%9A%84%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="nav-number">32.</span> <span class="nav-text">32、设置UIImage的透明度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33%E3%80%81Attempt-to-mutate-immutable-object-with-insertString-atIndex"><span class="nav-number">33.</span> <span class="nav-text">33、Attempt to mutate immutable object with insertString:atIndex:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34%E3%80%81UIWebView%E6%B7%BB%E5%8A%A0%E5%8D%95%E5%87%BB%E6%89%8B%E5%8A%BF%E4%B8%8D%E5%93%8D%E5%BA%94"><span class="nav-number">34.</span> <span class="nav-text">34、UIWebView添加单击手势不响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35%E3%80%81%E8%8E%B7%E5%8F%96%E6%89%8B%E6%9C%BARAM%E5%AE%B9%E9%87%8F"><span class="nav-number">35.</span> <span class="nav-text">35、获取手机RAM容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36%E3%80%81%E5%9C%B0%E5%9B%BE%E4%B8%8A%E4%B8%A4%E4%B8%AA%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%AE%9E%E9%99%85%E8%B7%9D%E7%A6%BB"><span class="nav-number">36.</span> <span class="nav-text">36、地图上两个点之间的实际距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37%E3%80%81%E5%9C%A8%E5%BA%94%E7%94%A8%E4%B8%AD%E6%89%93%E5%BC%80%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%9F%90%E4%B8%AA%E7%95%8C%E9%9D%A2"><span class="nav-number">37.</span> <span class="nav-text">37、在应用中打开设置的某个界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#38%E3%80%81%E5%9C%A8UITextView%E4%B8%AD%E6%98%BE%E7%A4%BAhtml%E6%96%87%E6%9C%AC"><span class="nav-number">38.</span> <span class="nav-text">38、在UITextView中显示html文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39%E3%80%81%E7%9B%91%E5%90%ACscrollView%E6%98%AF%E5%90%A6%E6%BB%9A%E5%8A%A8%E5%88%B0%E4%BA%86%E9%A1%B6%E9%83%A8%EF%BC%8F%E5%BA%95%E9%83%A8"><span class="nav-number">39.</span> <span class="nav-text">39、监听scrollView是否滚动到了顶部／底部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#40%E3%80%81UISlider%E5%A2%9E%E9%87%8F%EF%BC%8F%E5%87%8F%E9%87%8F%E4%B8%BA%E5%9B%BA%E5%AE%9A%E5%80%BC-%E5%81%87%E5%A6%82%E4%B8%BA5"><span class="nav-number">40.</span> <span class="nav-text">40、UISlider增量／减量为固定值(假如为5)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41%E3%80%81%E9%80%89%E4%B8%ADtextField%E6%88%96%E8%80%85textView%E6%89%80%E6%9C%89%E6%96%87%E6%9C%AC-%E6%88%91%E8%BF%99%E9%87%8C%E4%BB%A5textView%E4%B8%BA%E4%BE%8B"><span class="nav-number">41.</span> <span class="nav-text">41、选中textField或者textView所有文本(我这里以textView为例)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42%E3%80%81%E4%BB%8E%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">42.</span> <span class="nav-text">42、从导航控制器中删除某个控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43%E3%80%81%E9%9A%90%E8%97%8FUITextView-UITextField%E5%85%89%E6%A0%87"><span class="nav-number">43.</span> <span class="nav-text">43、隐藏UITextView&#x2F;UITextField光标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44%E3%80%81%E5%BD%93UITextView-UITextField%E4%B8%AD%E6%B2%A1%E6%9C%89%E6%96%87%E5%AD%97%E6%97%B6%EF%BC%8C%E7%A6%81%E7%94%A8%E5%9B%9E%E8%BD%A6%E9%94%AE"><span class="nav-number">44.</span> <span class="nav-text">44、当UITextView&#x2F;UITextField中没有文字时，禁用回车键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#45%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2encode%E7%BC%96%E7%A0%81-%E7%BC%96%E7%A0%81url%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E6%88%90%E5%8A%9F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">45.</span> <span class="nav-text">45、字符串encode编码(编码url字符串不成功的问题)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#46%E3%80%81%E8%AE%A1%E7%AE%97UILabel%E4%B8%8A%E6%9F%90%E6%AE%B5%E6%96%87%E5%AD%97%E7%9A%84frame"><span class="nav-number">46.</span> <span class="nav-text">46、计算UILabel上某段文字的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#47%E3%80%81%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BAUUID"><span class="nav-number">47.</span> <span class="nav-text">47、获取随机UUID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#48%E3%80%81%E4%BB%BF%E8%8B%B9%E6%9E%9C%E6%8A%96%E5%8A%A8%E5%8A%A8%E7%94%BB"><span class="nav-number">48.</span> <span class="nav-text">48、仿苹果抖动动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#49%E3%80%81%E4%BF%AE%E6%94%B9UISearBar%E5%86%85%E9%83%A8%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">49.</span> <span class="nav-text">49、修改UISearBar内部背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#50%E3%80%81UITextView%E6%BB%9A%E5%8A%A8%E5%88%B0%E9%A1%B6%E9%83%A8"><span class="nav-number">50.</span> <span class="nav-text">50、UITextView滚动到顶部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#51%E3%80%81%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%ACAPP%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">51.</span> <span class="nav-text">51、通知监听APP生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52%E3%80%81%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">52.</span> <span class="nav-text">52、触摸事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53%E3%80%81UITextField%E6%96%87%E5%AD%97%E5%91%A8%E5%9B%B4%E5%A2%9E%E5%8A%A0%E8%BE%B9%E8%B7%9D"><span class="nav-number">53.</span> <span class="nav-text">53、UITextField文字周围增加边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54%E3%80%81%E7%9B%91%E5%90%ACUISlider%E6%8B%96%E5%8A%A8%E7%8A%B6%E6%80%81"><span class="nav-number">54.</span> <span class="nav-text">54、监听UISlider拖动状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#55%E3%80%81%E8%AE%BE%E7%BD%AEUITextField%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">55.</span> <span class="nav-text">55、设置UITextField光标位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#56%E3%80%81%E5%8E%BB%E9%99%A4webView%E5%BA%95%E9%83%A8%E9%BB%91%E8%89%B2"><span class="nav-number">56.</span> <span class="nav-text">56、去除webView底部黑色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#57%E3%80%81%E8%8E%B7%E5%8F%96collectionViewCell%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E7%9A%84frame"><span class="nav-number">57.</span> <span class="nav-text">57、获取collectionViewCell在屏幕中的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#58%E3%80%81%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AAUIImage%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">58.</span> <span class="nav-text">58、比较两个UIImage是否相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#59%E3%80%81%E8%A7%A3%E5%86%B3%E5%BD%93UIScrollView%E4%B8%8A%E6%9C%89UIButton%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E8%A7%A6%E6%91%B8%E5%88%B0button%E6%BB%91%E5%8A%A8%E4%B8%8D%E4%BA%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">59.</span> <span class="nav-text">59、解决当UIScrollView上有UIButton的时候，触摸到button滑动不了的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#60%E3%80%81UITextView%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C"><span class="nav-number">60.</span> <span class="nav-text">60、UITextView中的文字添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#61%E3%80%81MD5%E5%8A%A0%E5%AF%86"><span class="nav-number">61.</span> <span class="nav-text">61、MD5加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#62%E3%80%81base64%E5%8A%A0%E5%AF%86"><span class="nav-number">62.</span> <span class="nav-text">62、base64加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#63%E3%80%81AES%E5%8A%A0%E5%AF%86"><span class="nav-number">63.</span> <span class="nav-text">63、AES加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#64%E3%80%813DES%E5%8A%A0%E5%AF%86"><span class="nav-number">64.</span> <span class="nav-text">64、3DES加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#65%E3%80%81%E5%8D%95%E4%B8%AA%E9%A1%B5%E9%9D%A2%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E9%9C%80%E8%A6%81%E7%9B%91%E5%90%AC%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9D%9F%E5%90%8E%E5%88%B7%E6%96%B0UI"><span class="nav-number">65.</span> <span class="nav-text">65、单个页面多个网络请求的情况，需要监听所有网络请求结束后刷新UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#66%E3%80%81%E8%A7%A3%E5%86%B3openUrl%E5%BB%B6%E6%97%B6%E9%97%AE%E9%A2%98"><span class="nav-number">66.</span> <span class="nav-text">66、解决openUrl延时问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#67%E3%80%81%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E5%AE%9E%E7%8E%B0%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB"><span class="nav-number">67.</span> <span class="nav-text">67、页面跳转实现翻转动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#68%E3%80%81tableView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8"><span class="nav-number">68.</span> <span class="nav-text">68、tableView实现无限滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#69%E3%80%81%E4%BB%A3%E7%A0%81%E6%96%B9%E5%BC%8F%E8%B0%83%E6%95%B4%E5%B1%8F%E5%B9%95%E4%BA%AE%E5%BA%A6"><span class="nav-number">69.</span> <span class="nav-text">69、代码方式调整屏幕亮度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#70%E3%80%81%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8CUP%E7%94%A8%E9%87%8F"><span class="nav-number">70.</span> <span class="nav-text">70、获取当前应用CUP用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#71%E3%80%81float%E6%95%B0%E6%8D%AE%E5%8F%96%E6%95%B4%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="nav-number">71.</span> <span class="nav-text">71、float数据取整四舍五入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#72%E3%80%81%E5%88%A0%E9%99%A4UISearchBar%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E8%BE%B9%E6%A1%86"><span class="nav-number">72.</span> <span class="nav-text">72、删除UISearchBar系统默认边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#73%E3%80%81%E4%B8%BAUICollectionViewCell%E8%AE%BE%E7%BD%AE%E5%9C%86%E8%A7%92%E5%92%8C%E9%98%B4%E5%BD%B1"><span class="nav-number">73.</span> <span class="nav-text">73、为UICollectionViewCell设置圆角和阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#74%E3%80%81%E8%AE%A9%E6%AD%A3%E5%9C%A8%E6%BB%91%E5%8A%A8%E7%9A%84scrollView%E5%81%9C%E6%AD%A2%E6%BB%9A%E5%8A%A8-%E4%B8%8D%E6%98%AF%E7%A6%81%E6%AD%A2%EF%BC%8C%E8%80%8C%E6%98%AF%E6%9A%82%E6%97%B6%E5%81%9C%E6%AD%A2%E6%BB%9A%E5%8A%A8"><span class="nav-number">74.</span> <span class="nav-text">74、让正在滑动的scrollView停止滚动(不是禁止，而是暂时停止滚动)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#75%E3%80%81%E4%BD%BF%E7%94%A8xib%E8%AE%BE%E7%BD%AEUIView%E7%9A%84%E8%BE%B9%E6%A1%86%E3%80%81%E5%9C%86%E8%A7%92"><span class="nav-number">75.</span> <span class="nav-text">75、使用xib设置UIView的边框、圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#76%E3%80%81%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E8%8E%B7%E5%8F%96%E5%9F%8E%E5%B8%82%E7%AD%89%E4%BF%A1%E6%81%AF"><span class="nav-number">76.</span> <span class="nav-text">76、根据经纬度获取城市等信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#77%E3%80%81%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E6%B7%BB%E5%8A%A0%E5%A4%9A%E4%B8%AANSNotification%E8%A7%82%E5%AF%9F%E8%80%85%EF%BC%9F"><span class="nav-number">77.</span> <span class="nav-text">77、如何防止添加多个NSNotification观察者？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#78%E3%80%81%E5%B0%86%E4%B8%80%E4%B8%AAxib%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AAxib%E4%B8%8A"><span class="nav-number">78.</span> <span class="nav-text">78、将一个xib添加到另外一个xib上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#79%E3%80%81%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E4%BD%BF%E5%85%B6%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99"><span class="nav-number">79.</span> <span class="nav-text">79、处理字符串，使其首字母大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#80%E3%80%81%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AAUIAlertView-UIAlertController%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA"><span class="nav-number">80.</span> <span class="nav-text">80、判断一个UIAlertView&#x2F;UIAlertController是否显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#81%E3%80%81%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">81.</span> <span class="nav-text">81、获取字符串中的数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#82%E3%80%81%E4%B8%BAUIView%E7%9A%84%E6%9F%90%E4%B8%AA%E6%96%B9%E5%90%91%E6%B7%BB%E5%8A%A0%E8%BE%B9%E6%A1%86"><span class="nav-number">82.</span> <span class="nav-text">82、为UIView的某个方向添加边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#83%E3%80%81%E9%80%9A%E8%BF%87%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AEUISwitch%E3%80%81UIProgressView%E7%AD%89%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%AE%BD%E9%AB%98"><span class="nav-number">83.</span> <span class="nav-text">83、通过属性设置UISwitch、UIProgressView等控件的宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#84%E3%80%81%E8%87%AA%E5%8A%A8%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%8C%E7%94%A8%E6%88%B7%E8%BF%9E%E7%BB%AD%E8%BE%93%E5%85%A5%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E6%90%9C%E7%B4%A2%EF%BC%8C%E7%94%A8%E6%88%B7%E5%81%9C%E6%AD%A2%E8%BE%93%E5%85%A5%E7%9A%84%E6%97%B6%E5%80%99%E8%87%AA%E5%8A%A8%E6%90%9C%E7%B4%A2-%E6%88%91%E8%BF%99%E9%87%8C%E8%AE%BE%E7%BD%AE%E7%9A%84%E6%98%AF0-5s%EF%BC%8C%E5%8F%AF%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E6%9B%B4%E6%94%B9"><span class="nav-number">84.</span> <span class="nav-text">84、自动搜索功能，用户连续输入的时候不搜索，用户停止输入的时候自动搜索(我这里设置的是0.5s，可根据需求更改)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#85%E3%80%81%E4%BF%AE%E6%94%B9UISearchBar%E7%9A%84%E5%8D%A0%E4%BD%8D%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2"><span class="nav-number">85.</span> <span class="nav-text">85、修改UISearchBar的占位文字颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#86%E3%80%81%E6%9F%90%E4%B8%AA%E7%95%8C%E9%9D%A2%E5%A4%9A%E4%B8%AA%E4%BA%8B%E4%BB%B6%E5%90%8C%E6%97%B6%E5%93%8D%E5%BA%94%E5%BC%95%E8%B5%B7%E7%9A%84%E9%97%AE%E9%A2%98-%E6%AF%94%E5%A6%82%EF%BC%8C%E4%B8%A4%E4%B8%AAbutton%E5%90%8C%E6%97%B6%E6%8C%89push%E5%88%B0%E6%96%B0%E7%95%8C%E9%9D%A2%EF%BC%8C%E4%B8%A4%E4%B8%AA%E9%83%BD%E4%BC%9A%E5%93%8D%E5%BA%94%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%AF%BC%E8%87%B4push%E9%87%8D%E5%8F%A0"><span class="nav-number">86.</span> <span class="nav-text">86、某个界面多个事件同时响应引起的问题(比如，两个button同时按push到新界面，两个都会响应，可能导致push重叠)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#87%E3%80%81%E4%BF%AE%E6%94%B9tabBar%E7%9A%84frame"><span class="nav-number">87.</span> <span class="nav-text">87、修改tabBar的frame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#88%E3%80%81%E4%BF%AE%E6%94%B9%E9%94%AE%E7%9B%98%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">88.</span> <span class="nav-text">88、修改键盘背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#89%E3%80%81%E4%BF%AE%E6%94%B9image%E9%A2%9C%E8%89%B2"><span class="nav-number">89.</span> <span class="nav-text">89、修改image颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#90%E3%80%81%E5%8A%A8%E7%94%BB%E6%89%A7%E8%A1%8CremoveFromSuperview"><span class="nav-number">90.</span> <span class="nav-text">90、动画执行removeFromSuperview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#91%E3%80%81%E8%AE%BE%E7%BD%AEUIButton%E9%AB%98%E4%BA%AE%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">91.</span> <span class="nav-text">91、设置UIButton高亮背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#92%E3%80%81%E8%AE%BE%E7%BD%AEUIButton%E9%AB%98%E4%BA%AE%E6%97%B6%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">92.</span> <span class="nav-text">92、设置UIButton高亮时的背景颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%81%E5%AD%90%E7%B1%BB%E5%8C%96UIButton%EF%BC%8C%E9%87%8D%E5%86%99setHighlighted-%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="nav-number">92.1.</span> <span class="nav-text">方法一、子类化UIButton，重写setHighlighted:方法，代码如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%81%E5%88%A9%E7%94%A8setBackgroundImage-forState-%E6%96%B9%E6%B3%95"><span class="nav-number">92.2.</span> <span class="nav-text">方法二、利用setBackgroundImage:forState:方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#93%E3%80%81%E5%85%B3%E4%BA%8E%E5%9B%BE%E7%89%87%E6%8B%89%E4%BC%B8"><span class="nav-number">93.</span> <span class="nav-text">93、关于图片拉伸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#94%E3%80%81%E5%88%A9%E7%94%A8runtime%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="nav-number">94.</span> <span class="nav-text">94、利用runtime获取一个类所有属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#95%E3%80%81%E8%AE%BE%E7%BD%AEtextView%E7%9A%84%E6%9F%90%E6%AE%B5%E6%96%87%E5%AD%97%E5%8F%98%E6%88%90%E5%85%B6%E4%BB%96%E9%A2%9C%E8%89%B2"><span class="nav-number">95.</span> <span class="nav-text">95、设置textView的某段文字变成其他颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#96%E3%80%81%E8%AE%A9push%E8%B7%B3%E8%BD%AC%E5%8A%A8%E7%94%BB%E5%83%8Fmodal%E8%B7%B3%E8%BD%AC%E5%8A%A8%E7%94%BB%E9%82%A3%E6%A0%B7%E6%95%88%E6%9E%9C-%E4%BB%8E%E4%B8%8B%E5%BE%80%E4%B8%8A%E6%8E%A8%E4%B8%8A%E6%9D%A5"><span class="nav-number">96.</span> <span class="nav-text">96、让push跳转动画像modal跳转动画那样效果(从下往上推上来)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#97%E3%80%81%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%A4%AA%E5%A4%A7%EF%BC%8C%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87"><span class="nav-number">97.</span> <span class="nav-text">97、上传图片太大，压缩图片</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">robert</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">1.9m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">28:24</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
 
 
 
 
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -764,111 +589,8 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 

@@ -1,85 +1,26 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rzrobert.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="tools," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="小工具中用的部分测试文件见附件  对比文本文件中不同的行 最近有两个项目苹果帐号中新增了内测帐号，新老包里面包含的内测设备不同，想要查看新包（内测设备多）中比老包多了哪些。">
+  <meta name="description" content="小工具中用的部分测试文件见附件  对比文本文件中不同的行 最近有两个项目苹果帐号中新增了内测帐号，新老包里面包含的内测设备不同，想要查看新包（内测设备多）中比老包多了哪些。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python小工具集合">
 <meta property="og:url" content="https://rzrobert.github.io/2017/12/28/Python%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/index.html">
@@ -92,39 +33,18 @@
 <meta property="article:tag" content="tools">
 <meta name="twitter:card" content="summary">
 
+<link rel="canonical" href="https://rzrobert.github.io/2017/12/28/Python%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
   };
 </script>
-
-
-
-  <link rel="canonical" href="https://rzrobert.github.io/2017/12/28/Python小工具集合/"/>
-
-
-
-
 
   <title>Python小工具集合 | 任征的个人博客</title>
   
@@ -134,192 +54,168 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+</head>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">任征的个人博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">任征的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
+  </li>
+  </ul>
 </nav>
 
 
 
- </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/12/28/Python%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="任征的个人博客">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Python小工具集合</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Python小工具集合
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T09:25:35+08:00">
-                2017-12-28
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2017-12-28 09:25:35" itemprop="dateCreated datePublished" datetime="2017-12-28T09:25:35+08:00">2017-12-28</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
 
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <blockquote>
@@ -335,257 +231,186 @@
 <h3 id="附件"><a href="#附件" class="headerlink" title="附件"></a><a name="enclosure"></a>附件</h3><h4 id="new-txt"><a href="#new-txt" class="headerlink" title="new.txt"></a><a name="new.txt"></a>new.txt</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">4f851ad814c6d77a5ea338252f34e16df81fbc00</span><br><span class="line">475357e205787e8d10137e6b94235dc4639a50ca</span><br><span class="line">6ec05b7b2bbcb2e16c07371f7119181318ed5e31</span><br><span class="line">06a82bb82c968ad33f2e1f9a08ea0cf226c91b68</span><br><span class="line">92027bb11f343ebee913d4ba2839772d6db8bb35</span><br><span class="line">1b47c9464abcdaacefcf2578a0c45f2ab8a21b43</span><br><span class="line">f5c7fbbeda40b760ca2fde524cd81ffbd0c9422a</span><br><span class="line">0ffcba04614d17f7a00847d20494bd7ecf6caf68</span><br><span class="line">0d9853735ecbe268fa34f056cba3a5a5c75dd965</span><br><span class="line">4ba944040c39e795d167107e7a645aee2b65975f</span><br><span class="line">c6acded6038a3fb6ca5076d855b25da9592fcab4</span><br><span class="line">783cf4b827e404b53d2c103f429dd069e22af84e</span><br><span class="line">505a08876413b1bfc8778816d97252efdc91cc36</span><br><span class="line">e56aaf51ab3fadd7ea590f9155a2e184aecdfbc4</span><br><span class="line">fc5035ff9054f06d1f6282a260289a75b3949e63</span><br><span class="line">62120d790c969cecf154da5948695cd69904d092</span><br><span class="line">91650d655e74e4a0b815d096d0ef79c392192c77</span><br><span class="line">807a51fa7e3aaa0e16df566db051059d96697426</span><br><span class="line">1da74bb82b56096e321bccd2fab2b6bff48d6c86</span><br><span class="line">90e4b1307cc4fb6e34e62c3294fbb7839c2a70ef</span><br><span class="line">4ab76842b7ba039710798d6a9eb830c55df73cbb</span><br><span class="line">dcaa1d5b1c8fd27442574ae837393755da71d16d</span><br><span class="line">0c7924df887951c5cac3b21a89e3695a7fef2a6e</span><br><span class="line">6362435cd09c0d2391b1fc08f0952d6bc6d7dbcc</span><br><span class="line">af1bf307fb70fa070364e1f54ab9f6b8d887d6dd</span><br><span class="line">1fcf4fef19fec7a93e26bca99605471d7915f3a2</span><br><span class="line">6713bfb31dab974d2687066d07cf1d712ecb31a6</span><br><span class="line">551c9117f0764536731fbbc88bd4f7a0da175679</span><br><span class="line">25ed04606015c995d3a7750b9d21d12822bd0af6</span><br><span class="line">678dd79aeb82895c22aa8a47e027c85f994a6ddd</span><br><span class="line">d92dc6ea51455310f32ef64f4e5fd9196f240ede</span><br><span class="line">a56ed28080da0f1725b7544bbae5f3591e740983</span><br><span class="line">85e0f9227c8371ef99b1a56a7d495b3cc6b236a9</span><br><span class="line">762ca3d4d8084c19154638a602e85c38a749f0b4</span><br><span class="line">63f439a8bd30a5a2260e2ddf8f86e28bdd16b36b</span><br><span class="line">3843efb916d23918232db89cb9b94938b5b7236a</span><br><span class="line">6822472aff3e7886e0bd1a2bd86d194f48cd5052</span><br><span class="line">65e83901bda2bdd957b4e21e1decfc5b177a98b3</span><br><span class="line">74c1dd4113ac402fdfd38db7e1818be24735df4b</span><br><span class="line">3364f575ca6f4054e91f7273bbf1dfcd057a4786</span><br><span class="line">d903633e56ae8d6b94c16e692eba444c7c7d1921</span><br><span class="line">56aa342af4f8aa7b754e99f6b7055631e7b22777</span><br><span class="line">c89dd5acb93348ca0f1aa21d5cf6913991c18efc</span><br><span class="line">dcf95ad21448ba577e18fddef6054c1b710d542f</span><br><span class="line">0b17cda0b6a008b8788796964d1e31f7575af6cd</span><br><span class="line">3b96a534dea4f3ca38e00af4e745b99dd8531d1b</span><br><span class="line">13845da2e45fb544a50e6b704fa52072e26c9f1e</span><br><span class="line">fa9d2238b1ebb1470db2fb481828a349b5a2a9e5</span><br><span class="line">45678fc84e20d4c87e90ccde39a11f535f184e3c</span><br><span class="line">274c9cb3e8e987dbfdc124a741c43bec26e7f613</span><br><span class="line">c1123101960355d369565f304516f4a39ef73ce3</span><br><span class="line">e40df6a49aaa08050feaae6378a1726aee29c5f6</span><br><span class="line">74903746a8ad1192aa29b770b551c281d490dd1e</span><br><span class="line">f81d05093e600d7e676eab4c593624f717d76148</span><br><span class="line">e5d39be4a4a9322ce62535afa3149d3b5df35360</span><br><span class="line">02ceeca08a961c4877929c4d852ea53dbe37a930</span><br><span class="line">36a59b8f7cd8d0d97f2cfb538a3ac02f6de908b4</span><br><span class="line">b9ee3ffabd0c7e2383b54d61df8e00613b0696f1</span><br><span class="line">6f1cab6c58c72583f01532f49b1957242ecea4f3</span><br><span class="line">c970415d8113bffc50c10c339c7c2baf1e491a35</span><br></pre></td></tr></table></figure>
 
 <h4 id="old-txt"><a href="#old-txt" class="headerlink" title="old.txt"></a><a name="old.txt"></a>old.txt</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">4f851ad814c6d77a5ea338252f34e16df81fbc00</span><br><span class="line">475357e205787e8d10137e6b94235dc4639a50ca</span><br><span class="line">6ec05b7b2bbcb2e16c07371f7119181318ed5e31</span><br><span class="line">06a82bb82c968ad33f2e1f9a08ea0cf226c91b68</span><br><span class="line">92027bb11f343ebee913d4ba2839772d6db8bb35</span><br><span class="line">1b47c9464abcdaacefcf2578a0c45f2ab8a21b43</span><br><span class="line">f5c7fbbeda40b760ca2fde524cd81ffbd0c9422a</span><br><span class="line">0ffcba04614d17f7a00847d20494bd7ecf6caf68</span><br><span class="line">0d9853735ecbe268fa34f056cba3a5a5c75dd965</span><br><span class="line">4ba944040c39e795d167107e7a645aee2b65975f</span><br><span class="line">c6acded6038a3fb6ca5076d855b25da9592fcab4</span><br><span class="line">783cf4b827e404b53d2c103f429dd069e22af84e</span><br><span class="line">505a08876413b1bfc8778816d97252efdc91cc36</span><br><span class="line">e56aaf51ab3fadd7ea590f9155a2e184aecdfbc4</span><br><span class="line">fc5035ff9054f06d1f6282a260289a75b3949e63</span><br><span class="line">62120d790c969cecf154da5948695cd69904d092</span><br><span class="line">91650d655e74e4a0b815d096d0ef79c392192c77</span><br><span class="line">807a51fa7e3aaa0e16df566db051059d96697426</span><br><span class="line">1da74bb82b56096e321bccd2fab2b6bff48d6c86</span><br><span class="line">90e4b1307cc4fb6e34e62c3294fbb7839c2a70ef</span><br><span class="line">4ab76842b7ba039710798d6a9eb830c55df73cbb</span><br><span class="line">dcaa1d5b1c8fd27442574ae837393755da71d16d</span><br><span class="line">0c7924df887951c5cac3b21a89e3695a7fef2a6e</span><br><span class="line">6362435cd09c0d2391b1fc08f0952d6bc6d7dbcc</span><br><span class="line">af1bf307fb70fa070364e1f54ab9f6b8d887d6dd</span><br><span class="line">1fcf4fef19fec7a93e26bca99605471d7915f3a2</span><br><span class="line">6713bfb31dab974d2687066d07cf1d712ecb31a6</span><br><span class="line">551c9117f0764536731fbbc88bd4f7a0da175679</span><br><span class="line">25ed04606015c995d3a7750b9d21d12822bd0af6</span><br><span class="line">678dd79aeb82895c22aa8a47e027c85f994a6ddd</span><br><span class="line">d92dc6ea51455310f32ef64f4e5fd9196f240ede</span><br><span class="line">a56ed28080da0f1725b7544bbae5f3591e740983</span><br><span class="line">85e0f9227c8371ef99b1a56a7d495b3cc6b236a9</span><br><span class="line">762ca3d4d8084c19154638a602e85c38a749f0b4</span><br><span class="line">63f439a8bd30a5a2260e2ddf8f86e28bdd16b36b</span><br><span class="line">3843efb916d23918232db89cb9b94938b5b7236a</span><br><span class="line">6822472aff3e7886e0bd1a2bd86d194f48cd5052</span><br><span class="line">65e83901bda2bdd957b4e21e1decfc5b177a98b3</span><br><span class="line">74c1dd4113ac402fdfd38db7e1818be24735df4b</span><br><span class="line">3364f575ca6f4054e91f7273bbf1dfcd057a4786</span><br><span class="line">d903633e56ae8d6b94c16e692eba444c7c7d1921</span><br><span class="line">56aa342af4f8aa7b754e99f6b7055631e7b22777</span><br><span class="line">c89dd5acb93348ca0f1aa21d5cf6913991c18efc</span><br><span class="line">0b17cda0b6a008b8788796964d1e31f7575af6cd</span><br><span class="line">3b96a534dea4f3ca38e00af4e745b99dd8531d1b</span><br><span class="line">13845da2e45fb544a50e6b704fa52072e26c9f1e</span><br><span class="line">fa9d2238b1ebb1470db2fb481828a349b5a2a9e5</span><br><span class="line">45678fc84e20d4c87e90ccde39a11f535f184e3c</span><br><span class="line">274c9cb3e8e987dbfdc124a741c43bec26e7f613</span><br><span class="line">c1123101960355d369565f304516f4a39ef73ce3</span><br><span class="line">e40df6a49aaa08050feaae6378a1726aee29c5f6</span><br><span class="line">74903746a8ad1192aa29b770b551c281d490dd1e</span><br><span class="line">f81d05093e600d7e676eab4c593624f717d76148</span><br><span class="line">e5d39be4a4a9322ce62535afa3149d3b5df35360</span><br><span class="line">02ceeca08a961c4877929c4d852ea53dbe37a930</span><br><span class="line">36a59b8f7cd8d0d97f2cfb538a3ac02f6de908b4</span><br><span class="line">b9ee3ffabd0c7e2383b54d61df8e00613b0696f1</span><br></pre></td></tr></table></figure>
-      
     </div>
+
     
     
     
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/tools/" rel="tag"># tools</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/12/26/Python%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97struct%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/" rel="next" title="Python内建模块struct解析数据">
-                <i class="fa fa-chevron-left"></i> Python内建模块struct解析数据
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/tools/" rel="tag"># tools</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/23/Sublime-Text-3-1-%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%A1%88/" rel="prev" title="Sublime Text 3.1 破解方案">
-                Sublime Text 3.1 破解方案 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/12/26/Python%E5%86%85%E5%BB%BA%E6%A8%A1%E5%9D%97struct%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/" rel="prev" title="Python内建模块struct解析数据">
+      <i class="fa fa-chevron-left"></i> Python内建模块struct解析数据
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/06/23/Sublime-Text-3-1-%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%A1%88/" rel="next" title="Sublime Text 3.1 破解方案">
+      Sublime Text 3.1 破解方案 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name"></p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">对比文本文件中不同的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new-txt"><span class="nav-number">2.1.</span> <span class="nav-text">new.txt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#old-txt"><span class="nav-number">2.2.</span> <span class="nav-text">old.txt</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">robert</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">对比文本文件中不同的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new-txt"><span class="nav-number">2.1.</span> <span class="nav-text">new.txt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#old-txt"><span class="nav-number">2.2.</span> <span class="nav-text">old.txt</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">robert</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">1.9m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">28:24</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
 
 
 
 
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -603,111 +428,8 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 
