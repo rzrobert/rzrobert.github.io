@@ -1,35 +1,327 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>混合APP(React+H5)中iOS原生给JS传图片 - 任征的个人博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="任征"><meta name="msapplication-TileImage" content="/img/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="任征"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Welcome to my blog, enter password to read."><meta property="og:type" content="blog"><meta property="og:title" content="混合APP(React+H5)中iOS原生给JS传图片"><meta property="og:url" content="https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/"><meta property="og:site_name" content="任征的个人博客"><meta property="og:description" content="Welcome to my blog, enter password to read."><meta property="og:image" content="https://rzrobert.github.io/img/og_image.png"><meta property="article:published_time" content="2017-02-16T03:29:47.000Z"><meta property="article:modified_time" content="2023-12-18T11:45:48.318Z"><meta property="article:author" content="robert"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://rzrobert.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/"},"headline":"混合APP(React+H5)中iOS原生给JS传图片","image":["https://rzrobert.github.io/img/og_image.png"],"datePublished":"2017-02-16T03:29:47.000Z","dateModified":"2023-12-18T11:45:48.318Z","author":{"@type":"Person","name":"robert"},"publisher":{"@type":"Organization","name":"任征的个人博客","logo":{"@type":"ImageObject"}},"description":"Welcome to my blog, enter password to read."}</script><link rel="canonical" href="https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
-      }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">任征的个人博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/rzrobert"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Suche" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Gepostet vor&nbsp;<time dateTime="2017-02-16T03:29:47.000Z" title="2017/2/16 11:29:47">2017-02-16</time></span><span class="level-item">Aktualisiert vor&nbsp;<time dateTime="2023-12-18T11:45:48.318Z" title="2023/12/18 19:45:48">2023-12-18</time></span><span class="level-item"><a class="link-muted" href="/categories/iOS/">iOS</a></span><span class="level-item">3 minutes lesen (Über 381 Wörter)</span></div></div><h1 class="title is-3 is-size-4-mobile">混合APP(React+H5)中iOS原生给JS传图片</h1><div class="content"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Welcome to my blog, enter password to read.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="混合APP(React+H5)中iOS原生给JS传图片">
+<meta property="og:url" content="https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/index.html">
+<meta property="og:site_name" content="任征的个人博客">
+<meta property="og:description" content="Welcome to my blog, enter password to read.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-02-16T03:29:47.000Z">
+<meta property="article:modified_time" content="2023-12-18T11:45:48.318Z">
+<meta property="article:author" content="robert">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rzrobert.github.io/2017/02/16/混合APP-React-H5-中iOS原生给JS传图片/"/>
+
+
+
+
+
+  <title>混合APP(React+H5)中iOS原生给JS传图片 | 任征的个人博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">任征的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="任征的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">混合APP(React+H5)中iOS原生给JS传图片</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T11:29:47+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="0909c4015cb6b5996ea0c9decb8c97d706549c206c9df010dc459b1bfd15807d">fc25a2c8649a61f8e939e19f6d12bdcae5e2a03878ae06958fe065c337717c9434501f10d62f7e264ff3f7e36d26d82481ad412b922f7c2da0009f6a12fc317f3b504409c32e1da518653b19980165842fc9d076d24fbfc0670ba901eeb13d8da5d3c441c49e417c51d55b9ce004313a2fa3793c088f65ace44df8fc8cdee7ef1c22367ac03417c83d15f2dbb891fbb9c78bf302f220cc9a22076e982f1170d5cd8604eb7c3781453cc10b977aa91d5027a4a8dfc02162046ded3233e6386fb29c0e7dc753244b14f0aa6cca0725bafba4a3535168c93d4db58f9eed0a368447db233775f4dd876aa9f8bfce4f6712b586dbe1f1077f57486549c7b304cea9066fb513446f3728e694378609ff500cd618f3226d6cb632be4bd2831da68940cffa58a91164c604ab37f35034a508204ac25e10eae2fa509aba0343fc9352c8eed06e22097411263d5b332c479f69f3570f9d3cdabe46ba905d433d842808d56d919758237074fb31f402fada1e7f154ef716cbe9b6de1e50ed2412be2a5abad8bcb7ee1ed891b5dcc9362995302f53e178220224c1e9ca9d99ca5ff0fbdc19ec09b96f552f5ecb526bf040cc1be1794f65839c2f1ee50bd0575c4de2e2b7b2b491831d767d7f4d2a6b53d489639e12c07c680a45cd0a4a8f626962a49779e2d9369c49e9f30659f6aaca6976dc66aea3751eee19d2d0d51d822b7cf26f267b6ad0797541b1310dd1883f1248715ab542050bec9e486a77a4b0fa9e29249c2d79d107f7660165b4a2fcffa1b1c223d408835e49744467dadd7fb2acdfe6e52afcef90992002f5df413efeec333f7999eb96b6b90b480e1a52ad6b1243743a1bffbb4551335db14195d57cb7080287ca02f3f3ef88277665356eae5448a26ed29ce87eb75d5762babd2d811e312008a60a8a3d3d803e3b2010fcc438de2d85f920c871935d1e277b0913e4a9a12f8afdb6b97a6982bb9d863103dd3fd8b38ed357034c2f521ac668ed816a87e694a1ec9363a71a660be4b425d4c6ce14800977bf7c5700d41acdbdb9351d504cfb37ef366eebc5c4919a2bfcfef172cb16e445f8aab37fc15a1b163d4f63ac1bc47d6ac63c44c109b468ff261b6039307e35ef474e84cef7d2e7842e6bedd5d2e8b791256b701413206e7424e6f186701d4323e3660b3dfd7a08240bac7428524c6feb54c9fdde8a405b1f430efc68d7168a5eb5492f1fa866a9788ab56669e9110f0ebb8af2e5b070f3c62fb6682fd26d7d49088412015e316fa14d73aadc96618f3e2f82665ffa0e56944d494a78cd0036a6da4946cbcaf8ddeae3d665f9c6f4883f90b6299764635229b563eb9c3475750fbd84a0fff3903a010d73f954d4eb6c2599fc5f55757cfb3b372583ae7beca8c1e8282761a12afec116c2f9304423306c1e46319378a411f4a8adf83ac86669c937212b9518c6959adf6d3e56cb7f503fcb7f5e48a89b8c3379732244732d83b0c17a49e36d25de15ca2e5bdaad171e950aae92638417e03e3e036d973acfc397d5dea353082d368a83d93b87d5837726f18e24fd2c089c93d17517ec153fd0301b8fecffcd3227516ef564ac4cfb60072e49ea7617aed97f086b98e7704070f526f6fdfb2287e99215b02b7f74ef7c3aecf83be3a8a00c9be9795606b219a0bbc2b91243811f4fdc6a52cabfb5a3b8f96aaafec0b9067c5b3d30351d07017df5068e88f969ab99e6cb455f5ebcf0f652685e86ca2d220840c7d3e2e8c9150a174664c5afb1099e7ebbcd4c829e33a849fbff69769a9564dc0ec6837113c7eb2df29006b45740b78daee0facb9802af82176b6f83e3c866aca4e9d88a92e5aa79b11adf50300ef44bb915624e81bad94a806975a68937de6536215f437cb82c522424e9a51b85685ff3623973f1e95cb4c00fdd6e06ff214bfaf8fbff46b79880d9e98bc9ed03ee35bb0b745ffbfee5afe7f77264cb1f4019493db5bc201fe47a629298e575b2e05254a1af9940766621ae74182ccd94cebe378ed728244a8bfbf8a4b13d373670a520aa16424053851ddf6d7408275e133c0db222bf283a3829ab78372d65399bb572d909562fa5ac624a20d96decd1a489862abe7a01e8e8ff3279891f011e7d6715d884cc3f9b67d3d35a2b3feff4083a922a8e06cc5829282622567fc9c85551520aea20bc320fe1ce5415af6c6e6b022ed1e7372e726cdcf79c07d9c0c5e8ab895434b59cf9989dd6f0248cb653343c66fecc96f78248971de70f5a014e6b877f7ecf237b49f71fdfff6bc1d016f581347e9f73b1391fcae6bdee8efb7d49a9dcb3bbe9ab777619ffeec7fd9271b1e9fee4f390a8a11288f2a572fcb1dec97cb043484f6a2d0f1f9d3d22ec2f7acb0f50857f5609615860958226851f53b4aca01d864619c86cde06120b20e3a6d0a8da104221ab71cb442915c39069e56ee250602fcb924422c0626a40b11e8acc0cd3964a9812cf2331429750761ff9943551a5d9d1f1b12e664a516e88041cf8bf0aca07a5deb0b832e443e4bc587ba35e2144bd5269a21abee684a319281eb0c5beade8239bad95cb0efdddf2a1a2c233aaf1a51228fbcdba18586c1b8e0b013610281788ae40eefdb4839ec76f1379f7a6375ff93685e89d21b75fb66738959e53bce9f18230acd531f2e3d012299273afc594706a3f66320df85f16562676c7712629b3b4ce2b63638575211d655e030f7e54095ca4ebc41675a7567e2242dee8745a5d92c58a46a6e28082d66b8e74eaaf6baa2d5ae517b47f405cdc31e4ef4d6f7a533c9d6c887d6b6c3235f93033fbbcfb445f1b557ba20fe3137003973f59edf57bd3be0aa754076c61601a7b9b5d52821873466315f57d4ef6cec65acaa8ad826d55c875e6d87b016e76c7930b6f6d3a38f227711530dbcc9f41f8e518886d5aa27d25a4574a57c6d6278a2dd4ef35acc74a168653d8cde3c86f45c6ac3ce43cc940214622e8c9e5734ddbef31543f43db4dfe1e144fdd57baecabddd55d095a3af5284ef091dfb4e82b3be061e73e76f7b32ff090451ba4d9f35e2571440caf3b3148ca2a8b83dc841b8f9401eef36cdf92445cffc5930556a1cb6aed9e419d739e12c41eb5fa23953c596437e0a97da72c2572c513ed1ad7023b35affd4132dd5dee39ecf09054c07a2b9b20bc5c1fa5d6371714086abbba79103616ba2a8985117b91c97fab8d9c567489f87222d662a0539d91eae911dfdb949d65ee6db5873e84a3fb50b2f3544620e6d13bae34eb1a9184c7507052c1b893d006af1e83a11ce05ac4f0b3c3d4080b7b9e86a49a18c2aa5c39e7c35f22cf262d1fa14e85c7ac50b55e6cca114094166547c9742a66c22951155a663610870e8f0f77b765772d89dfbad5a8fc3b25d855a3d2e4202ff5c97b9111241e35145a8d9534277af5c6cc3bb6f9b70a1225ddc6cb9b2ed56f12a656dcaacf41e0d73862a5ceab1d643c825f89a7d7d0e617f77f37bf0b83d38868cde9b08406e18f5230938f4f9144ed87207867ccb1fd77a4c73f6b7b21aafc0ec4bacb37b74acf8a324309b0b2d8d79e6c11ed71c879ff04eb8d00a351b3515c8f8a168b9e241027f38ae6fd7eb97a1dd8d1bc02f566865edac499d059ec9b853285d40abc108928cf30bcfc9b9210bf9f47ef83a050ae5050c7e62295f574d7772c693741930cfc1e05033f48c3cc2df1ba8f5645fd297b2ed10ce3d11f00888fde930c59d14360e446b6bcc945631369087a817b5158d07f407fe5e3a68064f2711e2275dded5e5de42b53c3e7dd52fd0f58ae22be10b3d2a3a5e37ef76375ce300f35ee7ca8c44f76668adeb51313f61237b394dbe50008f13ca80210a115da16ef4e256a43c63bfdfaeee419274fc6e9d2d40fdeea706912c26051cf5663daaeba98a1c031948432db8b440a13f508026f3eac26ef7e297072e316cb6b47e839cd25f680f92c29136e24d6418fca445ba389e07d527c50ce165550681f2415b7458ed3a6c8a11bf63b33383498acf245cbec733531608018f4073660c85aa36ac8673ee178f0c56600cd6a080f5ae4c026dd6927eade13b8f2237f3e7ddf7eb15b2b9ad1048fe9fa4f785f4cdcb45363a8751a43f652d59f64a6ca551667ac720faab5001bf38b8eba67d4b6dfd599fee1f9361b81b0d1ceee2b436f82934b16d86c8fd06a85298ffaa949166f5a06f4b5085a30fe0013962ea1422a194e51f6f626c2bf5a1fca6e45b16c889b5c647ab32fbaf0ecef893a6f3d93340f3ea21e5270c491cd1342eef11ab4bd1b6cbdbf7ab2ef1603ac7282975321e2309f0ade6057d5f0a0a538fcb5fea69815fac087ddafe20b5113fa0738294adfe2fc6a7184e0deebc9958e550af227d235d71967a94979977e842715dd9a41728054f4ef73ff176f2f80d9f7ad56317890c01f98ed6c74aa8d2f322333b8a97bad118f55383d415c3caf957802991f7099238ea51a60a5803a3f6887bcb0f51c82dac1af932aa5b10274f7f8642644dbb834a30e916d37473fc78729f20e04391b8c9b3821b9ecb7436512bae26dd6ee9ee25d37b7c1a05d8b4ed2207a88731ff2db40b49af6dd3a4f7b894fb3884ebe900ae0e98ea7644f1b95c0bd12ab42c33ac28285738292faa984717b555e6ec49095c9efe5a11416c082a471fe85d74760ba97c2371b58d14fc981350876348312668a6460502abdfe9e769f52e850720ff03e52822341b583a2e55771ca5aea9f8dcfcf6f7f2f80630c3c54825a37c64fbdbfdcd851ff53635e742a68079fc9bb3138a1a682c8dd4f552909f134ca31f4d48f61ab1eb0cb5129e6f3a0d94ac83ad2b9b983f4e0318fd2174d59ae121590056d7753161568c9c60ba44d54feedbf1bdc38548392e617ac8ccb9a4d9b49d8a0c6baf234144209cdb4e55744e4daddf8c07ac390f452a007b349eca879cb80c447454937b5a14529dd8f5d86a7655d1a2c47c30351663a7efa675970eeae9edab1badf90ca21461c0439ca804022486d7559f7ad5fd4d4d1b80b0ceddbca024c589eae2ded3739781c866b5ddcfc9c4145573cc465cb80c5c92d03788f32ecc72d22b9c6715bac7942648674ac06af52e8939671371d3b5479b68cd81c4648c6ab236e741030e1c14c74015c486e0012388b2eb83524ea683a723c3734e70fc770137c7a241af2b182365fa144f4e8a47614084bd4a4c25e14a29b219151abefd22bcec4e220805edffc6d56491a12f9ad0e872c0b5cda784ced27e0a47ce35b9ee0d37976add3614728408dc078c7534aa9ae71d5b4db00a9024c99798464054dd5e24bae695b7b58dcc7e9aad12a4abc13ba02d364e8b471af9c48190524f0ce3b69e3ddc806b7e528180d8292f0fc06128e29153e835338908407a30f8abde14d24e22272622f0b9003704427b758881f46bf4f83bd4560855df89f9aa6cc00586ba34dfbee5a80afb6bef7ff5038d694844c10ab6b5cc3bc099827eb9ed2deb348303cbf8b3cbd0690a97ad3e471b6cd08eb961f89d2c95b6f2b73e8d882e5ba9b779c828782dea63355669af0f98f9a8d88da1387b7ac2c09c2eb0db6f37c9fd8bed48d5f9c19ee13925bf20557d3467d11ef9a8cb893471fb1445a51273f843d3698050daba7182535fbddc092f282178471462b9385c908dacffbca4ea2fee7682a851fd3b28a7a2576ba63e5ab9c517a1095a9103e6aae9d25806f1280da961e2403d9c6d1db01b402e77d4525d478325376bef7b631625f05f16e12a1fcdd201c47a63ca51feb3e6d86f1b6895367d705ff10230d5bfbfe8bce821cd98f4dbcc77f66b2b645d29ef1f4a98ced926ee400ccb8a609cd9b526c32cb46ea4f0da2e866cdd8253fc8c4732c37b433d53389b76db0e34e9712671b95a82707bdec3b4723253159155770d3ccfa84855a79f107fe06b589739fdfceda19ebc6229359404c0ae16631cd8e4ee595b78ad13916398604ce652771d0dd1adec2010129ea7269b00b857a6771b6a589693aae3e1a06731dc9566207a15a36f1f8348aaf73faa3fd3772524f7932cdff2f734a8eaafe4a8d0cdf376278f496867a081faf759afe2031c1de5aee39301f86f5c02be5c6bb52cd4c3300054a06c02ac071240b06c4157ca5a6636f9b325840f9c7b205d239768a34172b0d4e7031f302783ed9f276f135d82840c73c4959d652838767a7d3024aa13f91781545dd643777101b7bc45958823e3e7fb51873202c5b4c31c5bd20ea5a98c7f697a5d69ca47ab4d23134f32aab21170378bbf04a05bdf3cd81d426088163ca5142ad2b99b953ee423575618533ca00fd1dc8fb0c2f1e9de721cc4e8c0aa0b7403bf13ddece251a124b47c5312052ad5f8e98c55ea5117fb9a2be2878196b7864945d8996a478b954e317b0b227e3c3d5c00c80b6a99dfc156da30b46b2334be7b9088ab1903bd0a0dafae6a89574cea7f1f2a321f25fc6d3245a36b05fb0e93d8206acd703460394e4b8cecac81e8640edf57892b0bcad70378dbe6062713f816e22348dab4ebdfb4fb49f96b13cad9fdc5e3323bcee30c7980d9502e09a62aa28a59698d4542c3255f2080652ea0b57e2b2d86a1d913238813c9d3f3c2eb8d1a8eebef945cf5d3598e6e9840865b1ad7b6fdb39aab37dfdb072cd52543d9d5ccb20403d1ee83e1a46f0a14d1b41750a463e57e36203e401e9181588e943488b166849b427cd2c8f1f402878c0d6282e0939659b06984bf8eb7a40cea5873bcaa3d1e38e1a510dc2e001f47ca5eb8e47d8a474c4ae6092f2026ab648a770e8df27b81d15572c133e0b6662fe71bb4001b5ba30c351d11a0851fa92092f0053273c024f85c9f08caecf6bf68901f90f17535ece17527f6f541c2f26ffb5e6a75ea9f038640367153b8a3be08b7ce49556959e49b6f680182932936d72a3573186114f14c2cde411cd9ff5d5c6d03b47228fbabc45a5cdba53da343f11b9dc68965f7ba1f985a8042628c0054f369327c8107b0f3f15b77f3a16322aacf58740df5047414acaa86f40cf9621d71ede81fa46c4b62065d8768591c2bb911c4b2cc668fc457a9f113d11d8a978aeb6ffb08e6d9849177b9d020116dac0df5a9905ecab3260ee2bcf12c5fe380a7f7b2c1a6b60862e54110cf75bc295e6e31813ef31055370ae262f864ba272ac546a38978a2667d7e19c4654ed2efc3276189f347afb25dd155fcb3a1ea12e21ccaa974e596779d5c0d8ea12401c4f7f63ff57dd139b90cea93ddd174cd9af886f9128660ce9017281738505ad31dad883cf2f6640ec3b48f6e43f26cd8d936a7678816553f25c9c58a30e17dadd11476ea17e39404e31d658acaee634f57cfcdecc883c7dcf81c06192978da51434720c3e26e920930d71a006b69bc3117ba8bf509c9a56ae8fc4b72aef29cbfc73aba4904af904af61a847ff075b062542268c0e1a4f71acc561504030358cdd2cdec5ec18e0b4aa82715e6ef25a8e8e906b86b8be11456782044f26245604bb1ac77d1d993238a533b83e3bae6385b84851337cd2639fa8debf25dd340e357d7d616e15a3ea1c4dec8791514950e288296c58661872b5a3aa3fa9c7f1d69c42393974789fb8b78fdd4112375d1638e2abc02fdbcc7ecd39c67a22a9459643e6da1a21c982bea646b0cd501d8f6a5d299b8c23f86760524ddac68407d75f91627a59e792f3bb96c7b6ed74874afa0b1b00fe7125e40873cb9f411c261d8c77acf7ba9a7d4261b8853bde53b5a85dd9bfeb6a43ea1e7215864c4e691cbe92adf280b147b22b4756cd2916c628ab84cc8709f60f3cb8960346272125188933a4eed7bcda0b68c640f3f1298e24d65bbaf652adea7b7ece1764404a16d22f13a89e7a9e04350cff57a9b4e5b9a0d3e3c7c081bdc0c5af54cd1992946599d5ab7a6f7bc16b982666141d0f04afbaaa3343a8420d3a33120a16a419b6f8998e8b509fff102766ec66a0c10ed08a75dcd42b3a3b3b94985d26da3f906ab6231fd796ce285df7def2154c757b8913a6e340cc28671552b5c8b4130f8e81bdb54dba531183e148cc493d1090d7497ee390e5c90ddc0ea6820053c82eebb998134a18e242aaebaef99926c297d780fc27aa950bcf4a39da8f8fe9d76bd0702aea4dbdd2f7ffe7405d3ba3a71583c52d11b75ed1faa5d897ec078af44ff6688e3c483a530966be0c9e8e509f5dc36314a7a439eddd7c43a6c3e73ec57e15f8079c0cd173083f5dab1884ea5ded6e4c4d6674e681f7ba718c41af85475265907e39d6fe9ae5cf9a91fcd7672d4bf53b5c66ff87ed1d4c2c1c73879819359e81ee5886eaa8c53109e0bed132ff5fe7860356fa2d1d4583cecf080db4a5310905ed4aee17c87feaa245fb22a60cb132094b568980b0fe501203a30d902e1e46dee0ea712d8fe4e08e1e12a8ad59a731bdc5edd1bfa2be512196cf300f4293b39f293069f55babcfac9b642aa616294e22b4003ff408c7ad1be420919f1bdaa4bd5ea44293c76ea30fc858cbd28f183374c00d89821ba60d6ebaa6cf26a1b616f77d2a6ea8d0367f47371e78416fc61804bb195e3c65c051199c0d2c4589eefc2ea3e68a25d2c45ffb92497d7dd4df2ce6fedd0ca89c72396578f1f2f559f3a47947b7ebf0283f3d8fe54ba1d1c72eff920c1b49f54d6c54bd83bc83f59f4c0659ca395ac4ad96a1942b711a327b83e772604ae12d0d9299728dc723b8aa7d8d83c4afdf7e76264d7783ea7f4b1eb6f332e8b0957aeefa7ccff2d43e93a8f91db43cdac6b14b88ef92af9a15f825861d6ecc532615780abfad5d507021ba5c1845365a26c0aca0a547c36743ac2798fbfc5a67e4647120058765a01ddc9794cc1014dc9a401987649730be45a6e0e8c01b0b7b888b25d9f844923271eca0a8b4eee06aeecbb2ac60902ca8651ec86311f3dffd7f114ff90b264dacb5977e34b38c8eef75248ae778901c396b6d572acc984aa5f7f13be87e3b94db159c096f79bab754a0629731717e139443882039d526a1aa435e1c7e40754eeff7743e7e41713445ba43663dd59b1ec8852bdc91d4b4371bce41dd662695ad8cec30acf21a61c94daa84dfedcb297f9cb2639ee21cd1717f490fd22bb50f47ef4be0e8dd9e77e9eaa82ac6338ddafdc098359c1d6109ad021b5f01a16595e0ba704c732e3a16f0cd6dfd73dfbc151088789e124e08732a80717c2cd4bb6afb21561c86d90cfe060f0d7b48f8a3e32f87c9f55ccba690d8903a54112530b7983f673722661a8b48f8c8ccdbbd83e783ae0a0853ea27d25dbcfba7ec292a35fb1a001fef8a2b79a5fe1faeee71915e5bad47af43f8bcde69e18662f1ef4379af2d45cccfebc6b1d34a498b88742f1fa3562b4e784e1d44733337fee76684730d17023941ab79f63cb6e9bdaada55c30fc1f585c493e10e62a401e886fe9a1972dc7b0fb16a62852d7177a066da7fe9e9c9270a563156b853645a2787582de2172259d702409f3d3d8a64d3814846239cafcd73fd946790fc55831cccd2c6c9b6d94ff8d5f1fde7a0317733016aa58a3285dbe81956c76c58b2176d893c5baca339f3584a1866a62043998f3e4afcc804c72443e728c78f29ffe7d82fae5d0304e177eb59da5b71c8ad526393d1d60b99cde65b56a7ae0509bf4fc59e723439f5c7594639dd43bf9e04c5c9</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
@@ -40,57 +332,353 @@
     </div>
   </div>
 </div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></div><div class="article-licensing box"><div class="licensing-title"><p>混合APP(React+H5)中iOS原生给JS传图片</p><p><a href="https://rzrobert.github.io/2017/02/16/混合APP-React-H5-中iOS原生给JS传图片/">https://rzrobert.github.io/2017/02/16/混合APP-React-H5-中iOS原生给JS传图片/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>robert</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2017-02-16</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-12-18</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2017/02/16/iOS%E6%9C%80%E6%99%AE%E9%80%9A%E7%9A%84%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9modal/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">iOS最普通的图片选择modal</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2017/02/15/%E5%B8%B8%E7%94%A8%E7%9A%84JS%E6%96%B9%E6%B3%95/"><span class="level-item">常用的JS方法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Kommentare</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
-            this.page.url = 'https://rzrobert.github.io/2017/02/16/%E6%B7%B7%E5%90%88APP-React-H5-%E4%B8%ADiOS%E5%8E%9F%E7%94%9F%E7%BB%99JS%E4%BC%A0%E5%9B%BE%E7%89%87/';
-            this.page.identifier = '2017/02/16/混合APP-React-H5-中iOS原生给JS传图片/';
-        };
-        (function() {
-            var d = document, s = d.createElement('script');  
-            s.src = '//' + 'rzheng' + '.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.png" alt="任征"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">任征</p><p class="is-size-6 is-block">Flutter&amp;RN</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>北京</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Seiten</p><a href="/archives"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Kategorien</p><a href="/categories"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">12</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="mailto:470347041@@qq.com" target="_blank" rel="noopener">Folgen</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Kategorien</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/JS/"><span class="level-start"><span class="level-item">JS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/ReactNative/"><span class="level-start"><span class="level-item">ReactNative</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS/"><span class="level-start"><span class="level-item">iOS</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS%E4%B8%8ERN/"><span class="level-start"><span class="level-item">iOS与RN</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS%E5%B0%8F%E7%89%87%E6%AE%B5/"><span class="level-start"><span class="level-item">iOS小片段</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/tools/"><span class="level-start"><span class="level-item">tools</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Letzte Einträge</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-01-25T08:36:17.000Z">2024-01-25</time></p><p class="title"><a href="/2024/01/25/flutter%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">flutter混合开发踩坑记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-12-18T11:55:54.000Z">2023-12-18</time></p><p class="title"><a href="/2023/12/18/Flutter-%E5%90%84%E7%A7%8D%E5%88%97%E8%A1%A8%E6%9B%9D%E5%85%89%E6%96%B9%E6%A1%88/">Flutter 各种列表曝光方案</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-02T08:12:22.000Z">2023-03-02</time></p><p class="title"><a href="/2023/03/02/dart-%E5%AE%9E%E7%8E%B0%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">dart 实现卡尔曼滤波</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-15T10:50:37.000Z">2023-02-15</time></p><p class="title"><a href="/2023/02/15/Flutter%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">Flutter事件机制</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-08T07:41:38.000Z">2023-02-08</time></p><p class="title"><a href="/2023/02/08/flutter-%E8%87%AA%E5%AE%9A%E4%B9%89flex%E7%BB%84%E4%BB%B6/">flutter 自定义flex组件</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archive</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/"><span class="level-start"><span class="level-item">2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/"><span class="level-start"><span class="level-item">2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/"><span class="level-start"><span class="level-item">2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/"><span class="level-start"><span class="level-item">2018</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/"><span class="level-start"><span class="level-item">2017</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/H5/"><span class="tag">H5</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JS/"><span class="tag">JS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Node-js/"><span class="tag">Node.js</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/flutter/"><span class="tag">flutter</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/image/"><span class="tag">image</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF%E7%82%B9%E6%95%B4%E7%90%86/"><span class="tag">技术点整理</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AC%94%E8%AE%B0/"><span class="tag">笔记</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%9A%E4%BF%A1/"><span class="tag">通信</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">任征的个人博客</a><p class="is-size-7"><span>&copy; 2024 robert</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/rzrobert"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-hans");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.",
-          dismiss: "Verstanden!",
-          allow: "Cookies zulassen",
-          deny: "Ablehnen",
-          link: "Mehr erfahren",
-          policy: "Cookie-Richtlinie",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Tippen Sie etwas..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"Tippen Sie etwas...","untitled":"(Ohne Titel)","posts":"Seiten","pages":"Pages","categories":"Kategorien","tags":"Tags"});
-        });</script></body></html>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/15/%E5%B8%B8%E7%94%A8%E7%9A%84JS%E6%96%B9%E6%B3%95/" rel="next" title="常用的JS方法">
+                <i class="fa fa-chevron-left"></i> 常用的JS方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/16/iOS%E6%9C%80%E6%99%AE%E9%80%9A%E7%9A%84%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9modal/" rel="prev" title="iOS最普通的图片选择modal">
+                iOS最普通的图片选择modal <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">robert</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
