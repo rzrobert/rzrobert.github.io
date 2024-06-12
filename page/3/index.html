@@ -145,6 +145,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="任征的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/" class="post-title-link" itemprop="url">React Native热更新与拆包iOS版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-20 15:51:08" itemprop="dateCreated datePublished" datetime="2018-07-20T15:51:08+08:00">2018-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index"><span itemprop="name">ReactNative</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>808</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>对于React Native的热更新，之前一直用code-push，这个API比较丰富，统计功能也比较全。但服务器在国外，对于国内来说网络不占优势。<br>在之前工作中，发现安卓还有热更新失败的情况。</p>
+</blockquote>
+<blockquote>
+<p>对于拆包需求来说，现在只能说有多种方案，携程的方案比较强大，但他们的CRN并不开源。调研过一段时间，目前比较方便的还是通过Google的<a target="_blank" rel="noopener" href="https://github.com/google/diff-match-patch">diff</a>工具进行拆包。</p>
+</blockquote>
+<h3 id="实施方案"><a href="#实施方案" class="headerlink" title="实施方案"></a>实施方案</h3><p>React Native打包之后会生成bundle文件，拆分方案是基于本次打包与前一次打包之间的差异完成的。即前一次打出来的bundle（lastbundle）作为base,本次打包出来的bundle(newbundle)与lastbundle之间的差异作为diffbundle。这样我们可以把一个最新的完整的bundle拆成两部分（如图）：</p>
+<p><img src="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/unpack.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/04/React-Native-RN-%E4%BD%BF%E7%94%A8iOS%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,115 +1104,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2017/11/07/pyenv-Commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="robert">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="任征的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/11/07/pyenv-Commands/" class="post-title-link" itemprop="url">pyenv Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-11-07 11:23:03" itemprop="dateCreated datePublished" datetime="2017-11-07T11:23:03+08:00">2017-11-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Command-Reference"><a href="#Command-Reference" class="headerlink" title="Command Reference"></a>Command Reference</h1><p>Like <code>git</code>, the <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv"><code>pyenv</code></a> command delegates to subcommands based on its<br>first argument.</p>
-<p>The most common subcommands are:</p>
-<ul>
-<li><a href="#pyenv-commands"><code>pyenv commands</code></a></li>
-<li><a href="#pyenv-local"><code>pyenv local</code></a></li>
-<li><a href="#pyenv-global"><code>pyenv global</code></a></li>
-<li><a href="#pyenv-shell"><code>pyenv shell</code></a></li>
-<li><a href="#pyenv-install"><code>pyenv install</code></a></li>
-<li><a href="#pyenv-uninstall"><code>pyenv uninstall</code></a></li>
-<li><a href="#pyenv-rehash"><code>pyenv rehash</code></a></li>
-<li><a href="#pyenv-version"><code>pyenv version</code></a></li>
-<li><a href="#pyenv-versions"><code>pyenv versions</code></a></li>
-<li><a href="#pyenv-which"><code>pyenv which</code></a></li>
-<li><a href="#pyenv-whence"><code>pyenv whence</code></a></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/11/07/pyenv-Commands/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1180,7 +1173,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1232,7 +1225,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">28:24</span>
+    <span title="Reading time total">28:26</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>

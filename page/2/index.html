@@ -145,6 +145,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2022/03/26/Flutter%E6%96%B0%E6%89%8B%E2%80%94%E2%80%94%E5%B8%83%E5%B1%80%E7%BA%A6%E6%9D%9F%E6%97%A0%E6%95%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="任征的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/26/Flutter%E6%96%B0%E6%89%8B%E2%80%94%E2%80%94%E5%B8%83%E5%B1%80%E7%BA%A6%E6%9D%9F%E6%97%A0%E6%95%88/" class="post-title-link" itemprop="url">Flutter新手——布局约束无效</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-26 17:11:28" itemprop="dateCreated datePublished" datetime="2022-03-26T17:11:28+08:00">2022-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="flutter布局的核心"><a href="#flutter布局的核心" class="headerlink" title="flutter布局的核心"></a>flutter布局的核心</h2><blockquote>
+<p>Constraints go down, Sizes go up, Parent sets position</p>
+</blockquote>
+<ul>
+<li><strong>父节点向子节点传约束</strong></li>
+<li><strong>子节点向父节点上传大小</strong></li>
+<li><strong>最后由父节点决定位置</strong></li>
+</ul>
+<h3 id="不是按照直接约束显示"><a href="#不是按照直接约束显示" class="headerlink" title="不是按照直接约束显示"></a>不是按照直接约束显示</h3><p><strong>问题代码</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Scaffold(</span><br><span class="line">      body: Center(</span><br><span class="line">        child: ConstrainedBox(</span><br><span class="line">          constraints: BoxConstraints.tight(const Size(300, 300)),</span><br><span class="line">          child: ColoredBox(</span><br><span class="line">            color: Colors.yellow,</span><br><span class="line">            child: ConstrainedBox(</span><br><span class="line">              constraints: BoxConstraints.tight(const Size(100, 200)),</span><br><span class="line">              child: const ColoredBox(</span><br><span class="line">                color: Colors.red,</span><br><span class="line">                child: SizedBox(</span><br><span class="line">                  width: 100,</span><br><span class="line">                  height: 100,</span><br><span class="line">                  child: ColoredBox(color: Colors.teal),</span><br><span class="line">                ),</span><br><span class="line">              ),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p><strong>显示效果</strong>：</p>
+<div align="center">
+    <img src="/2022/03/26/Flutter%E6%96%B0%E6%89%8B%E2%80%94%E2%80%94%E5%B8%83%E5%B1%80%E7%BA%A6%E6%9D%9F%E6%97%A0%E6%95%88/layout1s.png" width="212" height="448"></div>
+
+<p>最终只显示了蓝绿色，而且没有按照我们对蓝绿色组件直接的约束大小显示。</p>
+<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><blockquote>
+<ul>
+<li>这段代码，我们逐步移出蓝绿色、黄色代码，发现黄色和红色均显示为300*300</li>
+</ul>
+</blockquote>
+<ul>
+<li>我们想显示的蓝绿色、红色均没有按照我们直接的约束显示，都被黄色父节点约束覆盖了。</li>
+<li>而黄色可以理解为按照起父级约束显示。</li>
+</ul>
+<p>我们发现黄色的父级约束盒子的父级是<code>Center</code>， 这个就是<strong>重点</strong>：</p>
+<ol>
+<li><code>Center</code>的继承关系是：<code>SingleChildRenderObjectWidget&gt;Align&gt;Center</code>。</li>
+<li><code>ConstrainedBox</code>的继承关系是：<code>SingleChildRenderObjectWidget&gt;ConstrainedBox</code>。</li>
+<li><code>SizedBox</code>的继承关系是：<code>SingleChildRenderObjectWidget&gt;SizedBox</code>。</li>
+</ol>
+<p>这里先插入一个知识，我们在屏幕上看到的UI都是通过RenderObjectWidget实现的。而RenderObjectWidget中有个creatRenderObject方法生成RenderObject对象，RenderObject实际负责layout()和paint()。</p>
+<p>其中<code>Align</code>的creatRenderObject方法返回的是<code>RenderPositionedBox</code>;</p>
+<p><code>SizedBox </code>和<code>ConstrainedBox</code>的creatRenderObject方法返回的是<code>RenderConstrainedBox</code>;</p>
+<h3 id="RenderPositionedBox-和-RenderConstrainedBox"><a href="#RenderPositionedBox-和-RenderConstrainedBox" class="headerlink" title="RenderPositionedBox 和 RenderConstrainedBox"></a>RenderPositionedBox 和 RenderConstrainedBox</h3><p><code>RenderPositionedBox</code> 和 <code>RenderConstrainedBox</code> 最终集成的都是<code>RenderBox</code>。</p>
+<p>我们先来对比一下用于计算布局的<code>performLayout</code>方法</p>
+<h4 id="RenderPositionedBox"><a href="#RenderPositionedBox" class="headerlink" title="RenderPositionedBox"></a>RenderPositionedBox</h4><p>这里在子节点渲染时，修改了布局约束，改为松约束。<br>其中constraints.loosen()是把min约束给删除，可以理解为置零</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">void performLayout() &#123;</span><br><span class="line">  final BoxConstraints constraints = this.constraints;</span><br><span class="line">  final bool shrinkWrapWidth = _widthFactor != null || constraints.maxWidth == double.infinity;</span><br><span class="line">  final bool shrinkWrapHeight = _heightFactor != null || constraints.maxHeight == double.infinity;</span><br><span class="line"></span><br><span class="line">  if (child != null) &#123;</span><br><span class="line">  // 这里在子节点渲染时，修改了布局约束，改为松约束。</span><br><span class="line">  // 其中constraints.loosen()是把min约束给删除，可以理解为置零</span><br><span class="line">    child!.layout(constraints.loosen(), parentUsesSize: true);</span><br><span class="line">  // 根据子节点大小计算自己的大小</span><br><span class="line">  // 默认是没设置Factor 那么自身size就是最大值double.infinity</span><br><span class="line">    size = constraints.constrain(Size(</span><br><span class="line">      shrinkWrapWidth ? child!.size.width * (_widthFactor ?? 1.0) : double.infinity,</span><br><span class="line">      shrinkWrapHeight ? child!.size.height * (_heightFactor ?? 1.0) : double.infinity,</span><br><span class="line">    ));</span><br><span class="line">  // 根据自身size，子节点size，来绘制子节点位置</span><br><span class="line">    alignChild();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    size = constraints.constrain(Size(</span><br><span class="line">      shrinkWrapWidth ? 0.0 : double.infinity,</span><br><span class="line">      shrinkWrapHeight ? 0.0 : double.infinity,</span><br><span class="line">    ));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RenderConstrainedBox"><a href="#RenderConstrainedBox" class="headerlink" title="RenderConstrainedBox"></a>RenderConstrainedBox</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">void performLayout() &#123;</span><br><span class="line">  final BoxConstraints constraints = this.constraints;</span><br><span class="line">  if (child != null) &#123;</span><br><span class="line">    // 直接把自己的约束传递给子节点，并获取子节点size</span><br><span class="line">    child!.layout(_additionalConstraints.enforce(constraints), parentUsesSize: true);</span><br><span class="line">    // 将子节点的size赋值给自己</span><br><span class="line">    size = child!.size;</span><br><span class="line">    // 自己和子节点的size相同，所以不需要进行align子节点</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    size = _additionalConstraints.enforce(constraints).constrain(Size.zero);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>我们可以得到结论，当直接父节点是<code>Center</code>和<code>Align</code>等约束Widget，他们的creatRenderObject返回的是RenderPositionedBox， 而RenderPositionedBox计算会先计算子节点大小，然后结算自己的大小，最后根据约束子组件偏移，子组件是可以显示其自身约束，前提是在RenderPositionedBox的松约束下。</p>
+<p>而ConstrainedBox、SizeBox等最终的creatRenderObject返回的是RenderConstrainedBox，其直接把父节点约束传递给子节点，当父节点的约束是紧约束，即是expand显示，所有creatRenderObject返回的是RenderConstrainedBox的子节点均会继承约束，即自身约束并不生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2021/12/30/flutter%E6%B7%B7%E7%BC%96%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99%E2%80%94%E2%80%94%E6%97%A0%E6%95%88buildMode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -999,108 +1117,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="robert">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="任征的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/" class="post-title-link" itemprop="url">React Native热更新与拆包iOS版</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-07-20 15:51:08" itemprop="dateCreated datePublished" datetime="2018-07-20T15:51:08+08:00">2018-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index"><span itemprop="name">ReactNative</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>808</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>对于React Native的热更新，之前一直用code-push，这个API比较丰富，统计功能也比较全。但服务器在国外，对于国内来说网络不占优势。<br>在之前工作中，发现安卓还有热更新失败的情况。</p>
-</blockquote>
-<blockquote>
-<p>对于拆包需求来说，现在只能说有多种方案，携程的方案比较强大，但他们的CRN并不开源。调研过一段时间，目前比较方便的还是通过Google的<a target="_blank" rel="noopener" href="https://github.com/google/diff-match-patch">diff</a>工具进行拆包。</p>
-</blockquote>
-<h3 id="实施方案"><a href="#实施方案" class="headerlink" title="实施方案"></a>实施方案</h3><p>React Native打包之后会生成bundle文件，拆分方案是基于本次打包与前一次打包之间的差异完成的。即前一次打出来的bundle（lastbundle）作为base,本次打包出来的bundle(newbundle)与lastbundle之间的差异作为diffbundle。这样我们可以把一个最新的完整的bundle拆成两部分（如图）：</p>
-<p><img src="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/unpack.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/07/20/React-Native%E7%83%AD%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%8B%86%E5%8C%85iOS%E7%89%88/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1170,7 +1186,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1222,7 +1238,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">28:24</span>
+    <span title="Reading time total">28:26</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>

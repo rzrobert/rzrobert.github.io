@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"rzrobert.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Flutter实现自旋转的伪3D球一个自动旋转的仿3D球体。基于https:&#x2F;&#x2F;github.com&#x2F;al4fun&#x2F;3DBall，进行二次封装。  特性 支持手动&#x2F;自动转动 支持暂停&#x2F;继续转动控制 支持高亮处理部分标签  思路 建立了一个虚拟的3d坐标系：坐标原点位于球心，Z轴垂直于屏幕并指向屏幕外。根据球面方程将需要绘制的点均匀散布到整个球面上。 由点坐标可以得到点在XY平面">
+  <meta name="description" content="自定义ProxyWidget组件业务场景 滑动选择，根据手势判断选中的元素   需求分析 监听手势滑动 根据手势位置判断元素是否被选中 通知子元素做选中UI展示  监听手势滑动通过GestureDetector包裹识别区域，默认使用：  onHorizontalDragStart onHorizontalDragUpdate onHorizontalDragEnd  三个方法，判断此次滑动区域起始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter实现自旋转的伪3D球">
-<meta property="og:url" content="https://rzrobert.github.io/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/index.html">
+<meta property="og:title" content="自定义ProxyWidget组件">
+<meta property="og:url" content="https://rzrobert.github.io/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/index.html">
 <meta property="og:site_name" content="任征的个人博客">
-<meta property="og:description" content="Flutter实现自旋转的伪3D球一个自动旋转的仿3D球体。基于https:&#x2F;&#x2F;github.com&#x2F;al4fun&#x2F;3DBall，进行二次封装。  特性 支持手动&#x2F;自动转动 支持暂停&#x2F;继续转动控制 支持高亮处理部分标签  思路 建立了一个虚拟的3d坐标系：坐标原点位于球心，Z轴垂直于屏幕并指向屏幕外。根据球面方程将需要绘制的点均匀散布到整个球面上。 由点坐标可以得到点在XY平面">
+<meta property="og:description" content="自定义ProxyWidget组件业务场景 滑动选择，根据手势判断选中的元素   需求分析 监听手势滑动 根据手势位置判断元素是否被选中 通知子元素做选中UI展示  监听手势滑动通过GestureDetector包裹识别区域，默认使用：  onHorizontalDragStart onHorizontalDragUpdate onHorizontalDragEnd  三个方法，判断此次滑动区域起始">
 <meta property="og:locale">
-<meta property="og:image" content="https://rzrobert.github.io/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/3dBall.gif">
-<meta property="article:published_time" content="2021-11-01T10:32:08.000Z">
-<meta property="article:modified_time" content="2023-12-18T11:45:48.255Z">
+<meta property="og:image" content="https://rzrobert.github.io/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/select.gif">
+<meta property="article:published_time" content="2024-06-12T13:22:09.000Z">
+<meta property="article:modified_time" content="2024-06-12T13:22:20.419Z">
 <meta property="article:author" content="robert">
 <meta property="article:tag" content="flutter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://rzrobert.github.io/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/3dBall.gif">
+<meta name="twitter:image" content="https://rzrobert.github.io/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/select.gif">
 
-<link rel="canonical" href="https://rzrobert.github.io/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/">
+<link rel="canonical" href="https://rzrobert.github.io/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Flutter实现自旋转的伪3D球 | 任征的个人博客</title>
+  <title>自定义ProxyWidget组件 | 任征的个人博客</title>
   
 
 
@@ -153,7 +153,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -166,7 +166,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Flutter实现自旋转的伪3D球
+          自定义ProxyWidget组件
         </h1>
 
         <div class="post-meta">
@@ -175,16 +175,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-11-01 18:32:08" itemprop="dateCreated datePublished" datetime="2021-11-01T18:32:08+08:00">2021-11-01</time>
+              <time title="Created: 2024-06-12 21:22:09 / Modified: 21:22:20" itemprop="dateCreated datePublished" datetime="2024-06-12T21:22:09+08:00">2024-06-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -192,7 +186,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>620</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -211,21 +205,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Flutter实现自旋转的伪3D球"><a href="#Flutter实现自旋转的伪3D球" class="headerlink" title="Flutter实现自旋转的伪3D球"></a>Flutter实现自旋转的伪3D球</h1><p>一个自动旋转的仿3D球体。基于<a target="_blank" rel="noopener" href="https://github.com/al4fun/3DBall">https://github.com/al4fun/3DBall</a>，进行二次封装。</p>
-<p><img src="/2021/11/01/Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83/3dBall.gif"></p>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
-<li>支持手动&#x2F;自动转动</li>
-<li>支持暂停&#x2F;继续转动控制</li>
-<li>支持高亮处理部分标签</li>
+        <h2 id="自定义ProxyWidget组件"><a href="#自定义ProxyWidget组件" class="headerlink" title="自定义ProxyWidget组件"></a>自定义ProxyWidget组件</h2><h3 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h3><blockquote>
+<p>滑动选择，根据手势判断选中的元素</p>
+</blockquote>
+<p><img src="/2024/06/12/%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6/select.gif"></p>
+<h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><ol>
+<li>监听手势滑动</li>
+<li>根据手势位置判断元素是否被选中</li>
+<li>通知子元素做选中UI展示</li>
+</ol>
+<h5 id="监听手势滑动"><a href="#监听手势滑动" class="headerlink" title="监听手势滑动"></a>监听手势滑动</h5><p>通过<code>GestureDetector</code>包裹识别区域，默认使用：</p>
+<ul>
+<li>onHorizontalDragStart</li>
+<li>onHorizontalDragUpdate</li>
+<li>onHorizontalDragEnd</li>
 </ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
-<li>建立了一个虚拟的3d坐标系：坐标原点位于球心，Z轴垂直于屏幕并指向屏幕外。根据球面方程将需要绘制的点均匀散布到整个球面上。</li>
-<li>由点坐标可以得到点在XY平面上的投影位置；根据点到球体最前方垂直切面的距离，计算点的尺寸和颜色值（距离越远，尺寸越小，颜色越暗淡）。</li>
-<li>由球体旋转的方向和位移可以得到球体的旋转轴矢量和旋转角，进而可由罗德里格旋转公式计算出旋转后点的坐标。</li>
+<p>三个方法，判断此次滑动区域起始点和结束点，以及滑动过程中选中部分。</p>
+<h5 id="根据手势位置判断元素是否被选中"><a href="#根据手势位置判断元素是否被选中" class="headerlink" title="根据手势位置判断元素是否被选中"></a>根据手势位置判断元素是否被选中</h5><ol>
+<li><p>自定义ProxyWidget</p>
+<ul>
+<li>标记当前widget标识，当前用下标做标识，方便状态同步。</li>
+<li>实现 <code>createElement</code>方法，创建一个<code>ProxyElement </code>子类；</li>
+<li>ProxyElement根据<code>unmount</code>和<code>mount</code>生命周期，上报父容器元素自身挂载状态。</li>
+<li>ProxyElement对象提供判断是否在父容器手势范围内，其中用到了renderObject，renderObject是Element的属性(Element&gt;ComponentElement&gt;ProxyElement)</li>
 </ul>
-<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RBallView(</span><br><span class="line">  isAnimate: provider.curIndex == 0,</span><br><span class="line">  isShowDecoration: false,</span><br><span class="line">  mediaQueryData: MediaQuery.of(context),</span><br><span class="line">  keywords: snapshot.data,</span><br><span class="line">  highlight: [snapshot.data[0]],</span><br><span class="line">  onTapRBallTagCallback: (RBallTagData data) &#123;</span><br><span class="line">    print(&#x27;点击回调：$&#123;data.tag&#125;&#x27;);</span><br><span class="line">  &#125;,</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bool containsOffset(RenderObject? ancestor, Offset offset) &#123;</span><br><span class="line">   final box = renderObject as RenderBox;</span><br><span class="line">   final rect = box.localToGlobal(Offset.zero, ancestor: ancestor) &amp; box.size;</span><br><span class="line">   return rect.contains(offset);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>滑动过程中，获取手势当前位置信息<br>在监听手势过程中，手势的回调都会返回position<Offset>信息。<br>_elements即子元素上报统计的集合</Offset></p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int _findIndexOfSelectable(Offset offset) &#123;</span><br><span class="line">  final ancestor = context.findRenderObject();</span><br><span class="line">  final element = _elements.firstWhere(</span><br><span class="line">    (element) =&gt; element!.containsOffset(ancestor, offset),</span><br><span class="line">    orElse: () =&gt; null,</span><br><span class="line">  );</span><br><span class="line">  return (element == null) ? -1 : element.widget.index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="源码和Demo地址"><a href="#源码和Demo地址" class="headerlink" title="源码和Demo地址"></a>源码和Demo地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/rzrobert/RBallView">https://github.com/rzrobert/RBallView</a></p>
+<h3 id="熟悉一下ProxyWidget常用子类"><a href="#熟悉一下ProxyWidget常用子类" class="headerlink" title="熟悉一下ProxyWidget常用子类"></a>熟悉一下ProxyWidget常用子类</h3><ol>
+<li><strong>ParentDataWidget</strong></li>
+<li><strong>InheritedWidget</strong></li>
+<li><strong>NotificationListener</strong></li>
+</ol>
+<h3 id="ProxyWidget和ProxyElement的主要功能"><a href="#ProxyWidget和ProxyElement的主要功能" class="headerlink" title="ProxyWidget和ProxyElement的主要功能"></a>ProxyWidget和ProxyElement的主要功能</h3><p><code>ProxyWidget</code> ：</p>
+<ul>
+<li>实现 <code>createElement</code>方法，创建一个<code>ProxyElement </code>子类；</li>
+<li>定义widget对外属性</li>
+<li>提供子类接口<ul>
+<li>例如<code>InheritedWidget</code>的<code>updateShouldNotify</code>，<code>InheritedWidget</code>子类需要实现<code>updateShouldNotify</code>，从而决定是否通知重绘等；</li>
+<li><code>updateShouldNotify</code>提升到widget层，而不是在Element的<code>notifyClients</code>中判断，是为了让使用者不关注Element层。</li>
+</ul>
+</li>
+</ul>
+<p><code>ProxyElement</code></p>
+<ul>
+<li>重写<code>notifyClients</code>，用于对旧的数据进行对比，判断是否通知重绘等操作</li>
+<li>根据Element的生命周期，实现自定义业务需求。</li>
+<li>也可以在<code>ProxyElement</code>添加自定义方法，提供给业务使用。</li>
+</ul>
 
     </div>
 
@@ -244,13 +275,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/21/H5%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" rel="prev" title="H5相关笔记">
-      <i class="fa fa-chevron-left"></i> H5相关笔记
+    <a href="/2024/02/01/FlutterBoost%E9%9B%86%E6%88%90%E5%90%8EWillPopScope%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/" rel="prev" title="FlutterBoost集成后WillPopScope失效问题">
+      <i class="fa fa-chevron-left"></i> FlutterBoost集成后WillPopScope失效问题
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/11/05/flutter%E5%B8%83%E5%B1%80%E5%88%9D%E8%AF%86/" rel="next" title="flutter布局初识">
-      flutter布局初识 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -309,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flutter%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E8%BD%AC%E7%9A%84%E4%BC%AA3D%E7%90%83"><span class="nav-number">1.</span> <span class="nav-text">Flutter实现自旋转的伪3D球</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-Started"><span class="nav-number">1.3.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%92%8CDemo%E5%9C%B0%E5%9D%80"><span class="nav-number">1.4.</span> <span class="nav-text">源码和Demo地址</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89ProxyWidget%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">自定义ProxyWidget组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">业务场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.1.1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E6%89%8B%E5%8A%BF%E6%BB%91%E5%8A%A8"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">监听手势滑动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%89%8B%E5%8A%BF%E4%BD%8D%E7%BD%AE%E5%88%A4%E6%96%AD%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E8%A2%AB%E9%80%89%E4%B8%AD"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">根据手势位置判断元素是否被选中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%86%9F%E6%82%89%E4%B8%80%E4%B8%8BProxyWidget%E5%B8%B8%E7%94%A8%E5%AD%90%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">熟悉一下ProxyWidget常用子类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProxyWidget%E5%92%8CProxyElement%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.</span> <span class="nav-text">ProxyWidget和ProxyElement的主要功能</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
