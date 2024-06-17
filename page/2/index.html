@@ -145,6 +145,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2022/05/13/Flutter%E6%BB%91%E5%8A%A8%E7%BB%84%E4%BB%B6ListView%E5%92%8CGirdView%EF%BC%8C%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="任征的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/13/Flutter%E6%BB%91%E5%8A%A8%E7%BB%84%E4%BB%B6ListView%E5%92%8CGirdView%EF%BC%8C%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/" class="post-title-link" itemprop="url">Flutter滑动组件ListView和GirdView，源码浅读</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-13 16:33:13" itemprop="dateCreated datePublished" datetime="2022-05-13T16:33:13+08:00">2022-05-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><h3 id="inheritance-继承关系"><a href="#inheritance-继承关系" class="headerlink" title="inheritance 继承关系"></a>inheritance 继承关系</h3><p>Object &gt; DiagnosticableTree &gt; Widget &gt; StatelessWidget &gt; ScrollView &gt; BoxScrollView &gt; ListView</p>
+<h4 id="BoxScrollView"><a href="#BoxScrollView" class="headerlink" title="BoxScrollView"></a>BoxScrollView</h4><p>BoxScrollView 只有一个成员padding，根据滚动方向来添加padding，将另一方向的padding置为0。</p>
+<p>BoxScrollView 需要传入的参数有很多，几乎多有传入参数均传给了其父类<code>ScrollView</code>。</p>
+<h4 id="ScrollView"><a href="#ScrollView" class="headerlink" title="ScrollView"></a>ScrollView</h4><p>提供滚动（Scrollable）组件、viewport。Scrollable在滚动中回调函数viewportBuilder，提供给viewport偏移量，返回显示视图。</p>
+<p>统一处理滚动过程中键盘处理——键盘失去焦点，通过<code>FocusScope.of(context)</code>获取当前焦点状态，调用<code>unfocus</code>方法房键盘消失。</p>
+<h3 id="ListView总结"><a href="#ListView总结" class="headerlink" title="ListView总结"></a>ListView总结</h3><p>在查看集成链路源码中，通过抽象方法划分功能模块。</p>
+<ul>
+<li><p><strong>ScrollView</strong>： 负责滚动相关功能</p>
+<ul>
+<li><strong>集成Scrollable</strong>，实现滚动能力。通过集成Scrollable的返回的偏移量，管理自己的viewport。</li>
+<li><strong>视口创建</strong>，Scrollable的回调方法viewportBuilder也很好的解耦了滚动功能和视口创建，视图功能交给使用者ScrollView， 由ScrollView的buildViewport方法实现。</li>
+<li><strong>视图内容交给子类实现</strong>，在buildViewport方法中需要传入具体sliver，而sliver方法是ScrollView的抽象方法，交给子类实现（如BoxScrollView）</li>
+</ul>
+</li>
+<li><p><strong>BoxScrollView</strong>: 负责处理滚动边距问题</p>
+<ul>
+<li>实现父类ScrollView的buildSlivers方法，<strong>处理边距问题</strong></li>
+<li>具体sliver内容通过抽象方法buildChildLayout，<strong>交由子类实现</strong></li>
+</ul>
+</li>
+<li><p><strong>ListView</strong>: 实现<code>buildChildLayout</code>方法</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">Widget buildChildLayout(BuildContext context) &#123;</span><br><span class="line">  if (itemExtent != null) &#123;</span><br><span class="line">    return SliverFixedExtentList(</span><br><span class="line">      delegate: childrenDelegate,</span><br><span class="line">      itemExtent: itemExtent!,</span><br><span class="line">    );</span><br><span class="line">  &#125; else if (prototypeItem != null) &#123;</span><br><span class="line">    return SliverPrototypeExtentList(</span><br><span class="line">      delegate: childrenDelegate,</span><br><span class="line">      prototypeItem: prototypeItem!,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  return SliverList(delegate: childrenDelegate);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="GirdView"><a href="#GirdView" class="headerlink" title="GirdView"></a>GirdView</h2><h3 id="inheritance"><a href="#inheritance" class="headerlink" title="inheritance"></a>inheritance</h3><p>Object &gt; DiagnosticableTree &gt; Widget &gt; StatelessWidget &gt; ScrollView &gt; BoxScrollView &gt; GridView</p>
+<p>GridView和ListView都是BoxScrollView子类。边距处理、滚动功能、视口创建均由父类实现。他们均需要实现<code>buildChildLayout</code>方法，去管理具体silver内容</p>
+<h4 id="GirdView-1"><a href="#GirdView-1" class="headerlink" title="GirdView"></a>GirdView</h4><p>有两个成员girdDelegate和childrenDelegate，这两个类均默认在GirdView构造函数中创建。</p>
+<ul>
+<li>girdDelegate成员是SliverGridDelegate类型，作用是管理sliver布局约束，SliverGridDelegate是抽象类，它有两个子类，一般我们使用也是使用这两个子类：<ul>
+<li>SliverGridDelegateWithFixedCrossAxisCount，通过交叉轴sliver个数</li>
+<li>SliverGridDelegateWithMaxCrossAxisExtent， 通过sliver在交叉轴最大尺寸</li>
+</ul>
+</li>
+<li>childrenDelegate成员是SliverChildDelegate类型，girdView布局管理，给SliverGrid提供最大滚动距离。SliverChildDelegate也是抽象类，也是两个子类，一个用于有builder回调的，一个用于列表：<ul>
+<li>SliverChildBuilderDelegate</li>
+<li>SliverChildListDelegate</li>
+</ul>
+</li>
+</ul>
+<p>实现buildChildLayout方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line"> Widget buildChildLayout(BuildContext context) &#123;</span><br><span class="line">   return SliverGrid(</span><br><span class="line">     delegate: childrenDelegate,</span><br><span class="line">     gridDelegate: gridDelegate,</span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="GirdView总结"><a href="#GirdView总结" class="headerlink" title="GirdView总结"></a>GirdView总结</h3><p>GirdView主要是通过两个成员变量来管理sliver布局和尺寸——childrenDelegate和gridDelegate，这两个成员的类型均是抽象类，也就是说我们完全可以通过集成相应抽象类，去具体实现我们想要的布局，让GirdView灵活性变得大很多。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2022/03/26/Flutter%E6%96%B0%E6%89%8B%E2%80%94%E2%80%94%E5%B8%83%E5%B1%80%E7%BA%A6%E6%9D%9F%E6%97%A0%E6%95%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1020,103 +1141,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2018/07/21/Mac-%E6%90%AD%E5%BB%BA-nginx-rtmp-%E6%8E%A8%E6%B5%81%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="robert">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="任征的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/21/Mac-%E6%90%AD%E5%BB%BA-nginx-rtmp-%E6%8E%A8%E6%B5%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">Mac 搭建 nginx+rtmp 推流服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-07-21 15:04:26" itemprop="dateCreated datePublished" datetime="2018-07-21T15:04:26+08:00">2018-07-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>记录一次Mac本地搭建过程</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/07/21/Mac-%E6%90%AD%E5%BB%BA-nginx-rtmp-%E6%8E%A8%E6%B5%81%E6%9C%8D%E5%8A%A1%E5%99%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1186,7 +1210,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1238,7 +1262,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">28:26</span>
+    <span title="Reading time total">28:27</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
