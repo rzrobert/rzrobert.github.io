@@ -145,6 +145,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2022/05/17/Flutter-Notification%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="robert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="任征的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/17/Flutter-Notification%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/" class="post-title-link" itemprop="url">Flutter Notification源码浅读</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-17 17:27:31" itemprop="dateCreated datePublished" datetime="2022-05-17T17:27:31+08:00">2022-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h2><blockquote>
+<p>NotificationListener也是冒泡传递，和触摸Listener不同的是：NotificationListener可以通过onNotification阻止继续冒泡，而Listener不行。</p>
+</blockquote>
+<h3 id="通知使用流程"><a href="#通知使用流程" class="headerlink" title="通知使用流程"></a>通知使用流程</h3><p><strong>通知类</strong>，每个节点都可以发送通知Notification，每个节点也都可以接收通知。通知通过冒泡逐级往父类查找对于泛型的<code>NotificationListener</code>监听。</p>
+<p>下面我们先制定一个通知类继承<code>Notification</code>， 走一遍通知流程:</p>
+<h4 id="自定义通知类"><a href="#自定义通知类" class="headerlink" title="自定义通知类"></a>自定义通知类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;package:flutter/material.dart&#x27;;</span><br><span class="line"></span><br><span class="line">class RZNotification extends Notification &#123;</span><br><span class="line">  final int count;</span><br><span class="line">  RZNotification(&#123;required this.count&#125;) : super();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="发送通知"><a href="#发送通知" class="headerlink" title="发送通知"></a>发送通知</h4><p>通过通知实例，调用dispatch方法，dispatch方法默认在抽象类Notification实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RZNotification notification = RZNotification(count: 5);</span><br><span class="line">notification.dispatch(context);</span><br></pre></td></tr></table></figure>
+
+<h4 id="监听通知"><a href="#监听通知" class="headerlink" title="监听通知"></a>监听通知</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NotificationListener&lt;RZNotification&gt;(</span><br><span class="line">	onNotification: (RZNotification rzNotification) &#123;</span><br><span class="line">		print(&#x27;===rzNotification==00=$&#123;rzNotification.count&#125;&#x27;);</span><br><span class="line">		return true;</span><br><span class="line">	&#125;,</span><br><span class="line">	child: </span><br><span class="line">）</span><br></pre></td></tr></table></figure>
+
+<h3 id="NotificationListener"><a href="#NotificationListener" class="headerlink" title="NotificationListener"></a>NotificationListener</h3><div align="left">
+    <img src="/2022/05/17/Flutter-Notification%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/NotificationListener.png" height="200"></div>
+    
+<p>监听类只有两个成员child和onNotification，一个私有方法（<code>_dispatch</code>），一个build方法，build方法直接返回传入child。</p>
+<h4 id="dispatch"><a href="#dispatch" class="headerlink" title="_dispatch"></a>_dispatch</h4><p>通知类通过element树查找所有通知监听类<code>NotificationListener </code>，调用监听类的_dispatch，并传入通知类实例。<code>_dispatch </code>方法校验是否属于自己监听的泛型类，如果是并且onNotification方法返回为true。</p>
+<p>接收<code>Notification</code>对应泛型子类的通知，对于泛型子类通过<code>dispatch(BuildContent? target)</code>方法——通过<strong>element</strong>树层层往上级查找，找到对应泛型的Listener，即调用<code>onNotification</code>回调。</p>
+<h3 id="再看Notification"><a href="#再看Notification" class="headerlink" title="再看Notification"></a>再看Notification</h3><div align="left">
+    <img src="/2022/05/17/Flutter-Notification%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/Notification.png" height="200"></div>
+
+<h4 id="dispatch-BuildContent-target"><a href="#dispatch-BuildContent-target" class="headerlink" title="dispatch(BuildContent? target)"></a>dispatch(BuildContent? target)</h4><p><code>Notification</code>类为抽象类，子类直接调用<code>dispatch</code>方法，通过传入<code>BuildContent</code>的<code>visitAncestorElements</code>查找，并传入查找逻辑（visitor）</p>
+<p><code>visitAncestorElements</code>是BuildContent实例方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">void visitAncestorElements(bool Function(Element element) visitor) &#123;</span><br><span class="line">  assert(_debugCheckStateIsActiveForAncestorLookup());</span><br><span class="line">  Element? ancestor = _parent;</span><br><span class="line">  while (ancestor != null &amp;&amp; visitor(ancestor))</span><br><span class="line">    ancestor = ancestor._parent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>个人理解是传入一个访问逻辑，<code>visitAncestorElements</code>逐级往上查找父类——do循环，如果父类不为空，将父类传入访问逻辑中，如果访问逻辑返回true就继续查找改父类的父类，如果返回false，就停止查找。</p>
+<h4 id="visitAncestor"><a href="#visitAncestor" class="headerlink" title="visitAncestor"></a>visitAncestor</h4><p>访问逻辑visitAncestor，并不知道是那个子类调用的dispatch方法，所以先查找<code>widget is NotificationListener&lt;Notification&gt;</code>，是的话就调用NotificationListener的_dispatch方法，并传入调用者，NotificationListener都知道自己监听的泛型类是什么，如果是调用者是自己监听的类，即调用<code>onNotification</code>回调。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@protected</span><br><span class="line">@mustCallSuper</span><br><span class="line">bool visitAncestor(Element element) &#123;</span><br><span class="line">  if (element is StatelessElement) &#123;</span><br><span class="line">    final StatelessWidget widget = element.widget;</span><br><span class="line">    if (widget is NotificationListener&lt;Notification&gt;) &#123;</span><br><span class="line">      if (widget._dispatch(this, element)) // that function checks the type dynamically</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过NotificationListener和Notification配合，我们清晰知道了通知发送和接收的逻辑。通知这种方式的通信也有它的局限性，监听者只能监听其子widget发送的通知。所以我们也需要根据应用场景实际情况选择性去使用。</p>
+<p>并且熟悉了Context和Element关系：</p>
+<ul>
+<li>Context遍历Element树的方法</li>
+<li>可以通过Element.widget得到element节点对应的widget</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2022/05/13/Flutter%E6%BB%91%E5%8A%A8%E7%BB%84%E4%BB%B6ListView%E5%92%8CGirdView%EF%BC%8C%E6%BA%90%E7%A0%81%E6%B5%85%E8%AF%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1051,96 +1163,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://rzrobert.github.io/2019/08/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0token%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="robert">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="任征的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0token%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">移动端不定期更新token方案</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-08-24 16:37:28" itemprop="dateCreated datePublished" datetime="2019-08-24T16:37:28+08:00">2019-08-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-12-18 19:45:48" itemprop="dateModified" datetime="2023-12-18T19:45:48+08:00">2023-12-18</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>客户端需要不定期更新token，同时得保证在发送更新token同时其他网络请求挂起，否则会报token失效。待新token回来之后，重新发起挂起的请求。</p>
-<p>应服务端要求，更新token请求时，老token立刻失效</p>
-</blockquote>
-<p><img src="/2019/08/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0token%E6%96%B9%E6%A1%88/refreshToken.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/24/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0token%E6%96%B9%E6%A1%88/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1210,7 +1232,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1221,7 +1243,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1248,7 +1270,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1262,7 +1284,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">28:27</span>
+    <span title="Reading time total">28:28</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
